@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korea 2026 — The Menu</title>
+    <meta name="description" content="The complete guide to food, activities, and shopping in Seoul and Busan — Korea 2026 family trip.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4A6B53; --primary-light: #70937A; --primary-dark: #344B3A;
+            --accent: #C8963E; --bg-body: #F5F7F6; --bg-card: #FFFFFF;
+            --text-main: #2F3E46; --text-heading: #1C2723; --text-muted: #5C6F67;
+            --border: #E3E7E5; --radius-lg: 16px; --radius-md: 10px; --radius-sm: 6px;
+            --shadow: 0 10px 30px rgba(74,107,83,0.04), 0 1px 3px rgba(0,0,0,0.02);
+            --transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+            --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-serif: 'Fraunces', Georgia, serif;
+        }
+        .dark-theme {
+            --bg-body: #101614; --bg-card: #161E1B; --text-main: #C0CFC7;
+            --text-heading: #F5F7F6; --text-muted: #8FA399; --border: #242E2A;
+            --shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+        /* Card logos base styling (Light Theme) - turns logo black and fades out */
+        .card-logo-img {
+            width: 80%;
+            height: 75%;
+            object-fit: contain;
+            filter: brightness(0) opacity(0.55);
+            -webkit-filter: brightness(0) opacity(0.55);
+            transition: filter 0.25s ease, -webkit-filter 0.25s ease, opacity 0.25s ease;
+        }
+        .menu-card:hover .card-logo-img {
+            filter: none;
+            -webkit-filter: none;
+            opacity: 1;
+        }
+
+        /* Card logos base styling (Dark Theme) - turns logo white and fades out */
+        .dark-theme .card-logo-img {
+            filter: brightness(0) invert(1) opacity(0.75);
+            -webkit-filter: brightness(0) invert(1) opacity(0.75);
+        }
+        .dark-theme .menu-card:hover .card-logo-img {
+            filter: none;
+            -webkit-filter: none;
+            opacity: 1;
+        }
+
+        /* Modal logo base styling */
+        .modal-logo-img {
+            width: 80%;
+            height: 70%;
+            object-fit: contain;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background: var(--bg-body); color: var(--text-main); line-height: 1.6; transition: var(--transition); padding-bottom: 100px; padding-top: 52px; }
+
+        /* Buttons & inputs inherit the page font (prevents system-font fallback) */
+        button, input, select, textarea { font-family: inherit; }
+        html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+        h1 { letter-spacing: -0.02em; font-weight: 600; }
+        h2 { letter-spacing: -0.01em; }
+        .cc-price, .modal-detail-value { font-variant-numeric: tabular-nums; }
+        h1,h2,h3,h4 { color: var(--text-heading); font-weight: 600; }
+        h1, .serif-font { font-family: var(--font-serif); }
+        a { color: var(--primary-light); text-decoration: none; transition: var(--transition); }
+        a:hover { color: var(--accent); text-decoration: underline; }
+
+        /* ── Layout ── */
+        .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
+
+        /* ── Hero Header ── */
+        header {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 36px 32px; margin-bottom: 24px;
+            box-shadow: var(--shadow); position: relative; overflow: hidden;
+        }
+        header::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+        .header-meta { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; margin-bottom: 6px; }
+        header h1 { font-size: 2.4rem; margin-bottom: 8px; line-height: 1.15; }
+        .header-desc { color: var(--text-muted); font-size: 1rem; max-width: 620px; }
+
+        /* ── Section Switcher Bar ── */
+        #sectionSwitcher {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 2000; height: 52px;
+            background: rgba(16,22,20,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center;
+            padding: 0 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+        .switcher-logo { font-family: var(--font-serif); font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.9); white-space: nowrap; margin-right: 20px; letter-spacing: 0.3px; flex-shrink: 0; }
+        .switcher-logo span { font-size: 1.1rem; margin-right: 6px; }
+        .switcher-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); margin-right: 16px; flex-shrink: 0; }
+        .switcher-sections { display: flex; gap: 4px; flex: 1; }
+        .switcher-btn { background: none; border: none; color: rgba(255,255,255,0.5); font-family: var(--font-sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; cursor: pointer; transition: all 0.2s ease; text-decoration: none; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .switcher-btn:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.07); text-decoration: none; }
+        .switcher-btn.active { background: var(--primary); color: #fff; }
+        .switcher-btn.active:hover { background: var(--primary-light); color: #fff; }
+        @media (max-width: 600px) { .switcher-logo, .switcher-divider { display: none; } .switcher-btn { font-size: 0.75rem; padding: 5px 10px; } #sectionSwitcher { padding: 0 10px; } }
+
+        /* ── Control Bar ── */
+        .control-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(22,30,27,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); padding: 8px 16px; border-radius: 40px; display: flex; gap: 12px; z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .control-bar button { background: none; border: none; color: #fff; cursor: pointer; padding: 10px 16px; border-radius: 30px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: var(--transition); }
+        .control-bar button:hover { background: rgba(255,255,255,0.1); color: var(--accent); }
+
+        /* ── Main Tabs ── */
+        .nav-tabs { display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+        .nav-tabs::-webkit-scrollbar { display: none; }
+        .tab-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); padding: 11px 22px; border-radius: 30px; font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: var(--transition); display: flex; align-items: center; gap: 8px; box-shadow: var(--shadow); }
+        .tab-btn:hover { border-color: var(--primary-light); color: var(--primary-light); }
+        .tab-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.35s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ── Sub-tabs (inside Food) ── */
+        .sub-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .sub-tab-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); padding: 7px 18px; border-radius: 20px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 6px; }
+        .sub-tab-btn:hover { border-color: var(--primary-light); color: var(--primary); }
+        .sub-tab-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+        .sub-content { display: none; }
+        .sub-content.active { display: block; animation: fadeIn 0.3s ease-out; }
+
+        /* ── Filter Pills & Search ── */
+        .filter-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+        .filter-pill { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); padding: 5px 13px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: var(--transition); white-space: nowrap; }
+        .filter-pill:hover { border-color: var(--primary-light); color: var(--primary); }
+        .filter-pill.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+        .search-wrap { position: relative; margin-bottom: 16px; }
+        .search-wrap i { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.85rem; }
+        .search-bar { width: 100%; padding: 10px 14px 10px 38px; border: 1px solid var(--border); border-radius: 10px; font-size: 0.9rem; font-family: var(--font-sans); background: var(--bg-card); color: var(--text-main); transition: var(--transition); }
+        .search-bar:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(74,107,83,0.1); }
+
+        /* ── Section Category Headers ── */
+        .cat-header { display: flex; align-items: center; gap: 12px; margin: 28px 0 14px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+        .cat-header h3 { font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-heading); }
+        .cat-header i { color: var(--accent); font-size: 1.1rem; }
+        .cat-count { font-size: 0.75rem; background: var(--bg-body); border: 1px solid var(--border); color: var(--text-muted); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: auto; }
+
+        /* ── Card Grid ── */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+        @media (max-width: 520px) { .card-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 360px) { .card-grid { grid-template-columns: 1fr; } }
+
+        /* ── Menu Card ── */
+        .menu-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; transition: all 0.22s ease; box-shadow: var(--shadow); position: relative; }
+        .menu-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.11); border-color: var(--primary-light); }
+        .menu-card:active { transform: translateY(-1px); }
+        .card-hero { height: 86px; display: flex; align-items: center; justify-content: center; font-size: 2.6rem; position: relative; flex-shrink: 0; background: var(--bg-body); border-bottom: 1px solid var(--border); transition: background 0.28s ease; }
+        .menu-card:hover .card-hero { background: var(--brand-gradient); }
+        .card-logo-img { max-width: 80%; max-height: 75%; object-fit: contain; transition: filter 0.25s ease, opacity 0.25s ease; }
+        .modal-logo-img { max-width: 80%; max-height: 70%; object-fit: contain; }
+        .brand-text-logo { display: inline-block; text-align: center; line-height: 1.1; user-select: none; color: var(--text-heading); transition: color 0.25s ease; }
+        .menu-card:hover .brand-text-logo { color: #fff; }
+        .card-hero .brand-text-logo { font-size: 1.35rem; }
+        .modal-hero .brand-text-logo { font-size: 2.2rem; }
+        .tamburins-wordmark { font-family: 'Times New Roman', Georgia, serif; font-weight: 300; letter-spacing: 0.15em; text-transform: lowercase; }
+        .gentle-wordmark { font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
+        .wooyoungmi-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; }
+        .juunj-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; }
+        .randys-wordmark { font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; text-shadow: 1px 1px 2px rgba(0,0,0,0.15); }
+        .menu-card:hover .randys-wordmark { text-shadow: 2px 2px 4px rgba(0,0,0,0.35); }
+        .sinjeon-wordmark { font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; }
+        .eggdrop-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; border: 2.5px solid var(--text-heading); padding: 2px 6px; border-radius: 4px; font-size: 0.85em; transition: border-color 0.25s ease; }
+        .menu-card:hover .eggdrop-wordmark { border-color: #fff; }
+        .bills-wordmark { font-family: 'Times New Roman', Georgia, serif; font-style: italic; font-weight: 500; text-transform: lowercase; letter-spacing: 0.02em; }
+        .nudake-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; }
+        .samwon-wordmark { font-family: 'Times New Roman', Georgia, serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+        .parc-wordmark { font-family: 'Fraunces', Georgia, serif; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; }
+        .onion-wordmark { font-family: Courier, Monaco, monospace; font-weight: 400; text-transform: lowercase; letter-spacing: 0.05em; }
+        .terarosa-wordmark { font-family: 'Times New Roman', Georgia, serif; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+        .andersson-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+        .nomanual-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+        .gml-wordmark { font-family: 'Times New Roman', Georgia, serif; font-weight: 500; text-transform: lowercase; letter-spacing: 0.05em; }
+        .apple-wordmark { font-family: 'Times New Roman', Georgia, serif; font-weight: 700; letter-spacing: 0.05em; line-height: 0.95; text-transform: uppercase; }
+        .apple-wordmark small { font-size: 0.6em; font-weight: 400; text-transform: none; display: block; margin-bottom: 2px; letter-spacing: 0.02em; }
+        .pymt-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; text-transform: lowercase; letter-spacing: -0.02em; }
+        .chizn-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; line-height: 0.95; }
+        .chizn-wordmark small { font-size: 0.55em; font-weight: 500; display: block; margin-top: 2px; letter-spacing: 0.25em; text-transform: uppercase; }
+        .noirmood-wordmark { font-family: 'Times New Roman', Georgia, serif; font-weight: 500; font-style: italic; text-transform: lowercase; letter-spacing: -0.02em; }
+        .sunday-burger-wordmark { font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; }
+        .aoesak-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; }
+        .aitissu-wordmark { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        .eyaan-wordmark { font-family: 'Times New Roman', Georgia, serif; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+        .card-hero .logo-fallback { font-size: 2.6rem; display: flex; align-items: center; justify-content: center; }
+        .modal-hero .logo-fallback { font-size: 4.5rem; display: flex; align-items: center; justify-content: center; }
+        .card-itinerary-badge { position: absolute; top: 8px; left: 8px; background: rgba(74,107,83,0.88); color: #fff; font-size: 0.6rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.4px; backdrop-filter: blur(4px); }
+        .card-body { padding: 12px 14px 14px; }
+        .card-title { font-size: 0.9rem; font-weight: 700; color: var(--text-heading); margin-bottom: 7px; line-height: 1.3; }
+        .card-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 7px; }
+        .card-chip { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 2px 7px; border-radius: 10px; border: 1px solid; }
+        .cc-seoul1 { color: #4A6B53; border-color: #4A6B53; background: rgba(74,107,83,0.08); }
+        .cc-busan  { color: #3A6B8A; border-color: #3A6B8A; background: rgba(58,107,138,0.08); }
+        .cc-seoul2 { color: #8A5A3A; border-color: #8A5A3A; background: rgba(138,90,58,0.08); }
+        .cc-any    { color: #6A5A8A; border-color: #6A5A8A; background: rgba(106,90,138,0.08); }
+        .cc-price  { color: var(--accent); border-color: var(--accent); background: rgba(200,150,62,0.08); }
+        .cc-book   { color: #C0504A; border-color: #C0504A; background: rgba(192,80,74,0.08); }
+        .cc-free   { color: #4A6B53; border-color: #4A6B53; background: rgba(74,107,83,0.1); }
+        .cc-cat    { color: var(--text-muted); border-color: var(--border); background: var(--bg-body); }
+        .cc-beauty { color: #B04A8A; border-color: #B04A8A; background: rgba(176,74,138,0.08); }
+        .cc-fashion{ color: #4A4A8A; border-color: #4A4A8A; background: rgba(74,74,138,0.08); }
+        .card-teaser { font-size: 0.76rem; color: var(--text-muted); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .no-results { text-align: center; padding: 50px 20px; color: var(--text-muted); font-size: 0.95rem; grid-column: 1/-1; }
+
+        /* Favorites badges on card hero */
+        .card-fav-container {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            display: flex;
+            gap: 5px;
+            z-index: 10;
+        }
+        .fav-badge-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            box-shadow: 0 1.5px 4px rgba(0,0,0,0.25);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+        /* Active states (when favorited) */
+        .fav-badge-circle.member-ayden.active { background: #4a6b53; color: #fff; border-color: rgba(255,255,255,0.55); opacity: 1; }
+        .fav-badge-circle.member-claudine.active { background: #3a6b8a; color: #fff; border-color: rgba(255,255,255,0.55); opacity: 1; }
+        .fav-badge-circle.member-brudene.active { background: #8a5a3a; color: #fff; border-color: rgba(255,255,255,0.55); opacity: 1; }
+        .fav-badge-circle.member-odile.active { background: #9c27b0; color: #fff; border-color: rgba(255,255,255,0.55); opacity: 1; }
+
+        /* Inactive states (when not favorited) */
+        .fav-badge-circle.member-ayden:not(.active) { background: var(--bg-card); color: #4a6b53; border-color: #4a6b53; opacity: 0.45; }
+        .fav-badge-circle.member-claudine:not(.active) { background: var(--bg-card); color: #3a6b8a; border-color: #3a6b8a; opacity: 0.45; }
+        .fav-badge-circle.member-brudene:not(.active) { background: var(--bg-card); color: #8a5a3a; border-color: #8a5a3a; opacity: 0.45; }
+        .fav-badge-circle.member-odile:not(.active) { background: var(--bg-card); color: #9c27b0; border-color: #9c27b0; opacity: 0.45; }
+
+        /* Hover states */
+        .fav-badge-circle:hover { transform: scale(1.25); opacity: 1 !important; z-index: 12; }
+
+
+        /* Modal Favorites toggle buttons styles */
+        .modal-fav-btn.member-ayden.active { border-color: #4a6b53 !important; background: rgba(74,107,83,0.08) !important; color: #4a6b53 !important; }
+        .modal-fav-btn.member-claudine.active { border-color: #3a6b8a !important; background: rgba(58,107,138,0.08) !important; color: #3a6b8a !important; }
+        .modal-fav-btn.member-brudene.active { border-color: #8a5a3a !important; background: rgba(138,90,58,0.08) !important; color: #8a5a3a !important; }
+        .modal-fav-btn.member-odile.active { border-color: #9c27b0 !important; background: rgba(156,39,176,0.08) !important; color: #9c27b0 !important; }
+
+        /* ── Full-Screen Modal ── */
+        .menu-modal-overlay { position: fixed; inset: 0; z-index: 5000; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.28s ease; }
+        .menu-modal-overlay.open { opacity: 1; pointer-events: all; }
+        .modal-sheet { background: var(--bg-card); width: 100%; max-width: 700px; max-height: 92vh; border-radius: 24px 24px 0 0; overflow-y: auto; transform: translateY(48px); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); scrollbar-width: thin; }
+        .menu-modal-overlay.open .modal-sheet { transform: translateY(0); }
+        .modal-handle { width: 40px; height: 4px; background: rgba(0,0,0,0.15); border-radius: 2px; margin: 12px auto 0; }
+        .dark-theme .modal-handle { background: rgba(255,255,255,0.15); }
+        .modal-hero { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; border-radius: 24px 24px 0 0; overflow: hidden; position: relative; flex-shrink: 0; background: var(--bg-body); border-bottom: 1px solid var(--border); }
+        .modal-close-btn { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; background: rgba(0,0,0,0.35); border: none; border-radius: 50%; color: #fff; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); z-index: 10; }
+        .modal-close-btn:hover { background: rgba(0,0,0,0.6); }
+        .modal-nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            background: rgba(0, 0, 0, 0.35);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+        .modal-nav-arrow:hover {
+            background: rgba(0, 0, 0, 0.65);
+            transform: translateY(-50%) scale(1.15);
+        }
+        .modal-nav-arrow.left {
+            left: 14px;
+        }
+        .modal-nav-arrow.right {
+            right: 14px;
+        }
+
+        .modal-body { padding: 18px 24px 36px; }
+        .modal-title { font-family: var(--font-serif); font-size: 1.55rem; font-weight: 700; color: var(--text-heading); margin-bottom: 10px; line-height: 1.2; }
+        .modal-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+        .modal-chip { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 3px 10px; border-radius: 12px; border: 1px solid; }
+        .modal-desc { font-size: 0.92rem; color: var(--text-main); line-height: 1.65; margin-bottom: 18px; }
+        .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+        @media (max-width: 480px) { .modal-grid { grid-template-columns: 1fr; } }
+        .modal-detail { background: var(--bg-body); border-radius: 10px; padding: 11px 13px; }
+        .modal-detail-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 3px; }
+        .modal-detail-value { font-size: 0.88rem; font-weight: 600; color: var(--text-heading); }
+        .modal-section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin: 14px 0 8px; }
+        .modal-tips { background: rgba(200,150,62,0.07); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 11px 13px; font-size: 0.84rem; color: var(--text-main); line-height: 1.5; margin-bottom: 14px; }
+        .modal-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+        .modal-pill { background: rgba(74,107,83,0.1); color: var(--primary-dark); padding: 4px 11px; border-radius: 12px; font-size: 0.76rem; font-weight: 600; }
+        .dark-theme .modal-pill { background: rgba(74,107,83,0.25); color: #70937A; }
+        .modal-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+        .modal-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 18px; border-radius: 22px; font-family: var(--font-sans); font-size: 0.82rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: var(--transition); }
+        .modal-btn.primary { background: var(--primary); color: #fff; }
+        .modal-btn.primary:hover { background: var(--primary-dark); color: #fff; text-decoration: none; }
+        .modal-btn.secondary { background: var(--bg-body); color: var(--text-main); border: 1px solid var(--border); }
+        .modal-btn.secondary:hover { border-color: var(--primary); color: var(--primary); text-decoration: none; }
+
+        /* ── Print ── */
+        @media print { .no-print { display: none !important; } body { padding-top: 0; } }
+    </style>
+</head>
+<body>
+
+<!-- ── Section Switcher ── -->
+<nav id="sectionSwitcher" class="no-print" aria-label="Main sections">
+    <div class="switcher-logo"><span>🇰🇷</span> Korea 2026</div>
+    <div class="switcher-divider"></div>
+    <div class="switcher-sections">
+        <a class="switcher-btn" href="index.html"><i class="fa-solid fa-book-open"></i> Brochure</a>
+        <button class="switcher-btn active" aria-current="page"><i class="fa-solid fa-list"></i> Menu</button>
+        <a class="switcher-btn" href="itinerary.html"><i class="fa-solid fa-route"></i> Itinerary</a>
+    </div>
+</nav>
+
+<!-- ── Floating Controls ── -->
+<div class="control-bar no-print">
+    <button id="themeToggle" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i> <span>Dark Mode</span></button>
+    <button onclick="window.print()"><i class="fa-solid fa-print"></i> <span>Save PDF</span></button>
+</div>
+
+<div class="container">
+
+    <header>
+        <div class="header-meta">June 26 – July 9, 2026 · Seoul &amp; Busan</div>
+        <h1>The Menu</h1>
+        <p class="header-desc">Your complete reference for everything to eat, do, and shop for — covering both Seoul and Busan. Click any card for full details, costs, tips, and directions.</p>
+    </header>
+
+    <!-- ── Main 3 Tabs ── -->
+    <div class="nav-tabs no-print">
+        <button class="tab-btn active" id="mainTab-food" onclick="switchMain('food')">
+            <i class="fa-solid fa-bowl-rice"></i> Food
+        </button>
+        <button class="tab-btn" id="mainTab-activities" onclick="switchMain('activities')">
+            <i class="fa-solid fa-compass"></i> Activities
+        </button>
+        <button class="tab-btn" id="mainTab-shopping" onclick="switchMain('shopping')">
+            <i class="fa-solid fa-bag-shopping"></i> Shopping
+        </button>
+    </div>
+
+    <!-- ══════════════════════ FOOD TAB ══════════════════════ -->
+    <div id="tab-food" class="tab-content active">
+        <div class="sub-tabs no-print">
+            <button class="sub-tab-btn active" id="subTab-guide" onclick="switchFoodSub('guide')">
+                <i class="fa-solid fa-book-open"></i> Korean Food Guide
+            </button>
+            <button class="sub-tab-btn" id="subTab-restaurants" onclick="switchFoodSub('restaurants')">
+                <i class="fa-solid fa-utensils"></i> Restaurants &amp; Dining
+            </button>
+        </div>
+
+        <!-- Food Guide sub-tab -->
+        <div id="sub-guide" class="sub-content active">
+            <div class="filter-row no-print" id="guideFilters"></div>
+            <div class="card-grid" id="guideGrid"></div>
+        </div>
+
+        <!-- Restaurants sub-tab -->
+        <div id="sub-restaurants" class="sub-content">
+            <div class="filter-row no-print" id="restaurantFilters"></div>
+            <div class="card-grid" id="restaurantGrid"></div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════ ACTIVITIES TAB ══════════════════════ -->
+    <div id="tab-activities" class="tab-content">
+        <div class="no-print">
+            <div class="search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="search-bar" id="activitySearch" placeholder="Search activities…" oninput="renderActivities()">
+            </div>
+            <div class="filter-row" id="activityFilters"></div>
+        </div>
+        <div class="card-grid" id="activityGrid"></div>
+    </div>
+
+    <!-- ══════════════════════ SHOPPING TAB ══════════════════════ -->
+    <div id="tab-shopping" class="tab-content">
+        <div class="filter-row no-print" id="shoppingFilters"></div>
+        <div class="card-grid" id="shoppingGrid"></div>
+    </div>
+
+</div><!-- /container -->
+
+<!-- ══════════════════════ MODAL ══════════════════════ -->
+<div id="menuModal" class="menu-modal-overlay" onclick="modalBgClose(event)">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+        <div class="modal-handle"></div>
+        <div class="modal-hero" id="mHero">
+            <button class="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+            <h2 class="modal-title" id="mTitle"></h2>
+            <div class="modal-chips" id="mChips"></div>
+            <p class="modal-desc" id="mDesc"></p>
+            <div class="modal-grid" id="mGrid"></div>
+            <div id="mHighlights"></div>
+            <div id="mFavoritesSec"></div>
+            <div id="mTips"></div>
+            <div class="modal-actions" id="mActions"></div>
+        </div>
+    </div>
+</div>
+
+<script src="data.js?v=20260612_03"></script>
+<script>
+// ════════════════════════════════════════════════════════════
+//  DATA — loaded from shared data.js (single source of truth)
+// ════════════════════════════════════════════════════════════
+const FOOD_GUIDE = TRIP_DATA.foodGuide;
+const RESTAURANTS = TRIP_DATA.restaurants;
+const ACTIVITIES = TRIP_DATA.activities;
+const SHOPPING = TRIP_DATA.shopping;
+
+// ════════════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════════════
+let activeMainTab = 'food';
+let activeFoodSub = 'guide';
+let activeGuideFilter = 'all';
+let activeRestaurantFilter = 'all';
+let activeActivityFilter = 'all';
+let activeShoppingFilter = 'all';
+let currentModalItem = null;
+let currentModalItemDataset = null;
+
+// ════════════════════════════════════════════════════════════
+//  TAB SWITCHING
+// ════════════════════════════════════════════════════════════
+function switchMain(tab) {
+    activeMainTab = tab;
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.getElementById('mainTab-' + tab).classList.add('active');
+}
+
+function switchFoodSub(sub) {
+    activeFoodSub = sub;
+    document.querySelectorAll('.sub-content').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('sub-' + sub).classList.add('active');
+    document.getElementById('subTab-' + sub).classList.add('active');
+}
+
+// ════════════════════════════════════════════════════════════
+//  FILTERS INITIALIZATION
+// ════════════════════════════════════════════════════════════
+function initFilters() {
+    // Guide filters
+    buildPills('guideFilters', [
+        {id:'all', label:'All'},
+        {id:'must-try', label:'🍽 Must-Try Foods'},
+        {id:'convenience', label:'🏪 Convenience Store'},
+        {id:'etiquette', label:'🙏 Eating Etiquette'}
+    ], 'guide');
+
+    // Restaurant filters
+    buildPills('restaurantFilters', [
+        {id:'all', label:'All'},
+        {id:'seoul', label:'📍 Seoul'},
+        {id:'busan', label:'🌊 Busan'},
+        {id:'cafe', label:'☕ Cafés & Desserts'},
+        {id:'bakery', label:'🥐 Bakeries & Donuts'},
+        {id:'chain', label:'🏪 Chains & Quick Eats'}
+    ], 'restaurant');
+
+    // Activity filters
+    buildPills('activityFilters', [
+        {id:'all', label:'All'},
+        {id:'culture', label:'🏛 Culture'},
+        {id:'family-fun', label:'🎉 Family Fun'},
+        {id:'shows', label:'🎭 Shows'},
+        {id:'hands-on', label:'🎨 Hands-On'},
+        {id:'arts', label:'🖼 Art & Indie'},
+        {id:'busan', label:'🌊 Busan Only'}
+    ], 'activity');
+
+    // Shopping filters
+    buildPills('shoppingFilters', [
+        {id:'all', label:'All'},
+        {id:'beauty', label:'💄 K-Beauty'},
+        {id:'fashion', label:'👗 Fashion & Vintage'},
+        {id:'unique', label:'🎁 Unique & Souvenirs'}
+    ], 'shopping');
+}
+
+function buildPills(containerId, pills, type) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = pills.map(p =>
+        `<button class="filter-pill ${p.id === 'all' ? 'active' : ''}" 
+         onclick="setFilter('${type}','${p.id}')">${p.label}</button>`
+    ).join('');
+}
+
+function setFilter(type, val) {
+    if (type === 'guide') { activeGuideFilter = val; renderGuide(); }
+    else if (type === 'restaurant') { activeRestaurantFilter = val; renderRestaurants(); }
+    else if (type === 'activity') { activeActivityFilter = val; renderActivities(); }
+    else if (type === 'shopping') { activeShoppingFilter = val; renderShopping(); }
+
+    const mapId = { guide: 'guideFilters', restaurant: 'restaurantFilters', activity: 'activityFilters', shopping: 'shoppingFilters' };
+    document.querySelectorAll('#' + mapId[type] + ' .filter-pill').forEach(p => {
+        p.classList.toggle('active', p.textContent.trim() !== '' && p.onclick.toString().includes(`'${val}'`));
+    });
+    // simpler approach - just re-highlight
+    document.querySelectorAll('#' + mapId[type] + ' .filter-pill').forEach(p => p.classList.remove('active'));
+    event && event.target && event.target.classList.add('active');
+}
+
+// ════════════════════════════════════════════════════════════
+//  CARD RENDERING
+// ════════════════════════════════════════════════════════════
+function cardHtml(item, dataset) {
+    const badges = [];
+    if (item.onItinerary) badges.push('<span class="card-itinerary-badge">★ On Itinerary</span>');
+    if (item.needsBooking) badges.push('<span class="card-itinerary-badge" style="background:rgba(192,80,74,0.88);left:auto;right:8px;">Book Ahead</span>');
+
+    const regionChip = regionChipHtml(item.region);
+    const priceChip = item.cost ? `<span class="card-chip cc-price">${item.costZAR || item.cost}</span>` : '';
+
+    let heroContent = '';
+    if (item.logo) {
+        let fallbackContent = item.emoji;
+        const wordmarks = {
+            's-tamburins': '<span class="brand-text-logo tamburins-wordmark">tamburins</span>',
+            's-wooyoungmi': '<span class="brand-text-logo wooyoungmi-wordmark">WOOYOUNGMI</span>',
+            's-juunj': '<span class="brand-text-logo juunj-wordmark">JUUN.J</span>',
+            'r-randys': '<span class="brand-text-logo randys-wordmark">RANDY\'S<br><small>DONUTS</small></span>',
+            'r-sinjeon': '<span class="brand-text-logo sinjeon-wordmark">SINJEON</span>',
+            'r-eggdrop': '<span class="brand-text-logo eggdrop-wordmark">EGG DROP</span>',
+            'r-bills-gangnam': '<span class="brand-text-logo bills-wordmark">bills</span>',
+            'r-nudake': '<span class="brand-text-logo nudake-wordmark">NUDAKE</span>',
+            'r-samwon': '<span class="brand-text-logo samwon-wordmark">SAMWON GARDEN</span>',
+            'r-parc-seoul': '<span class="brand-text-logo parc-wordmark">PARC</span>',
+            'r-onion': '<span class="brand-text-logo onion-wordmark">onion</span>',
+            'r-terarosa': '<span class="brand-text-logo terarosa-wordmark">TERAROSA</span>',
+            's-anderson-bell': '<span class="brand-text-logo andersson-wordmark">Andersson Bell</span>',
+            's-nomanual': '<span class="brand-text-logo nomanual-wordmark">NOMANUAL</span>',
+            'a-hausnowhere': '<span class="brand-text-logo gentle-wordmark">GENTLE MONSTER</span>',
+            's-dosan': '<span class="brand-text-logo gentle-wordmark">GENTLE MONSTER</span>',
+            'r-gml': '<span class="brand-text-logo gml-wordmark">gml</span>',
+            'r-sounds-of-apple': '<span class="brand-text-logo apple-wordmark"><small>Sounds of</small>APPLE</span>',
+            'r-pymt': '<span class="brand-text-logo pymt-wordmark">pymt</span>',
+            'r-chizn-bingsu': '<span class="brand-text-logo chizn-wordmark">CHIZN<br><small>SEOUL</small></span>',
+            'r-noirmood': '<span class="brand-text-logo noirmood-wordmark">nm.</span>',
+            'a-noirmood-space': '<span class="brand-text-logo noirmood-wordmark">nm.</span>',
+            'r-sunday-burger': '<span class="brand-text-logo sunday-burger-wordmark">SUNDAY BURGER</span>',
+            's-aoesak': '<span class="brand-text-logo aoesak-wordmark">AOESAK</span>',
+            's-aitissu': '<span class="brand-text-logo aitissu-wordmark">AITISSU</span>',
+            's-kbeauty-clinic': '<span class="brand-text-logo eyaan-wordmark">EYAAN CLINIC</span>',
+            's-vintagesanta': '<span class="brand-text-logo sunday-burger-wordmark">VINTAGE SANTA</span>'
+        };
+        if (wordmarks[item.id]) {
+            fallbackContent = wordmarks[item.id];
+        }
+        
+        if (item.logo.startsWith('<')) {
+            heroContent = item.logo;
+        } else {
+            heroContent = `
+                <img src="${item.logo}" alt="${item.name} logo" class="card-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" loading="lazy">
+                <span class="logo-fallback" style="display:none;">${fallbackContent}</span>
+            `;
+        }
+    } else {
+        heroContent = item.emoji;
+    }
+
+    const familyMembers = ['Ayden', 'Claudine', 'Brudene', 'Odile'];
+    const favBadges = [];
+    familyMembers.forEach(m => {
+        try {
+            const favs = JSON.parse(localStorage.getItem(`itinerary_favorites_${m}`)) || [];
+            const isFav = favs.includes(item.id);
+            favBadges.push(`<span class="fav-badge-circle member-${m.toLowerCase()}${isFav ? ' active' : ''}" title="${isFav ? 'Remove from ' + m + '\'s favorites' : 'Add to ' + m + '\'s favorites'}" onclick="window.toggleMenuCardFavorite(event, '${m}', '${item.id}')">${m.charAt(0)}</span>`);
+        } catch(e){}
+    });
+    const favBadgesHtml = `<div class="card-fav-container">${favBadges.join('')}</div>`;
+
+    return `<div class="menu-card" style="--brand-gradient: ${item.gradient}" onclick="openModal('${dataset}','${item.id}')" role="button" tabindex="0" aria-label="${item.name}">
+        <div class="card-hero">
+            ${badges.join('')}
+            ${favBadgesHtml}
+            ${heroContent}
+        </div>
+        <div class="card-body">
+            <div class="card-title">${item.name}</div>
+            <div class="card-chips">${regionChip}${priceChip}</div>
+            <div class="card-teaser">${item.teaser}</div>
+        </div>
+    </div>`;
+}
+
+function regionChipHtml(region) {
+    if (!region || region === 'any') return '<span class="card-chip cc-any">Anywhere</span>';
+    if (region === 'seoul1') return '<span class="card-chip cc-seoul1">Seoul · Jun 27–Jul 3</span>';
+    if (region === 'busan') return '<span class="card-chip cc-busan">Busan · Jul 3–6</span>';
+    if (region === 'seoul2') return '<span class="card-chip cc-seoul2">Seoul · Jul 6–9</span>';
+    return '';
+}
+
+function renderGuide() {
+    const grid = document.getElementById('guideGrid');
+    const items = FOOD_GUIDE.filter(i => activeGuideFilter === 'all' || i.cat === activeGuideFilter);
+    grid.innerHTML = items.length ? items.map(i => cardHtml(i, 'foodGuide')).join('') : '<p class="no-results">No items match this filter.</p>';
+}
+
+function renderRestaurants() {
+    const grid = document.getElementById('restaurantGrid');
+    const items = RESTAURANTS.filter(i => activeRestaurantFilter === 'all' || i.cat === activeRestaurantFilter);
+    grid.innerHTML = items.length ? items.map(i => cardHtml(i, 'restaurants')).join('') : '<p class="no-results">No items match this filter.</p>';
+}
+
+function renderActivities() {
+    const grid = document.getElementById('activityGrid');
+    const query = (document.getElementById('activitySearch')?.value || '').toLowerCase();
+    const items = ACTIVITIES.filter(i => {
+        const matchFilter = activeActivityFilter === 'all' || i.cat === activeActivityFilter || (activeActivityFilter === 'busan' && i.region === 'busan') || (activeActivityFilter === 'arts' && ['art','music','photography','concept'].includes(i.cat));
+        const matchSearch = !query || i.name.toLowerCase().includes(query) || i.teaser.toLowerCase().includes(query) || i.desc.toLowerCase().includes(query);
+        return matchFilter && matchSearch;
+    });
+    grid.innerHTML = items.length ? items.map(i => cardHtml(i, 'activities')).join('') : '<p class="no-results">No activities match your search.</p>';
+}
+
+function renderShopping() {
+    const grid = document.getElementById('shoppingGrid');
+    const items = SHOPPING.filter(i => activeShoppingFilter === 'all' || i.cat === activeShoppingFilter);
+    grid.innerHTML = items.length ? items.map(i => cardHtml(i, 'shopping')).join('') : '<p class="no-results">No items match this filter.</p>';
+}
+
+// ════════════════════════════════════════════════════════════
+//  MODAL
+// ════════════════════════════════════════════════════════════
+function openModal(dataset, itemId) {
+    const dataMap = { foodGuide: FOOD_GUIDE, restaurants: RESTAURANTS, activities: ACTIVITIES, shopping: SHOPPING };
+    const item = (dataMap[dataset] || []).find(i => i.id === itemId);
+    if (!item) return;
+    currentModalItem = item;
+    currentModalItemDataset = dataset;
+
+    // Hero
+    const hero = document.getElementById('mHero');
+    hero.style.background = item.gradient;
+    let heroContent = '';
+    if (item.logo) {
+        let fallbackContent = item.emoji;
+        const wordmarks = {
+            's-tamburins': '<span class="brand-text-logo tamburins-wordmark">tamburins</span>',
+            's-wooyoungmi': '<span class="brand-text-logo wooyoungmi-wordmark">WOOYOUNGMI</span>',
+            's-juunj': '<span class="brand-text-logo juunj-wordmark">JUUN.J</span>',
+            'r-randys': '<span class="brand-text-logo randys-wordmark">RANDY\'S<br><small>DONUTS</small></span>',
+            'r-sinjeon': '<span class="brand-text-logo sinjeon-wordmark">SINJEON</span>',
+            'r-eggdrop': '<span class="brand-text-logo eggdrop-wordmark">EGG DROP</span>',
+            'r-bills-gangnam': '<span class="brand-text-logo bills-wordmark">bills</span>',
+            'r-nudake': '<span class="brand-text-logo nudake-wordmark">NUDAKE</span>',
+            'r-samwon': '<span class="brand-text-logo samwon-wordmark">SAMWON GARDEN</span>',
+            'r-parc-seoul': '<span class="brand-text-logo parc-wordmark">PARC</span>',
+            'r-onion': '<span class="brand-text-logo onion-wordmark">onion</span>',
+            'r-terarosa': '<span class="brand-text-logo terarosa-wordmark">TERAROSA</span>',
+            's-anderson-bell': '<span class="brand-text-logo andersson-wordmark">Andersson Bell</span>',
+            's-nomanual': '<span class="brand-text-logo nomanual-wordmark">NOMANUAL</span>',
+            'a-hausnowhere': '<span class="brand-text-logo gentle-wordmark">GENTLE MONSTER</span>',
+            's-dosan': '<span class="brand-text-logo gentle-wordmark">GENTLE MONSTER</span>',
+            'r-gml': '<span class="brand-text-logo gml-wordmark">gml</span>',
+            'r-sounds-of-apple': '<span class="brand-text-logo apple-wordmark"><small>Sounds of</small>APPLE</span>',
+            'r-pymt': '<span class="brand-text-logo pymt-wordmark">pymt</span>',
+            'r-chizn-bingsu': '<span class="brand-text-logo chizn-wordmark">CHIZN<br><small>SEOUL</small></span>',
+            'r-noirmood': '<span class="brand-text-logo noirmood-wordmark">nm.</span>',
+            'a-noirmood-space': '<span class="brand-text-logo noirmood-wordmark">nm.</span>',
+            'r-sunday-burger': '<span class="brand-text-logo sunday-burger-wordmark">SUNDAY BURGER</span>',
+            's-aoesak': '<span class="brand-text-logo aoesak-wordmark">AOESAK</span>',
+            's-aitissu': '<span class="brand-text-logo aitissu-wordmark">AITISSU</span>',
+            's-kbeauty-clinic': '<span class="brand-text-logo eyaan-wordmark">EYAAN CLINIC</span>',
+            's-vintagesanta': '<span class="brand-text-logo sunday-burger-wordmark">VINTAGE SANTA</span>'
+        };
+        if (wordmarks[item.id]) {
+            fallbackContent = wordmarks[item.id];
+        }
+        
+        if (item.logo.startsWith('<')) {
+            heroContent = item.logo;
+        } else {
+            heroContent = `
+                <img src="${item.logo}" alt="${item.name} logo" class="modal-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                <span class="logo-fallback" style="display:none;">${fallbackContent}</span>
+            `;
+        }
+    } else {
+        heroContent = item.emoji;
+    }
+    const filtered = getActiveItemsList();
+    const showArrows = filtered.length > 1;
+    const leftArrowHtml = showArrows ? `<button class="modal-nav-arrow left" onclick="event.stopPropagation(); navigateModal(-1)" title="Previous Option"><i class="fa-solid fa-chevron-left"></i></button>` : '';
+    const rightArrowHtml = showArrows ? `<button class="modal-nav-arrow right" onclick="event.stopPropagation(); navigateModal(1)" title="Next Option"><i class="fa-solid fa-chevron-right"></i></button>` : '';
+
+    hero.innerHTML = `
+        <button class="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+        ${leftArrowHtml}
+        ${rightArrowHtml}
+        ${heroContent}
+    `;
+
+
+    // Title
+    document.getElementById('mTitle').textContent = item.name;
+
+    // Chips
+    const chips = [];
+    if (item.region) chips.push(`<span class="modal-chip ${regionModalChipClass(item.region)}">${regionLabel(item.region)}</span>`);
+    if (item.cost) chips.push(`<span class="modal-chip cc-price">${item.cost}</span>`);
+    if (item.costZAR) chips.push(`<span class="modal-chip cc-cat">${item.costZAR}</span>`);
+    if (item.onItinerary) chips.push(`<span class="modal-chip cc-free">★ On Ayden's Itinerary</span>`);
+    if (item.needsBooking) chips.push(`<span class="modal-chip cc-book">Book Ahead!</span>`);
+    document.getElementById('mChips').innerHTML = chips.join('');
+
+    // Description
+    document.getElementById('mDesc').textContent = item.desc;
+
+    // Detail grid
+    const details = [];
+    if (item.cost && item.cost.trim()) details.push({ label:'Cost', value: item.cost + (item.costZAR ? ' ' + item.costZAR : '') });
+    if (item.duration && item.duration.trim()) details.push({ label:'Time Needed', value: item.duration });
+    if (item.hours && item.hours.trim()) details.push({ label:'Opening Hours', value: item.hours });
+    if (item.address && item.address.trim()) details.push({ label:'Location', value: item.address });
+    document.getElementById('mGrid').innerHTML = details.map(d =>
+        `<div class="modal-detail"><div class="modal-detail-label">${d.label}</div><div class="modal-detail-value">${d.value}</div></div>`
+    ).join('');
+
+    // Highlights
+    const hlEl = document.getElementById('mHighlights');
+    if (item.highlights && item.highlights.length) {
+        hlEl.innerHTML = `<div class="modal-section-label"><i class="fa-solid fa-star"></i> Highlights</div><div class="modal-pills">${item.highlights.map(h => `<span class="modal-pill">${h}</span>`).join('')}</div>`;
+    } else { hlEl.innerHTML = ''; }
+
+    // Favorites
+    const familyMembers = ['Ayden', 'Claudine', 'Brudene', 'Odile'];
+    let favHtml = `
+        <div class="modal-section-label" style="margin-top: 16px;"><i class="fa-regular fa-star"></i> Save to Favorites</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; margin-top: 6px;">
+    `;
+    familyMembers.forEach(m => {
+        let favs = [];
+        try { favs = JSON.parse(localStorage.getItem(`itinerary_favorites_${m}`)) || []; } catch(e){}
+        const isFav = favs.includes(item.id);
+        favHtml += `
+            <button class="modal-fav-btn member-${m.toLowerCase()}${isFav ? ' active' : ''}" onclick="toggleMenuFavorite('${m}', '${item.id}')" style="cursor:pointer; display:inline-flex; align-items:center; gap:4px; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid var(--border); background: var(--bg-body); color: var(--text-main); transition: var(--transition);">
+                <i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-star" style="color: ${isFav ? 'var(--accent)' : 'var(--text-muted)'};"></i> ${m}
+            </button>
+        `;
+    });
+    favHtml += '</div>';
+    const favSec = document.getElementById('mFavoritesSec');
+    if (favSec) favSec.innerHTML = favHtml;
+
+    // Tips
+    const tipsEl = document.getElementById('mTips');
+    if (item.tips && item.tips.trim()) {
+        tipsEl.innerHTML = `<div class="modal-section-label"><i class="fa-brands fa-reddit" style="color:#FF4500;"></i> Tips &amp; Advice</div><div class="modal-tips">${item.tips}</div>`;
+    } else { tipsEl.innerHTML = ''; }
+
+    // Actions
+    const actions = [];
+    if (item.menuLink && item.menuLink.trim()) {
+        actions.push(`<a href="${item.menuLink}" target="_blank" class="modal-btn primary" style="background:#27ae60;"><i class="fa-solid fa-utensils"></i> View Menu</a>`);
+    }
+    if (item.mapLink && item.mapLink.trim()) actions.push(`<a href="${item.mapLink}" target="_blank" class="modal-btn primary"><i class="fa-solid fa-map-location-dot"></i> Open in Naver Maps</a>`);
+    if (item.link && item.link.trim() && item.link !== item.mapLink) actions.push(`<a href="${item.link}" target="_blank" class="modal-btn secondary"><i class="fa-solid fa-arrow-up-right-from-square"></i> See Photos / Official Page</a>`);
+    document.getElementById('mActions').innerHTML = actions.join('');
+
+    document.getElementById('menuModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+window.toggleMenuFavorite = function(member, itemId) {
+    let favs = [];
+    try { favs = JSON.parse(localStorage.getItem(`itinerary_favorites_${member}`)) || []; } catch(e){}
+    const idx = favs.indexOf(itemId);
+    if (idx > -1) {
+        favs.splice(idx, 1);
+    } else {
+        favs.push(itemId);
+    }
+    localStorage.setItem(`itinerary_favorites_${member}`, JSON.stringify(favs));
+    
+    // Re-render modal favorites area
+    openModal(currentModalItemDataset, itemId);
+    
+    // Re-render grids in menu.html
+    renderRestaurants();
+    renderActivities();
+    renderShopping();
+};
+
+window.toggleMenuCardFavorite = function(event, member, itemId) {
+    if (event) event.stopPropagation();
+    let favs = [];
+    try { favs = JSON.parse(localStorage.getItem(`itinerary_favorites_${member}`)) || []; } catch(e){}
+    const idx = favs.indexOf(itemId);
+    if (idx > -1) {
+        favs.splice(idx, 1);
+    } else {
+        favs.push(itemId);
+    }
+    localStorage.setItem(`itinerary_favorites_${member}`, JSON.stringify(favs));
+    
+    // Re-render grids in menu.html
+    renderRestaurants();
+    renderActivities();
+    renderShopping();
+};
+
+
+function closeModal() {
+    document.getElementById('menuModal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function modalBgClose(e) {
+    if (e.target.id === 'menuModal') closeModal();
+}
+
+function regionModalChipClass(region) {
+    const m = { any: 'cc-any', seoul1: 'cc-seoul1', busan: 'cc-busan', seoul2: 'cc-seoul2' };
+    return m[region] || 'cc-cat';
+}
+
+function regionLabel(region) {
+    const m = { any: 'Anywhere', seoul1: 'Seoul · Jun 27–Jul 3', busan: 'Busan · Jul 3–6', seoul2: 'Seoul · Jul 6–9' };
+    return m[region] || region;
+}
+
+// Keyboard close & navigation
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        closeModal();
+    } else if (document.getElementById('menuModal').classList.contains('open')) {
+        if (e.key === 'ArrowLeft') {
+            navigateModal(-1);
+        } else if (e.key === 'ArrowRight') {
+            navigateModal(1);
+        }
+    }
+});
+
+function getActiveItemsList() {
+    const dataMap = { foodGuide: FOOD_GUIDE, restaurants: RESTAURANTS, activities: ACTIVITIES, shopping: SHOPPING };
+    const fullList = dataMap[currentModalItemDataset] || [];
+    
+    // Filter the list based on the active filters to match what's visible
+    let filteredList = [];
+    if (currentModalItemDataset === 'foodGuide') {
+        filteredList = fullList.filter(i => activeGuideFilter === 'all' || i.cat === activeGuideFilter);
+    } else if (currentModalItemDataset === 'restaurants') {
+        filteredList = fullList.filter(i => activeRestaurantFilter === 'all' || i.cat === activeRestaurantFilter);
+    } else if (currentModalItemDataset === 'activities') {
+        const query = (document.getElementById('activitySearch')?.value || '').toLowerCase();
+        filteredList = fullList.filter(i => {
+            const matchFilter = activeActivityFilter === 'all' || i.cat === activeActivityFilter || (activeActivityFilter === 'busan' && i.region === 'busan') || (activeActivityFilter === 'arts' && ['art','music','photography','concept'].includes(i.cat));
+            const matchSearch = !query || i.name.toLowerCase().includes(query) || i.teaser.toLowerCase().includes(query) || i.desc.toLowerCase().includes(query);
+            return matchFilter && matchSearch;
+        });
+    } else if (currentModalItemDataset === 'shopping') {
+        filteredList = fullList.filter(i => activeShoppingFilter === 'all' || i.cat === activeShoppingFilter);
+    }
+    return filteredList;
+}
+
+window.navigateModal = function(direction) {
+    const filtered = getActiveItemsList();
+    if (!filtered.length) return;
+    
+    let currentIndex = filtered.findIndex(i => i.id === currentModalItem.id);
+    if (currentIndex === -1) return;
+    
+    let newIndex = currentIndex + direction;
+    if (newIndex < 0) {
+        newIndex = filtered.length - 1;
+    } else if (newIndex >= filtered.length) {
+        newIndex = 0;
+    }
+    
+    const nextItem = filtered[newIndex];
+    if (nextItem) {
+        openModal(currentModalItemDataset, nextItem.id);
+    }
+};
+
+
+// ════════════════════════════════════════════════════════════
+//  THEME
+// ════════════════════════════════════════════════════════════
+function toggleTheme() {
+    const isDark = document.body.classList.toggle('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    const btn = document.getElementById('themeToggle');
+    btn.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i> <span>Light Mode</span>' : '<i class="fa-solid fa-moon"></i> <span>Dark Mode</span>';
+}
+
+// ════════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════════
+(function init() {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+        const btn = document.getElementById('themeToggle');
+        if (btn) btn.innerHTML = '<i class="fa-solid fa-sun"></i> <span>Light Mode</span>';
+    }
+    initFilters();
+    renderGuide();
+    renderRestaurants();
+    renderActivities();
+    renderShopping();
+})();
+
+// ── ZAR Conversion (keeps won amounts updated) ──────────────
+(function() {
+    const RATE = 0.01083;
+    const reWon = /₩\s?([\d,]+)/g;
+    const convWon = (m, n) => { const v = parseInt(n.replace(/,/g,''),10); return `₩${n} ≈ R${Math.round(v*RATE).toLocaleString()}`; };
+})();
+</script>
+
+</body>
+</html>

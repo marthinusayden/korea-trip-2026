@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korea 2026 — Family Travel Brochure & Agenda</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS variables for variables */
+        :root {
+            --primary: #4A6B53;
+            --primary-light: #70937A;
+            --primary-dark: #344B3A;
+            --secondary: #2F3E46;
+            --accent: #C8963E;
+            --bg-body: #F5F7F6;
+            --bg-card: #FFFFFF;
+            --text-main: #2F3E46;
+            --text-heading: #1C2723;
+            --text-muted: #5C6F67;
+            --border: #E3E7E5;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --shadow: 0 10px 30px rgba(74, 107, 83, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-serif: 'Fraunces', Georgia, serif;
+        }
+
+        .dark-theme {
+            --bg-body: #101614;
+            --bg-card: #161E1B;
+            --text-main: #C0CFC7;
+            --text-heading: #F5F7F6;
+            --text-muted: #8FA399;
+            --border: #242E2A;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Base Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: var(--transition);
+            padding-bottom: 80px; /* space for sticky bar */
+        }
+
+        /* Buttons & inputs inherit the page font (prevents system-font fallback) */
+        button, input, select, textarea { font-family: inherit; }
+        html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+        h1 { letter-spacing: -0.02em; font-weight: 600; }
+        h2 { letter-spacing: -0.01em; }
+
+        h1, h2, h3, h4 {
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        h1, .serif-font {
+            font-family: var(--font-serif);
+        }
+
+        a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        /* Hero Header */
+        header {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .header-meta {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .header-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* Sticky Control Bar */
+        .control-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(22, 30, 27, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 16px;
+            border-radius: 40px;
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .control-bar button {
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            cursor: pointer;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .control-bar button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .tab-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        /* Sections and Cards */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-intro {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-intro h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-intro h2 i {
+            color: var(--primary);
+        }
+
+        .section-intro .photo-tip {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 650px) {
+            .section-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid-span-2 {
+                grid-column: span 2;
+            }
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 i {
+            color: var(--accent);
+        }
+
+        .nested-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-top: 12px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nested-title a {
+            color: var(--text-heading);
+        }
+
+        .nested-title a:hover {
+            color: var(--primary-light);
+        }
+
+        .monument-img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+            display: block;
+        }
+
+        /* Lists and formatting */
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background-color: var(--bg-body);
+            border-left: 4px solid var(--accent);
+            padding: 16px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-top: 16px;
+            font-size: 0.95rem;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--primary-dark);
+            color: #FFFFFF !important;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .map-link:hover {
+            background-color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Suggested Day-by-Day Agenda Styles */
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+            margin-top: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 6px;
+            bottom: 8px;
+            width: 2px;
+            background-color: var(--border);
+        }
+
+        .agenda-day {
+            position: relative;
+            margin-bottom: 24px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .agenda-header {
+            padding: 18px 24px;
+            background-color: var(--bg-card);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .agenda-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .day-badge {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .day-date {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-heading);
+        }
+
+        .day-summary {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-left: 8px;
+            font-style: italic;
+        }
+
+        .chevron-icon {
+            font-size: 1rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .agenda-content {
+            padding: 0 24px 24px 24px;
+            border-top: 1px solid var(--border);
+            display: block;
+        }
+
+        .agenda-day.collapsed .agenda-content {
+            display: none;
+        }
+
+        .agenda-day.collapsed .chevron-icon {
+            transform: rotate(-90deg);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+            margin-top: 18px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent);
+        }
+
+        .timeline-time {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Language Table Styles */
+        .lang-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+
+        .lang-table th, .lang-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .lang-table th {
+            font-weight: 600;
+            color: var(--text-heading);
+            background-color: var(--bg-body);
+        }
+
+        .lang-korean {
+            font-weight: 500;
+            color: var(--primary-light);
+        }
+
+        /* Responsive Mobile Adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 12px 8px;
+            }
+            header {
+                padding: 24px 16px;
+                margin-bottom: 16px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .header-desc {
+                font-size: 0.95rem;
+            }
+            .nav-tabs {
+                gap: 4px;
+                margin-bottom: 16px;
+            }
+            .tab-btn {
+                padding: 10px 14px;
+                font-size: 0.85rem;
+            }
+            .section-intro {
+                padding: 16px;
+                margin-bottom: 16px;
+            }
+            .section-intro h2 {
+                font-size: 1.4rem;
+            }
+            .card {
+                padding: 16px;
+            }
+            .card h3 {
+                font-size: 1.15rem;
+            }
+            .nested-title {
+                font-size: 0.95rem;
+            }
+            .timeline {
+                padding-left: 16px;
+            }
+            .agenda-header {
+                padding: 14px 16px;
+            }
+            .agenda-content {
+                padding: 0 16px 16px 16px;
+            }
+            .day-date {
+                font-size: 0.95rem;
+            }
+            .day-summary {
+                font-size: 0.8rem;
+            }
+            .control-bar {
+                bottom: 16px;
+                padding: 4px 6px;
+                gap: 6px;
+                border-radius: 30px;
+            }
+            .control-bar button {
+                width: 36px;
+                height: 36px;
+                padding: 0;
+                font-size: 0.9rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+            }
+            .control-bar button span {
+                display: none; /* Hide button text on mobile to save space */
+            }
+            .lang-table {
+                font-size: 0.85rem;
+            }
+            .lang-table th, .lang-table td {
+                padding: 8px 6px;
+            }
+        }
+
+        /* Print Styles Optimization */
+        @media print {
+            body {
+                background-color: #FFFFFF !important;
+                color: #000000 !important;
+                font-family: var(--font-serif);
+                font-size: 11pt;
+                padding-bottom: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                width: 100%;
+                padding: 0;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            header {
+                box-shadow: none !important;
+                border: none !important;
+                border-bottom: 2px solid #000000 !important;
+                border-radius: 0 !important;
+                padding: 20px 0 !important;
+                margin-bottom: 30px !important;
+            }
+
+            header h1 {
+                font-size: 2.2rem !important;
+            }
+
+            /* Make all tab contents expand and print sequentially */
+            .tab-content {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                page-break-after: always;
+            }
+
+            .section-grid {
+                display: block !important;
+            }
+
+            .card {
+                box-shadow: none !important;
+                border: none !important;
+                border-bottom: 1px solid #CCCCCC !important;
+                border-radius: 0 !important;
+                padding: 15px 0 !important;
+                margin-bottom: 20px !important;
+                page-break-inside: avoid;
+            }
+
+            .card h3 {
+                border-bottom: 2px solid #000000 !important;
+                padding-bottom: 4px !important;
+                color: #000000 !important;
+            }
+
+            /* Expand all agenda items */
+            .agenda-content {
+                display: block !important;
+            }
+
+            .agenda-day {
+                box-shadow: none !important;
+                border: 1px solid #CCCCCC !important;
+                border-radius: var(--radius-md) !important;
+                margin-bottom: 15px !important;
+                page-break-inside: avoid;
+            }
+
+            .chevron-icon {
+                display: none !important;
+            }
+
+            .highlight-box {
+                background-color: #F5F5F5 !important;
+                border-left: 3px solid #000000 !important;
+                color: #000000 !important;
+            }
+
+            .map-link {
+                display: none !important;
+            }
+
+            .page-break-before {
+                page-break-before: always;
+            }
+        }
+
+        /* ─── Section Switcher Bar ──────────────────────────────────── */
+        #sectionSwitcher {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+            height: 52px;
+            background: rgba(16, 22, 20, 0.97);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+
+        .switcher-logo {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            white-space: nowrap;
+            margin-right: 20px;
+            letter-spacing: 0.3px;
+            flex-shrink: 0;
+        }
+
+        .switcher-logo span {
+            font-size: 1.1rem;
+            margin-right: 6px;
+        }
+
+        .switcher-divider {
+            width: 1px;
+            height: 20px;
+            background: rgba(255,255,255,0.12);
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .switcher-sections {
+            display: flex;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .switcher-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .switcher-btn:hover {
+            color: rgba(255,255,255,0.85);
+            background: rgba(255,255,255,0.07);
+            text-decoration: none;
+        }
+
+        .switcher-btn.active {
+            background: var(--primary);
+            color: #FFFFFF;
+        }
+
+        .switcher-btn.active:hover {
+            background: var(--primary-light);
+            color: #FFFFFF;
+        }
+
+        /* Push all page content below the fixed bar */
+        body {
+            padding-top: 52px;
+        }
+
+        @media (max-width: 600px) {
+            .switcher-logo { display: none; }
+            .switcher-divider { display: none; }
+            .switcher-btn { font-size: 0.75rem; padding: 5px 10px; }
+            #sectionSwitcher { padding: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Section Switcher Bar (permanent across all pages) ────── -->
+    <nav id="sectionSwitcher" class="no-print" aria-label="Main sections">
+        <div class="switcher-logo"><span>🇰🇷</span> Korea 2026</div>
+        <div class="switcher-divider"></div>
+        <div class="switcher-sections">
+            <button class="switcher-btn active" aria-current="page">
+                <i class="fa-solid fa-book-open"></i> Brochure
+            </button>
+            <a class="switcher-btn" href="menu.html">
+                <i class="fa-solid fa-list"></i> Menu
+            </a>
+            <a class="switcher-btn" href="itinerary.html">
+                <i class="fa-solid fa-route"></i> Itinerary
+            </a>
+        </div>
+    </nav>
+
+    <!-- Floating controls for mobile / web -->
+    <div class="control-bar no-print">
+        <button id="themeToggle" onclick="toggleTheme()">
+            <i class="fa-solid fa-moon"></i> <span>Dark Mode</span>
+        </button>
+        <button onclick="window.print()">
+            <i class="fa-solid fa-print"></i> <span>Save / Print PDF</span>
+        </button>
+    </div>
+
+    <div class="container">
+        
+        <!-- Hero Header -->
+        <header>
+            <div class="header-meta">June 26 – July 9, 2026</div>
+            <h1>South Korea Travel Brochure</h1>
+            <p class="header-desc">A family guide &amp; Suggested Day-by-Day Agenda for the first-time visit to Seoul, Busan, and back. Tailored for a relaxed, memorable pace.</p>
+        </header>
+
+        <!-- Brochure Sub-Navigation -->
+        <div class="nav-tabs no-print" aria-label="Brochure sections">
+            <button class="tab-btn active" onclick="switchTab(event, 'ahyeon')">
+                <i class="fa-solid fa-location-dot"></i> Seoul — Ahyeon
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'busan')">
+                <i class="fa-solid fa-water"></i> Busan
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'central-seoul')">
+                <i class="fa-solid fa-landmark"></i> Central Seoul
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'logistics')">
+                <i class="fa-solid fa-gear"></i> Logistics &amp; Tips
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'agenda')">
+                <i class="fa-solid fa-calendar-days"></i> Suggested Agenda
+            </button>
+        </div>
+
+        <!-- SEO/Print Title (Hidden on screen, visible on print) -->
+        <h2 class="serif-font" style="display:none; text-align:center; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;" id="printHeading">Brochure Content</h2>
+
+        <!-- TABS CONTENT -->
+
+        <!-- 1. SEOUL (AHYEON) TAB -->
+        <div id="ahyeon" class="tab-content active">
+            <div class="section-intro">
+                <h2><i class="fa-solid fa-map-pin"></i> <a href="https://www.instagram.com/explore/tags/ahyeondong/" target="_blank">Ahyeon & Mapo-gu Area</a></h2>
+                <p><strong>Stay:</strong> June 27 – July 3 (6 Nights) | <strong>Vibe:</strong> Local, residential, quiet, and highly strategic.</p>
+                <div class="photo-tip no-print"><i class="fa-solid fa-camera"></i> Click headings and tags to see the latest real-life tourist photos on Instagram!</div>
+            </div>
+            
+            <div class="section-grid">
+                <div class="card">
+                    <h3><i class="fa-solid fa-monument"></i> History & Character</h3>
+                    <img src="images/ahyeon_cathedral.png" alt="St. Nicholas Cathedral Domed Roof" class="monument-img">
+                    <p>Ahyeon-dong is built on rolling hills (the name itself translates to "small hill"). During the Joseon Dynasty, it served as an important pass outside the city walls. In the 20th century, it became a dense residential area, and today it remains one of the few places in Seoul where you can see traditional alleyway layouts alongside modern high-rises. It's a peaceful, authentic base away from tourist crowds.</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-utensils"></i> Family Dining & Food</h3>
+                    <p><a href="https://www.kimchiandbasil.com/ahyeon-market-%EC%95%84%ED%98%84-%EC%8B%9C%EC%9E%A5/" target="_blank"><strong>Ahyeon Market:</strong></a> Open since 1930, this traditional street market is the heart of the neighborhood. It is famous for local delicacies like *jokbal* (braised pigs' trotters), *jeon* (savory pancakes), and daily fresh goods.</p>
+                    
+                    <div class="nested-title"><i class="fa-solid fa-star"></i> <a href="https://www.instagram.com/ah_gejang/" target="_blank">Ahyeon-dong Ganjang Gejang (아현동 간장게장)</a></div>
+                    <p>A world-famous, cozy neighborhood spot for *ganjang gejang* (soy-sauce marinated raw crab). Famed for fresh crab overflowing with rich roe, served in a savory, non-fishy marinade. Famed as a classic "rice thief" (*bap-doduk*). Set meals are approximately ₩14,000–₩15,000 for the medium stone crab (*dolge*) and ₩31,000 for the premium large flower crab (*kkotge*). Very foreigner-friendly with welcoming staff who speak English and gladly show you how to eat the crab. Click name for their Instagram menu & details.</p>
+                    <a href="https://map.naver.com/v5/search/%EC%95%84%ED%98%84%EB%8F%99%20%EA%B0%84%EC%9E%A5%EA%B2%8C%EC%9E%A5" target="_blank" class="map-link no-print"><i class="fa-solid fa-map"></i> Open in Naver Maps</a>
+                    
+                    <div class="nested-title"><i class="fa-solid fa-fire-burner"></i> <a href="https://naver.me/FfMW1xK2" target="_blank">Mapo 진짜원조 최대포 (Mapo Jeongpo Galbi)</a></div>
+                    <p>Located in Gongdeok (next subway station from Ahyeon). A historic, decades-old legendary Korean BBQ restaurant. Extremely family-friendly, spacious, and open daily from 11:00 AM to 11:00 PM. Famed marinated pork ribs (*galbi*), salt-grilled pork (*sogeumgui*), and skirt/seagull meat (*galmaegisal*) are around ₩18,000 per portion (200g–250g). High value-for-money. *Tip:* Order marinated ribs first, then salt-grilled, and finish with chewy pig skin (*k껍데기*).</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-shirt"></i> Thrift & Vintage Shopping</h3>
+                    <p>Ahyeon is adjacent to Ewha Womans University and Sinchon, both historical student fashion hotspots. Some of Mapo's best thrift shopping is right here:</p>
+                    <ul>
+                        <li><a href="https://www.beautifulstore.org" target="_blank"><strong>Beautiful Store (아름다운가게 - Sinchon Branch):</strong></a> A famous Korean charity thrift shop chain. Excellent for finding cheap books, accessories, and pre-loved Korean fashion.</li>
+                        <li><strong>Hongdae Vintage Alleys (Mapo-gu):</strong> A short subway ride away. Look out for these heavyweights:
+                            <ul>
+                                <li><a href="https://www.instagram.com/explore/tags/vintagesanta/" target="_blank"><strong>Vintage Santa:</strong></a> A massive basement vintage store packed with hoodies, flight jackets, retro sneakers, and 90s streetwear.</li>
+                                <li><a href="https://www.instagram.com/explore/tags/pageonevintage/" target="_blank"><strong>Page One:</strong></a> A curated boutique with premium coats, tailored jackets, and retro-patterned shirts.</li>
+                                <li><a href="https://omnipeople.co.kr" target="_blank"><strong>Omnipeople Trend:</strong></a> A legendary shop specializing in vintage Americana, collegiate wear, workwear denim, and graphic tees.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-star"></i> Local Sights & Walks</h3>
+                    <ul>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/stnicholasorthodoxcathedral/" target="_blank">St. Nicholas Orthodox Cathedral:</a></strong> Built in 1968, this dome is a designated "Seoul Future Heritage" site. It is one of only two Byzantine structures in the country.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/parasitefilminglocation/" target="_blank">Parasite Filming Location:</a></strong> The famous "Doijissal Supermarket" (named "Woori Supermarket" in Bong Joon-ho's Oscar-winning film) is located in Ahyeon. The steep residential stairs nearby are also featured.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/gyeonguilineforestpark/" target="_blank">Gyeongui Line Forest Park:</a></strong> A short stroll south of Ahyeon, this is a gorgeous urban greenway built on a decommissioned historical train line. Lined with beautiful trees, cafes, and family parks, it stretches all the way into Hongdae and Gongdeok.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/sinchon/" target="_blank">Sinchon & Ewha Womans University Shopping Streets:</a></strong> Located right next to Ahyeon. Bustling youth neighborhoods filled with budget-friendly cosmetic shops, fashion boutiques, cafes, and street buskers.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/yeouidohangangpark/" target="_blank">Yeouido Hangang Park:</a></strong> A massive park along the Han River just a short subway ride from Gongdeok. Highly popular for families to rent picnic mats, order Korean fried chicken directly to the park, and watch the city skyline.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. BUSAN TAB -->
+        <div id="busan" class="tab-content page-break-before">
+            <div class="section-intro">
+                <h2><i class="fa-solid fa-anchor"></i> <a href="https://www.instagram.com/explore/tags/busan/" target="_blank">Busan Region</a></h2>
+                <p><strong>Stay:</strong> July 3 – July 6 (3 Nights, 2 rooms — confirmed) | <strong>Hotel:</strong> Bonathree Hotel (152-1, Yongho-ro) | Check-in from 4 PM, check-out by 12 PM | <strong>Vibe:</strong> Coastal cliffs, harbor views, and sea breezes.</p>
+                <div class="photo-tip no-print"><i class="fa-solid fa-camera"></i> Click headings and tags to see the latest real-life tourist photos on Instagram!</div>
+                <div class="highlight-box">
+                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>Location Note:</strong> The Bonathree Hotel is situated in the Nam-gu coastal district, not Nampo-dong. It is a scenic area next to parks and the yacht terminal, offering a quieter coastal retreat.
+                </div>
+            </div>
+
+            <div class="section-grid">
+                <div class="card">
+                    <h3><i class="fa-solid fa-monument"></i> History & Character</h3>
+                    <img src="images/oryukdo_busan.png" alt="Oryukdo Islets and Sea Cliffs in Busan" class="monument-img">
+                    <p>Busan, South Korea's secondary metropolis, is defined by its dramatic relationship with the sea. The Nam-gu district acts as a natural marine gateway, shaped by rugged volcanic cliff systems and the iconic Oryukdo Islets. Historically a vital harbor defense post, Nam-gu has transitioned into a cultural and scenic hub, home to the peaceful UN Memorial Cemetery and spectacular coastal walking routes.</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-fish"></i> <a href="https://www.visitsealife.com/busan/" target="_blank">SEA LIFE Busan Aquarium</a></h3>
+                    <p>Located directly on the sands of <strong>Haeundae Beach</strong>, this is South Korea's premier aquarium. Extremely popular for families with mixed ages. Click the title to see current marine conservation exhibits and show times.</p>
+                    <ul>
+                        <li><strong>Key Features:</strong> A massive 3-million-liter main tank, a spectacular 80-meter underwater glass tunnel, interactive touch pools, and digital simulation zones.</li>
+                        <li><strong>Show Times:</strong> Famous live feeding shows occur daily: Shark feeding (typically 12:00 & 16:00), Penguin feeding (11:40 & 15:30), and the Coral Reef Mermaid Show.</li>
+                        <li><strong>Hours:</strong> Weekdays (Mon–Fri): 10:00 AM – 7:00 PM (Last entry 6:00 PM) | Weekends & Holidays: 10:00 AM – 8:00 PM (Last entry 7:00 PM).</li>
+                        <li><strong>Tickets:</strong> On-site prices are ~32,000 KRW for adults | ~27,500 KRW for children (3–12). Under 3 free. <em>Reddit Tip: Never buy on-site; booking online in advance via Klook or Trazy offers 15%–30% discounts (reducing tickets to 17,000 – 29,000 KRW).</em></li>
+                    </ul>
+                    <a href="https://map.naver.com/v5/search/%EB%B6%8A%EC%82%B0%20%EC%95%84%EC%BF%A0%EC%95%84%EB%A6%AC%EC%9B%80" target="_blank" class="map-link no-print"><i class="fa-solid fa-map"></i> Open in Naver Maps</a>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-utensils"></i> Family Dining & Food</h3>
+                    <div class="nested-title"><i class="fa-solid fa-bowl-rice"></i> <a href="https://naver.me/GDcM07a3" target="_blank">Ssangdoongi Dwaeji Gukbap (쌍둥이 돼지국밥)</a></div>
+                    <p>Located in Daeyeon-dong, Nam-gu. Open daily 09:00 AM to 11:00 PM. Famed for serving rich pork bone broth loaded with tender pork slices. Incredibly budget-friendly (around ₩9,000–₩11,000 per bowl). *Reddit tip:* Order the *dwaeji gukbap baekban* (set meal) to get a plate of tender *suyuk* (boiled pork slices) served separately over a small burner to keep it warm, plus soup and rice for just a small extra cost.</p>
+                    
+                    <div class="nested-title"><i class="fa-solid fa-fish"></i> <a href="https://www.samjinfood.com" target="_blank">Samjin Amook (삼진어묵)</a></div>
+                    <p>More than a meal, it's a bakery for fish cakes (*amook*). Take a tray and tongs, and pick from freshly fried fish cakes stuffed with cheese, shrimp, peppers, or sweet potato. Fun and interactive for kids! Check their website for historical factory details.</p>
+                    
+                    <div class="nested-title"><i class="fa-solid fa-bowl-food"></i> <a href="https://naver.me/FGo4MvF1" target="_blank">Daeyeon Milmyeon (대연밀면)</a></div>
+                    <p>Located right in Nam-gu. Open daily 10:30 AM to 08:30 PM. Serving refreshing *milmyeon* (wheat noodles in icy herbal beef broth or sweet-spicy paste) for ~₩8,000–₩9,000. Pair water milmyeon (*mul-milmyeon*) or dry spicy (*bibim-milmyeon*) with their giant steamed dumplings (*wang-mandu*) for a classic family lunch.</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-shirt"></i> Vintage Markets & Art Galleries</h3>
+                    <div class="nested-title"><i class="fa-solid fa-basket-shopping"></i> <a href="https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=96189" target="_blank">Nampo-dong Vintage Market (Gukje Market)</a></div>
+                    <p>Busan's vintage shopping is legendary. Head to the **Gukje Market Vintage Alley** in Nampo-dong. Here, you'll find alleyways of vendors selling secondhand clothing piled high on tables (you dig for treasures, often 2,000–5,000 KRW!). For curated vintage, visit stores like **Goyu Vintage** and **Cut-a-dash** along Gwangbok-ro.</p>
+                    
+                    <div class="nested-title"><i class="fa-solid fa-building-columns"></i> <a href="http://www.f1963.org" target="_blank">F1963 Cultural Complex (Suyeong-gu)</a></div>
+                    <p>A wire manufacturing factory operating from 1963 to 2008, beautifully transformed into an eco-friendly cultural oasis. Home to art galleries, a massive Yes24 secondhand bookstore, botanical gardens, and the famous Terarosa Cafe. Outstanding for family walks.</p>
+                    
+                    <div class="nested-title"><i class="fa-solid fa-image"></i> <a href="https://www.busan.go.kr/moca" target="_blank">MoCA Busan (Museum of Contemporary Art)</a></div>
+                    <p>Located on Eulsukdo Island, this museum is famous for its vertical garden exterior and family-friendly digital art, media installations, and playgrounds focusing on ecological and environmental art.</p>
+                </div>
+
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-compass"></i> Sights & Marine Attractions</h3>
+                    <ul>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/oryukdo/" target="_blank">Oryukdo Skywalk:</a></strong> A 35-meter cliff-side glass bridge showing views of the Oryukdo rock formations depending on the tide. Very close to the hotel!</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/igidae/" target="_blank">Igidae Coastal Walk:</a></strong> A dramatic hiking path along volcanic sea cliffs. Offers views of the sea and the Busan skyline. Suitable for light walks near the entrance.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/unmemorialcemetery/" target="_blank">UN Memorial Cemetery:</a></strong> The world's only United Nations cemetery. A peaceful, beautifully landscaped memorial park. Visit their <a href="https://www.unmck.or.kr" target="_blank">official website</a> for maps and histories.</li>
+                        <li><strong>Gwangalli M Drone Light Show:</strong> Every Saturday night (8:00 PM and 10:00 PM) at Gwangalli Beach. Perfect for a family evening out on July 4th!</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/gamcheonculturevillage/" target="_blank">Gamcheon Culture Village:</a></strong> Known as the "Machu Picchu of Busan," this is a colorful terraced hillside village with pastel-colored houses, murals, art installations, and the famous Little Prince photo spot. Famed history as a refugee village in the 1950s.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/haedongyonggungsa/" target="_blank">Haedong Yonggungsa Temple:</a></strong> Built in 1376, this is one of South Korea's few Buddhist temples situated directly on rocky sea cliffs instead of high in the mountains. Incredible ocean views.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/bluelinepark/" target="_blank">Haeundae Blueline Park (Sky Capsule):</a></strong> A retro coastal train line. You can ride the private 2-to-4 person Sky Capsule (slow-moving elevated capsules) or the Beach Train along the ocean cliffs between Mipo and Cheongsapo. Essential to book tickets 4 weeks in advance!</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/jagalchimarket/" target="_blank">Jagalchi Fish Market & BIFF Square:</a></strong> Located in Jung-gu (Nampo-dong). Korea's largest fish market. You can view endless tanks of live marine creatures on the ground floor and eat fresh seafood on the second floor. BIFF Square nearby is famed for shopping and street food.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. CENTRAL SEOUL TAB -->
+        <div id="central-seoul" class="tab-content page-break-before">
+            <div class="section-intro">
+                <h2><i class="fa-solid fa-building-columns"></i> <a href="https://www.instagram.com/explore/tags/seoul/" target="_blank">Central Seoul</a></h2>
+                <p><strong>Stay:</strong> July 6 – July 9 (3 Nights — confirmed) | <strong>Base:</strong> 3BR apartment, 3FL, 96 Bugahyeon-ro, Seodaemun-gu (one stop from Ahyeon, next to Ewha — familiar turf!) | <strong>Vibe:</strong> Royal palaces, traditional culture, and high-energy shopping.</p>
+                <div class="photo-tip no-print"><i class="fa-solid fa-camera"></i> Click headings and tags to see the latest real-life tourist photos on Instagram!</div>
+            </div>
+
+            <div class="section-grid">
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-crown"></i> <a href="https://www.instagram.com/explore/tags/gyeongbokgung/" target="_blank">Gyeongbokgung Palace & Traditional Monument</a></h3>
+                    <img src="images/hanbok_palace.png" alt="Hanbok Day at Gyeongbokgung Palace" class="monument-img" style="max-height: 400px; object-fit: cover;">
+                    <p>Built in 1395, Gyeongbokgung ("Palace Greatly Blessed by Heaven") was the main royal palace of the Joseon Dynasty. Famed for its grand pavilions, expansive grounds, and the colorful **Changing of the Royal Guard Ceremony** held daily at the Gwanghwamun Gate (10:00 AM & 2:00 PM, closed Tuesdays). Learn more at the <a href="https://royal.khs.go.kr/gbg" target="_blank">Palace Administration Page</a>.</p>
+                    <p><em>Family Tip: Visit the **Children's Folk Museum** inside the palace grounds for fun, interactive hands-on heritage workshops!</em></p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-utensils"></i> Family Dining & Food</h3>
+                    <div class="nested-title"><i class="fa-solid fa-bowl-food"></i> <a href="http://www.mdkj.co.kr" target="_blank">Myeongdong Kyoja (명동교자)</a></div>
+                    <p>A Michelin Bib Gourmand landmark in Myeongdong. Open daily 10:30 AM to 09:30 PM. Known for its rich, garlic-heavy chicken *kalguksu* (hand-cut noodle soup) and incredibly juicy pork *mandu* (dumplings) for ~₩10,000–₩11,000 per dish. Service is blazing fast. *Tip:* Extra noodle and rice refills are free with a main order, and the garlic-heavy kimchi served here is legendary (but very spicy!).</p>
+                    
+                    <div class="nested-title"><i class="fa-solid fa-drumstick-bite"></i> <a href="http://www.tosokchon.com/main.php" target="_blank">Tosokchon Samgyetang (토속촌 삼계탕)</a></div>
+                    <p>Located near Gyeongbokgung. Famous for serving rich ginseng chicken soup (*samgyetang*) inside a traditional, spacious Hanok building. A perfect, healthy, and warm mid-range family meal.</p>
+                    
+                    <div class="nested-title"><i class="fa-solid fa-cookie-bite"></i> <a href="https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=79811" target="_blank">Tongin Market (통인시장)</a></div>
+                    <p>A unique market where you buy traditional brass coins (*yeopjeon*) to trade with various food stalls to build your own lunchbox (*dosirak*). Fun, interactive, and budget-friendly!</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-image"></i> Museums & Art Galleries</h3>
+                    <ul>
+                        <li><a href="https://www.museum.go.kr" target="_blank"><strong>National Museum of Korea (Yongsan-gu):</strong></a> A massive, beautiful complex housing over 300,000 historical relics and national treasures. Famed for the "Room of Quiet Contemplation" (national gilt-bronze Buddha statues) and beautiful outdoor gardens. General admission is <strong>free</strong>!</li>
+                        <li><a href="https://www.mmca.go.kr" target="_blank"><strong>MMCA Seoul (National Museum of Modern & Contemporary Art):</strong></a> Located right next to Gyeongbokgung Palace. Focuses on contemporary, cutting-edge art installations, sculpture gardens, and digital media.</li>
+                        <li><a href="https://www.leeumhoam.org" target="_blank"><strong>Leeum Museum of Art (Hannam-dong):</strong></a> A private museum operated by the Samsung Foundation. Combines traditional Korean art (celadon, calligraphy) with a world-class collection of international contemporary art (Rothko, Warhol). Staggering architecture.</li>
+                    </ul>
+                </div>
+
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-book-open"></i> <a href="https://www.instagram.com/explore/tags/starfieldlibrary/" target="_blank">Gangnam & COEX — Starfield Library</a></h3>
+                    <p>The famous <strong>Starfield Library (별마당도서관)</strong> sits in the heart of COEX Mall in Gangnam — a soaring two-story atrium with 13-meter bookshelves, ~70,000 books, and 600 magazines under a glass ceiling. It's <strong>completely free</strong>, no reservation needed, and open daily <strong>10:30 AM – 10:00 PM</strong>. One of Seoul's most photographed interiors. Details at the <a href="https://english.visitseoul.net/attractions/Starfield-Library/ENP026558" target="_blank">Official Seoul Guide</a>.</p>
+                    <ul>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/bongeunsa/" target="_blank">Bongeunsa Temple:</a></strong> Founded in 794 AD, directly across the street from COEX. A serene Buddhist temple complex with a 28-meter stone Maitreya Buddha — one of the tallest in Korea. A surreal contrast against the Gangnam skyscrapers. Worth at least an hour.</li>
+                        <li><strong>Gangnam Style Statue:</strong> The giant bronze "hands" sculpture at COEX East Gate — a fun 4-minute photo stop from the library.</li>
+                        <li><strong>COEX Aquarium:</strong> Over 40,000 sea creatures in 14 themed zones inside the same mall — a solid rainy-day backup if you skip Busan's SEA LIFE.</li>
+                        <li><strong>Seonjeongneung Royal Tombs:</strong> A UNESCO World Heritage site — tranquil royal burial mounds and forest paths, one subway stop away.</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <i class="fa-solid fa-umbrella"></i> <strong>Monsoon Hack:</strong> COEX is Asia's largest underground mall (300+ shops, cinema, food halls). If a *jangma* downpour hits during your Central Seoul leg, swap any outdoor day for this — library, aquarium, temple, and dinner all within one covered block.
+                    </div>
+                    <a href="https://map.naver.com/v5/search/%EB%B3%84%EB%A7%88%EB%8B%B9%EB%8F%84%EC%84%9C%EA%B4%80" target="_blank" class="map-link no-print"><i class="fa-solid fa-map"></i> Open in Naver Maps</a>
+                </div>
+
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-tower-observation"></i> Historical & Modern Sights</h3>
+                    <ul>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/nseoultower/" target="_blank">N Seoul Tower (Namsan Tower):</a></strong> Situated on top of Namsan Mountain. Famed for its panoramic views of the entire city, Namsan Cable Car rides, and thousands of colorful love locks.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/cheonggyecheon/" target="_blank">Cheonggyecheon Stream:</a></strong> An 11km modern public recreation stream running through downtown Seoul. Restored from an ancient waterway, it features beautiful stone pathways, bridges, waterfalls, and evening light installations. Highly flat and peaceful.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/dongdaemundesignplaza/" target="_blank">Dongdaemun Design Plaza (DDP):</a></strong> Designed by the late architect Zaha Hadid. A futuristic, silver-clad architectural landmark housing design museums, exhibition halls, parks, and seasonal outdoor markets.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/deoksugung/" target="_blank">Deoksugung Palace:</a></strong> Located near Seoul Plaza. A unique royal palace containing both traditional Korean wooden pavilions and Western neoclassical stone architecture (Seokjojeon). Famed for its beautiful night viewings and stone-wall walking path.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/gwangjangmarket/" target="_blank">Gwangjang Market:</a></strong> Established in 1905, this is Korea's oldest operating market. Famous for *bindaetteok* (crispy mung bean pancakes) and *mayak gimbap* (addictive mini rice rolls).
+                            <p class="highlight-box" style="margin-top: 8px; border-left-color: #d9534f; background-color: rgba(217, 83, 79, 0.05);">
+                                ⚠️ <strong>Reddit Community Warning:</strong> Extremely tourist-saturated and frequently flagged for price gouging, unhygienic practices, and pushy vendors. Stalls in the middle of the street often give larger portions than ordered to demand higher prices. *Tips:* Calculate your bill before eating, pay with card where possible, and avoid street vendors in the central aisles. Consider visiting much more local, authentic alternatives like <strong>Mangwon Market</strong> or <strong>Gyeongdong Market</strong> for a better experience.
+                            </p>
+                        </li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/namdaemunmarket/" target="_blank">Namdaemun Market:</a></strong> Korea's largest traditional market. Great for wholesale goods, souvenirs, and children's clothing.</li>
+                        <li><strong><a href="https://www.instagram.com/explore/tags/bukchonhanokvillage/" target="_blank">Bukchon Hanok Village:</a></strong> A neighborhood of preserved traditional Korean houses. Offers scenic viewpoints, tea houses, and craft workshops.</li>
+                        <li><strong><a href="https://english.seoul.go.kr" target="_blank">Seoul Outdoor Library (Seoul Plaza & Gwanghwamun):</a></strong> Every Friday–Sunday through summer, the plazas fill with bean bags, parasols, and free open-air reading lounges in the evening. A lovely, free way to rest your feet between Deoksugung and Myeongdong.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. LOGISTICS & TIPS TAB -->
+        <div id="logistics" class="tab-content page-break-before">
+            <div class="section-intro">
+                <h2><i class="fa-solid fa-sliders"></i> Travel Logistics & Essential Advice</h2>
+                <p>Practical travel hacks to keep your family comfortable, connected, and budget-smart.</p>
+            </div>
+
+            <div class="section-grid">
+                <!-- Pre-Trip Prep -->
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-cart-shopping"></i> Pre-Trip Prep: Buy & Book Before You Fly</h3>
+                    <p>Korea runs on <strong>220V with Type C / F round-pin plugs</strong> (same as continental Europe). Get these sorted at home — they're annoying to hunt down on day one:</p>
+                    <ul>
+                        <li><strong>Travel adapter (Type C/F):</strong> One per person, or a universal adapter with 2+ USB ports. Phone/laptop chargers are dual-voltage and fine; <strong>do NOT plug in single-voltage hair dryers or stylers</strong> from a 110/120V country — they'll burn out.</li>
+                        <li><strong>eSIM or data plan:</strong> Install a Korea eSIM (Airalo, Klook, etc.) before flying so Naver Maps works the second you land. Cheaper and easier than airport SIM counters.</li>
+                        <li><strong>Power bank (≤100Wh, carry-on only):</strong> Naver Maps + Papago + photos drain batteries fast in summer heat.</li>
+                        <li><strong>Apps to install now:</strong> Naver Maps, Papago, k.ride — and create accounts at home while you have easy verification.</li>
+                        <li><strong>Entry requirements:</strong> Check whether your passport needs a <a href="https://www.k-eta.go.kr/portal/apply/index.do" target="_blank">K-ETA</a> or visa, and apply at least 2 weeks out.</li>
+                        <li><strong>Personal items to pack:</strong> Deodorant (genuinely hard to find in Korea), any regular medication (bring prescriptions — some Western meds are restricted), and blister plasters for big walking days.</li>
+                    </ul>
+                    <div class="highlight-box" style="border-left-color: #d9534f; background-color: rgba(217, 83, 79, 0.05);">
+                        ⏰ <strong>Booking countdown (as of June 10):</strong> ① KTX Jul 3 & Jul 6 windows are <strong>already open</strong> — book today on <a href="https://www.letskorail.com" target="_blank">Korail</a>. ② Haeundae Sky Capsule for Jul 4 — book now (4-week lead time). ③ Changdeokgung Secret Garden tour for Jun 30 — English slots open 6 days ahead, sell out fast. ④ SEA LIFE Busan tickets — buy discounted on Klook/Trazy any time before you go.
+                    </div>
+                </div>
+
+                <!-- K-Beauty & Skincare -->
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-sparkles"></i> K-Beauty & Skincare Hotspots</h3>
+                    <p>Korea is the global capital of skincare. Here is where to shop for brands like Innisfree, Laneige, Beauty of Joseon, COSRX, and Sulwhasoo:</p>
+                    <ul>
+                        <li><a href="https://global.oliveyoung.com" target="_blank"><strong>Olive Young (Everywhere):</strong></a> The absolute titan of Korean beauty. It's a multi-brand drugstore found on almost every street corner.
+                            <ul>
+                                <li><strong>Myeongdong Town Flagship:</strong> A massive two-story beauty department store. Always has English/multilingual staff, tax refund kiosks, and exclusive brand pop-ups.</li>
+                                <li><strong>Hongdae Town Flagship:</strong> Sleek, high-tech, and heavily stocked with trendy skincare, hair care, and makeup.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Innisfree Flagship Stores:</strong> Located in Myeongdong and Hongdae. Famed for natural, eco-friendly ingredients sourced from Jeju Island. They offer exclusive travel-sized gift sets.</li>
+                        <li><strong>Aland (Hongdae / Myeongdong):</strong> A multi-brand clothing store that houses a curated section of indie skincare brands (like COSRX and Klairs) that are harder to find elsewhere.</li>
+                        <li><strong>Myeongdong Roadshops:</strong> You will find individual brand boutiques (Etude House, TonyMoly, Laneige) packed along the main pedestrian streets, offering free samples to shoppers.</li>
+                    </ul>
+                </div>
+
+                <!-- KTX Trains -->
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-train"></i> KTX High-Speed Rail Logistics</h3>
+                    <p>High-speed rail is the best way to travel between Seoul and Busan (~2h 15m). Book directly on the official <strong><a href="https://www.letskorail.com" target="_blank">Let's Korail website</a></strong>.</p>
+                    <p class="highlight-box">
+                        <strong>✓ Tickets booked!</strong> KTX103 Seoul → Busan, Friday July 3, 13:08 → 16:28 (₩50,800 pp) and KTX124 Busan → Seoul, Monday July 6, 13:17 → 16:34 (₩46,400 pp). Keep the QR tickets on your phones plus one printed set.
+                    </p>
+                    <ul>
+                        <li><strong>Avoid High Fees:</strong> Only book through the official website or verified partners like Trip.com. Do not buy from unofficial resellers charging heavy markup fees.</li>
+                        <li><strong>Arrival Tip:</strong> Arrive at Seoul Station or Busan Station at least <strong>20–30 minutes before departure</strong>. High-speed trains run exactly on time and do not wait for late passengers.</li>
+                    </ul>
+                </div>
+
+                <!-- Transit Cards -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-bus"></i> T-money Transit Cards</h3>
+                    <p>Every traveler needs their own card. You can purchase them at any convenience store (CU, GS25, 7-Eleven).</p>
+                    <p class="highlight-box">
+                        <strong>Child Discount Registration:</strong> Show the child's passport to the cashier <strong>at the time of purchase</strong> and ask to register the card as a "Child" (ages 6–12) or "Youth" (ages 13–18). This applies discounted transit fares instantly. Visit the <a href="https://pay.tmoney.co.kr/ncs/pct/ugd/ReadFrgnGd.dev" target="_blank">Official T-Money Guide</a> for transit rules.
+                    </p>
+                    <p><em>Note: T-money cards must be loaded with CASH (Korean Won) at station ticketing machines or convenience stores. They cannot be loaded using credit cards.</em></p>
+                </div>
+
+                <!-- Apps & Navigation -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-mobile-screen-button"></i> Essential Smartphone Apps</h3>
+                    <ul>
+                        <li><strong>Naver Maps:</strong> Google Maps does not provide walking or transit directions in South Korea due to national security regulations. Naver Maps is the absolute gold standard here.</li>
+                        <li><strong>k.ride:</strong> An English taxi-hailing app by Kakao Mobility designed specifically for foreign tourists. Unlike Kakao T, it easily connects to international credit cards and uses the same massive taxi network. Download details at <a href="https://k-ride.kakaomobility.com/" target="_blank">Kakao Mobility k.ride</a>.</li>
+                        <li><strong>Papago:</strong> The absolute best translation app for Korean. It handles images (menus, signs) and speech translation much better than Google Translate.</li>
+                    </ul>
+                </div>
+
+                <!-- Weather & Packing -->
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-cloud-umbrella"></i> Weather & Packing (Monsoon Season)</h3>
+                    <p>Late June and early July is South Korea's **monsoon season (*Jangma*)**.</p>
+                    <ul>
+                        <li>Expect **high temperatures (25°C–30°C / 77°F–86°F)**, **extreme humidity (80%–90%)**, and sudden "guerrilla rainstorms"—heavy downpours that last a few hours rather than all day.</li>
+                        <li><strong>Flexible Packing:</strong> Pack breathable, quick-drying fabrics (linen, athletic wear). Bring a light cardigan or button-down shirt; indoor malls, museums, and subways blast freezing air-conditioning.</li>
+                        <li><strong>Shoes:</strong> Cushioned, water-resistant sneakers or waterproof sandals with good grip. Avoid leather that ruins or slippery flip-flops.</li>
+                        <li><strong>Buy locally:</strong> Grab a sturdy compact umbrella and a rechargeable handheld fan (available cheaply at Daiso).</li>
+                    </ul>
+                </div>
+
+                <!-- Money, Taxes & Etiquette -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-wallet"></i> Money & Customs</h3>
+                    <ul>
+                        <li><strong>Cashless Society:</strong> Credit cards are accepted almost everywhere (taxis, shops, restaurants). Keep ~50,000–100,000 KRW cash per person for T-money loading and street market stalls.</li>
+                        <li><strong>No Tipping:</strong> Tipping is not practiced in South Korea. The service charge is included in the bill. Trying to tip can cause confusion or be seen as rude.</li>
+                        <li><strong>Immediate Tax Refunds:</strong> Look for "Tax Free" shops. Present your physical passport at the register for purchases over 15,000 KRW to get the tax deducted on the spot.</li>
+                    </ul>
+                </div>
+
+                <!-- Emergency Contacts -->
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-phone-flip"></i> Emergency Contacts</h3>
+                    <table class="lang-table">
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Service</th>
+                                <th>When to Call</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>119</strong></td>
+                                <td>Ambulance & Fire</td>
+                                <td>Medical emergencies, accidents, or fires (24/7, translation available)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>112</strong></td>
+                                <td>Police</td>
+                                <td>Reporting theft, safety issues, or security concerns</td>
+                            </tr>
+                            <tr>
+                                <td><strong>1330</strong></td>
+                                <td>Korea Travel Helpline</td>
+                                <td>General tourist advice, language translation, complaints (24/7, English)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>1339</strong></td>
+                                <td>Medical Advice Helpline</td>
+                                <td>Non-emergency health concerns or finding English-speaking clinics</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Language Guide -->
+                <div class="card grid-span-2">
+                    <h3><i class="fa-solid fa-language"></i> Useful Korean Phrases</h3>
+                    <table class="lang-table">
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Korean</th>
+                                <th>Pronunciation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hello / Good morning</td>
+                                <td class="lang-korean">안녕하세요</td>
+                                <td>An-nyeong-ha-se-yo</td>
+                            </tr>
+                            <tr>
+                                <td>Thank you</td>
+                                <td class="lang-korean">감사합니다</td>
+                                <td>Gam-sa-ham-ni-da</td>
+                            </tr>
+                            <tr>
+                                <td>I'm sorry / Excuse me</td>
+                                <td class="lang-korean">죄송합니다</td>
+                                <td>Joe-song-ham-ni-da</td>
+                            </tr>
+                            <tr>
+                                <td>Where is the bathroom?</td>
+                                <td class="lang-korean">화장실이 어디예요?</td>
+                                <td>Hwa-jang-sil-i eo-di-ye-yo?</td>
+                            </tr>
+                            <tr>
+                                <td>How much is this?</td>
+                                <td class="lang-korean">얼마예요?</td>
+                                <td>Eol-ma-ye-yo?</td>
+                            </tr>
+                            <tr>
+                                <td>This one, please (ordering)</td>
+                                <td class="lang-korean">이거 주세요</td>
+                                <td>I-geo ju-se-yo</td>
+                            </tr>
+                            <tr>
+                                <td>It's delicious!</td>
+                                <td class="lang-korean">맛있어요!</td>
+                                <td>Ma-si-seo-yo!</td>
+                            </tr>
+                            <tr>
+                                <td>Please make it not spicy</td>
+                                <td class="lang-korean">안 맵게 해주세요</td>
+                                <td>An maep-ge hae-ju-se-yo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. SUGGESTED AGENDA TAB -->
+        <div id="agenda" class="tab-content page-break-before">
+            <div class="section-intro">
+                <h2><i class="fa-solid fa-calendar-days"></i> Suggested Day-by-Day Agenda</h2>
+                <p>A balanced, family-friendly agenda covering key attractions, culinary highlights, and relaxation. Click on any day to see details.</p>
+            </div>
+
+            <div class="timeline">
+                
+                <!-- Day 1 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 1</span>
+                            <span class="day-date">Sat June 27 — Arrival & Unpack</span>
+                        </div>
+                        <div class="day-summary">Ahyeon, Seoul</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">Afternoon</span>
+                            <h4>Check in & Settle</h4>
+                            <p>ET672 lands at Incheon 4:00 PM. Immigration, bags, T-money cards, then the AREX train to Gongdeok — at the Ahyeon accommodation around 7 PM.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">5:00 PM</span>
+                            <h4>Forest Walk</h4>
+                            <p>Take a relaxing walk along the flat, shaded paths of the <a href="https://www.instagram.com/explore/tags/gyeonguilineforestpark/" target="_blank">Gyeongui Line Forest Park</a>, right outside Ahyeon. Good way to beat jetlag.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">7:00 PM</span>
+                            <h4>Welcome Dinner</h4>
+                            <p>Eat a warm bowl of *seolleongtang* (ox bone soup) or *tteokbokki* at a local restaurant near Ahyeon Station.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 2</span>
+                            <span class="day-date">Sun June 28 — Neighborhood Exploration</span>
+                        </div>
+                        <div class="day-summary">Ahyeon Sights & Sinchon Shopping</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">10:00 AM</span>
+                            <h4>Ahyeon Market Stroll</h4>
+                            <p>Explore the local stalls of the historic Ahyeon Market. Taste fresh street food like *hotteok* (sweet seed pancakes) and *jeon* (savory pancakes).</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">1:30 PM</span>
+                            <h4>Sinchon & Ewha Womans University Shopping</h4>
+                            <p>Stroll through the adjoining university shopping streets. Great for finding affordable local cosmetic brands, clothing boutiques, and tea shops.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">6:00 PM</span>
+                            <h4>Dinner: Soy Sauce Crab</h4>
+                            <p>Walk to the local favorite <a href="https://www.instagram.com/ah_gejang/" target="_blank">Ahyeon-dong Ganjang Gejang</a> for their famous marinated raw crab feast.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 3</span>
+                            <span class="day-date">Mon June 29 — Imperial Heritage</span>
+                        </div>
+                        <div class="day-summary">Palace & Hanok Village</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">9:45 AM</span>
+                            <h4>Gyeongbokgung Guard Changing</h4>
+                            <p>Arrive at the main gate of Gyeongbokgung Palace to watch the traditional guard changing ceremony (starts at 10:00 AM).</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">10:30 AM</span>
+                            <h4>Palace & Children's Folk Museum</h4>
+                            <p>Explore the vast pavilions of the palace. Head to the Children's Folk Museum located on the eastern grounds for interactive exhibits.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">2:00 PM</span>
+                            <h4>Bukchon Hanok Village</h4>
+                            <p>Take a scenic, slow walk through the historic <a href="https://www.instagram.com/explore/tags/bukchonhanokvillage/" target="_blank">Bukchon Hanok Village</a>. Stop at a traditional tea house to rest your feet.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">6:00 PM</span>
+                            <h4>Cheonggyecheon Stream Walk</h4>
+                            <p>Walk down to the <a href="https://www.instagram.com/explore/tags/cheonggyecheon/" target="_blank">Cheonggyecheon Stream</a> and take a quiet evening walk along the waterfalls and modern light installations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 4</span>
+                            <span class="day-date">Tue June 30 — Gardens & Art Crafts</span>
+                        </div>
+                        <div class="day-summary">Secret Garden & N Seoul Tower</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">10:00 AM</span>
+                            <h4>Changdeokgung Secret Garden</h4>
+                            <p>Visit Changdeokgung Palace. Take a pre-booked guided tour of the stunning "Secret Garden" (Huwon), famed for its ancient trees and ponds.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">1:30 PM</span>
+                            <h4>Insadong Craft Street</h4>
+                            <p>Walk to Insadong. Explore Ssamzigil mall and browse local calligraphy, handmade pottery, and tea shops.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">5:30 PM</span>
+                            <h4>N Seoul Tower Sunset</h4>
+                            <p>Take the Namsan Cable Car up to the iconic <a href="https://www.instagram.com/explore/tags/nseoultower/" target="_blank">N Seoul Tower</a>. Enjoy panoramic sunset views of the city skyline and explore the love locks garden.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 5</span>
+                            <span class="day-date">Wed July 1 — Fashion & Futuristic Design</span>
+                        </div>
+                        <div class="day-summary">Hongdae, DDP & BBQ</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">11:00 AM</span>
+                            <h4>Hongdae Shopping & Vintage Alleys</h4>
+                            <p>Head to Hongdae. Shop at Musinsa Standard and Aland for tailored and indie fashion, and wander the vintage basements (Vintage Santa, Omnipeople) for rare pieces.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">3:00 PM</span>
+                            <h4>Dongdaemun Design Plaza (DDP)</h4>
+                            <p>Visit the iconic futuristic design complex by Zaha Hadid. Check out current design exhibitions on <a href="https://www.instagram.com/explore/tags/dongdaemundesignplaza/" target="_blank">DDP</a>.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">6:30 PM</span>
+                            <h4>Korean Barbecue Feast</h4>
+                            <p>Enjoy a communal Korean BBQ dinner with premium pork belly (*samgyeopsal*) and grilled ribs in Hongdae.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 6 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 6</span>
+                            <span class="day-date">Thu July 2 — Palace, K-Beauty & River</span>
+                        </div>
+                        <div class="day-summary">Deoksugung, Myeongdong & Hangang</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">10:00 AM</span>
+                            <h4>Deoksugung Palace</h4>
+                            <p>Visit the unique royal palace containing neoclassical Western stone architecture next to traditional wooden pavilions.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">12:30 PM</span>
+                            <h4>Myeongdong Skincare Shopping</h4>
+                            <p>Head to the massive Olive Young Myeongdong Town Flagship for K-beauty shopping. Grab street food (skewers, egg bread) for a fun lunch.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">5:00 PM</span>
+                            <h4>Yeouido Hangang Park Picnic</h4>
+                            <p>Head down to the Han River. Rent a picnic mat, order Korean fried chicken for delivery, and watch the city lights by the water. See recent picnics at <a href="https://www.instagram.com/explore/tags/yeouidohangangpark/" target="_blank">Hangang Park</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 7 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 7</span>
+                            <span class="day-date">Fri July 3 — Travel to Busan</span>
+                        </div>
+                        <div class="day-summary">KTX Train, Seafood Markets & Sunset Cruise</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">1:08 PM</span>
+                            <h4>KTX103 to Busan (booked)</h4>
+                            <p>Departs Seoul Station 1:08 PM, arrives Busan 4:28 PM. Free morning in Ahyeon to pack and stroll the market first. Free WiFi and charging outlets on board.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">4:45 PM</span>
+                            <h4>Check in at Bonathree Hotel</h4>
+                            <p>Taxi ~25 min from Busan Station. Check-in from 4 PM (2 rooms confirmed). Jagalchi Market & BIFF Square move to Sunday evening instead.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">6:00 PM</span>
+                            <h4>Sunset Yacht Cruise</h4>
+                            <p>Walk 10 mins to the Yongho-man Sightseeing Boat Terminal for a Diamond Bay Yacht Cruise. Enjoy sunset views of Gwangalli Beach and Gwangan Bridge.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 8 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 8</span>
+                            <span class="day-date">Sat July 4 — Culture Village, Sea Life & Drones</span>
+                        </div>
+                        <div class="day-summary">Gamcheon, Aquarium, Beach & Drones</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">9:30 AM</span>
+                            <h4>Gamcheon Culture Village</h4>
+                            <p>Explore the vibrant, terraced houses of Busan's famous art village. Find the Little Prince statue and capture photos of the colored roofs. View recent pictures at <a href="https://www.instagram.com/explore/tags/gamcheonculturevillage/" target="_blank">Gamcheon</a>.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">1:30 PM</span>
+                            <h4>Haeundae Blueline Park (Sky Capsule)</h4>
+                            <p>Take a scenic coastal ride on the elevated Sky Capsule from Mipo Station to Cheongsapo. Incredible ocean views. Check it out: <a href="https://www.instagram.com/explore/tags/bluelinepark/" target="_blank">Sky Capsule feed</a>.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">3:30 PM</span>
+                            <h4>SEA LIFE Busan Aquarium & Haeundae Beach</h4>
+                            <p>Explore the underwater tunnels and shark tanks. Walk along the famous Haeundae Beach afterwards.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">8:00 PM</span>
+                            <h4>Gwangalli Drone Light Show</h4>
+                            <p>Take a taxi to Gwangalli Beach, grab dinner, and watch the spectacular synchronized drone light show over the water (starts at 8:00 PM).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 9 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 9</span>
+                            <span class="day-date">Sun July 5 — Memorial, Temple & Pork Soup</span>
+                        </div>
+                        <div class="day-summary">UN Cemetery, Coastal Temple & Local Eats</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">9:30 AM</span>
+                            <h4>UN Memorial Cemetery & Busan Museum</h4>
+                            <p>Visit the beautifully manicured memorial grounds. Pop into the Busan Museum next door to try on traditional hanbok.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">12:30 PM</span>
+                            <h4>Lunch: Ssangdoongi Pork Rice Soup</h4>
+                            <p>Walk to the nearby legendary restaurant <a href="https://naver.me/GDcM07a3" target="_blank">Ssangdoongi Dwaeji Gukbap</a> for a hot bowl of traditional pork soup.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">2:30 PM</span>
+                            <h4>Haedong Yonggungsa Temple</h4>
+                            <p>Take a taxi to the magnificent Buddhist temple built directly on the rugged ocean cliffs. Highly spiritual and scenic. See the temple views: <a href="https://www.instagram.com/explore/tags/haedongyonggungsa/" target="_blank">Haedong Yonggungsa Feed</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 10 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 10</span>
+                            <span class="day-date">Mon July 6 — Return to Capital</span>
+                        </div>
+                        <div class="day-summary">KTX to Central Seoul & Market</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">1:17 PM</span>
+                            <h4>KTX124 back to Seoul (booked)</h4>
+                            <p>Slow Busan morning, check out by 12 PM, then departs Busan 1:17 PM, arrives Seoul 4:34 PM. Check into the 3BR apartment at 96 Bugahyeon-ro, Seodaemun-gu — one stop from Ahyeon.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">6:00 PM</span>
+                            <h4>Gwangjang Market dinner</h4>
+                            <p>Head to Gwangjang Market to sample crispy mung bean pancakes (*bindaetteok*), mayak gimbap, and fresh dumplings.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 11 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 11</span>
+                            <span class="day-date">Tue July 7 — Shopping & Traditional Village</span>
+                        </div>
+                        <div class="day-summary">Namdaemun & Namsangol Hanok Village</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">10:00 AM</span>
+                            <h4>Namdaemun Market shopping</h4>
+                            <p>Explore Korea's largest traditional market. Check out the children's clothing sections, local kitchenware, and snacks.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">2:00 PM</span>
+                            <h4>Namsangol Hanok Village</h4>
+                            <p>Explore the quiet, flat traditional village valley, play folk games, and try out traditional papercraft workshops.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 12 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 12</span>
+                            <span class="day-date">Wed July 8 — Fine Art, Starfield Library & Gangnam Farewell</span>
+                        </div>
+                        <div class="day-summary">Leeum Museum, Starfield Library, Bongeunsa & K-BBQ</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">10:30 AM</span>
+                            <h4>Leeum Museum of Art</h4>
+                            <p>Visit the spectacular private museum in Hannam-dong. View the modern exhibits and historic ceramics collection.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">1:00 PM</span>
+                            <h4>Hannam-dong Boutique Walks</h4>
+                            <p>Browse the design stores and hip boutiques in Hannam-dong, and stop by a local cafe for lunch.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">3:30 PM</span>
+                            <h4>Starfield Library & COEX (Gangnam)</h4>
+                            <p>Taxi or subway (~20 min) to COEX Mall. Wander the iconic 13-meter bookshelves of the Starfield Library (free, open until 10 PM), snap the Gangnam Style statue at the East Gate, and pick up last-minute gifts in Asia's largest underground mall.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">5:30 PM</span>
+                            <h4>Bongeunsa Temple at Golden Hour</h4>
+                            <p>Cross the street to the 1,200-year-old Bongeunsa Temple. See the 28-meter stone Buddha glow at dusk with the Gangnam skyline behind it — one of Seoul's best photo contrasts.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">7:00 PM</span>
+                            <h4>Early farewell K-BBQ, then airport</h4>
+                            <p>A proper K-BBQ feast near Samseong Station — then back to the apartment for the bags and off to Incheon by ~8:30 PM. Tonight is airport night: ET673 departs 00:20.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 13 -->
+                <div class="agenda-day">
+                    <div class="agenda-header" onclick="toggleDay(this)">
+                        <div class="agenda-title">
+                            <span class="day-badge">Day 13</span>
+                            <span class="day-date">Thu July 9 — Departure</span>
+                        </div>
+                        <div class="day-summary">Airport transit & flight home</div>
+                        <i class="chevron-icon fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="agenda-content">
+                        <div class="timeline-item">
+                            <span class="timeline-time">00:20 AM</span>
+                            <h4>ET673 departs Incheon (you leave for the airport on the evening of July 8!)</h4>
+                            <p>The flight home leaves just after midnight: be at ICN by ~9:30 PM on Wednesday July 8. Connection in Addis Ababa (ET845), landing Cape Town 1:00 PM Thursday.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Javascript logic for interactivity -->
+    <script>
+        // Tab switching logic
+        function switchTab(evt, tabId) {
+            // Hide all tab contents
+            const tabcontents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontents.length; i++) {
+                tabcontents[i].classList.remove("active");
+            }
+
+            // Remove active class from all tab buttons
+            const tablinks = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // Show active tab, add active class to clicked button
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+            
+            // Scroll to top of content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Accordion toggle logic for Day-by-Day Agenda
+        function toggleDay(headerElement) {
+            const dayElement = headerElement.parentElement;
+            dayElement.classList.toggle("collapsed");
+        }
+
+        // Initialize theme based on preferences
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+            updateThemeButton(true);
+        } else {
+            updateThemeButton(false);
+        }
+
+        // Toggle Theme logic
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('dark-theme');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeButton(isDark);
+        }
+
+        function updateThemeButton(isDark) {
+            const btn = document.getElementById('themeToggle');
+            if (isDark) {
+                btn.innerHTML = '<i class="fa-solid fa-sun"></i> <span>Light Mode</span>';
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-moon"></i> <span>Dark Mode</span>';
+            }
+        }
+        
+        // Print setup helper (expands all accordions for proper print rendering)
+        window.onbeforeprint = function() {
+            // Expand all days
+            const days = document.getElementsByClassName("agenda-day");
+            for (let i = 0; i < days.length; i++) {
+                days[i].classList.remove("collapsed");
+            }
+            // Show header printed text
+            document.getElementById("printHeading").style.display = "block";
+        };
+
+        window.onafterprint = function() {
+            // Collapse days back
+            document.getElementById("printHeading").style.display = "none";
+        };
+    </script>
+<script>
+    // --- ZAR conversion (South African Rand) ---
+    // Rate as of June 2026: 1 KRW = R0.0108  (₩10,000 ≈ R108). Update RATE when rates move.
+    (function(){
+        const RATE = 0.0108;
+        const fmtR = v => 'R' + Math.round(v).toLocaleString('en-US');
+        function num(s, k){ let v = parseFloat(s.replace(/,/g,'')); if(k) v *= 1000; return v; }
+        function convWon(match, a, ak, b, bk){
+            let va = num(a, ak), vb = b ? num(b, bk) : null;
+            if (vb !== null && bk && !ak && va < 1000) va *= 1000; // "₩8–25k" → 8k–25k
+            if (va < 100) return match; // skip tiny/odd matches
+            let out = match + ' (≈' + fmtR(va * RATE);
+            if (vb !== null) out += '–' + fmtR(vb * RATE);
+            return out + ')';
+        }
+        function convKRW(match, a, b){
+            let va = num(a,false), vb = b ? num(b,false) : null;
+            if (va < 100) return match;
+            let out = match + ' (≈' + fmtR(va * RATE);
+            if (vb !== null) out += '–' + fmtR(vb * RATE);
+            return out + ')';
+        }
+        const reWon = /₩\s?([\d][\d,\.]*)(k)?(?:\s?[–—-]\s?₩?\s?([\d][\d,\.]*)(k)?)?/g;
+        const reKRW = /([\d][\d,]{2,})(?:\s?[–—-]\s?([\d][\d,]{2,}))?\s?KRW/g;
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+            acceptNode: n => (n.parentNode && /^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName)) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+        });
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(n => {
+            const t = n.nodeValue;
+            if (!t || t.indexOf('≈R') !== -1) return;
+            if (t.indexOf('₩') === -1 && t.indexOf('KRW') === -1) return;
+            let nt = t.replace(reWon, convWon);
+            nt = nt.replace(reKRW, convKRW);
+            if (nt !== t) n.nodeValue = nt;
+        });
+    })();
+    </script>
+
+</body>
+</html>
