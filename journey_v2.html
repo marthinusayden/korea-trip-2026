@@ -1097,14 +1097,14 @@ const EXPLORE_PLACES = {
 
 const DAYS = [
   {
-    num:1, date:'Sat 27 Jun', label:'Day 1', title:'Arrival & Mapo',
-    sub:'Incheon Airport · AREX to Seoul · Ahyeon check-in · Ganjang Gejang · N Seoul Tower', region:'seoul1',
+    num:1, date:'Sat 27 Jun', label:'Day 1', title:'Ahyeon-dong, Mapo-gu — Arrival',
+    sub:'Arrival day. Limited to evening only — check in, settle, eat close to home. Low spend.', region:'seoul1',
     stops:[
-      { type:'transit', time:'16:30', label:'🛬 ICN Terminal 1 — arrive EK322' },
-      { travel:{ mode:'subway', label:'AREX to Seoul Station → Ahyeon', time:'1h', cost:'₩5,000' } },
-      { type:'hotel', time:'18:00', label:'Check in: Ahyeon-dong apartment' },
-      { id:'r-gejang', type:'food', time:'18:30', label:'Ahyeon-dong Ganjang Gejang (아현동 간장게장) — Soy-marinated raw crab' },
-      { id:'a-nseoultower', type:'activity', time:'20:00', label:'N Seoul Tower & Cable Car — sunset city views' }
+      { type:'transit', label:'🛬 ICN Terminal 1 — arrive EK322' },
+      { travel:{ mode:'arex', label:'Incheon → Ahyeon — AREX express to Seoul Station, then subway 1 stop', time:'≈ 65 min', cost:'₩9,500 ≈ R103' } },
+      { type:'hotel', label:'Check in: Ahyeon-dong apartment' },
+      { id:'r-gejang', type:'food', time:'EVENING', label:'Ahyeon-dong Ganjang Gejang (아현동 간장게장) — Soy-marinated raw crab' },
+      { id:'a-nseoultower', type:'activity', time:'EVENING', label:'N Seoul Tower + Namsan Cable Car — Panoramic night city views' }
     ]
   },
   {
@@ -1552,11 +1552,24 @@ function renderTimeline(dayNum){
       return;
     }
 
-    const place = PLACES[stop.id];
-    if(!place) return;
-    stopNum++;
-    const color = getMarkerColor(place, stop.type);
-    const origIdx = dayData.stops.findIndex(s=>s.id===stop.id);
+    let place = PLACES[stop.id];
+    let isGeneric = false;
+    if(!place) {
+      if (stop.type === 'transit' || stop.type === 'hotel') {
+        isGeneric = true;
+        place = {
+          name: stop.label.split('—')[0] || stop.label,
+          teaser: stop.label.split('—')[1] || '',
+          emoji: stop.type === 'hotel' ? '🏨' : '🛬',
+          cost: '', duration: ''
+        };
+      } else {
+        return;
+      }
+    }
+    if(!isGeneric) stopNum++;
+    const color = isGeneric ? '#555' : getMarkerColor(place, stop.type);
+    const origIdx = dayData.stops.findIndex(s=>(s.id===stop.id || (isGeneric && s.label === stop.label)));
 
     html += `
       <div class="tl-stop" data-type="place" data-orig-idx="${origIdx}" data-place-id="${stop.id}">
