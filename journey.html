@@ -1098,13 +1098,13 @@ const EXPLORE_PLACES = {
 const DAYS = [
   {
     num:1, date:'Sat 27 Jun', label:'Day 1', title:'Arrival Day',
-    sub:'ICN lands 4:00pm · AREX to Ahyeon · Ganjang Gejang dinner · N Seoul Tower', region:'seoul1',
+    sub:'ICN lands 4:00pm · AREX to Ahyeon · Tosokchon Samgyetang dinner · N Seoul Tower', region:'seoul1',
     stops:[
       { type:'transit', time:'16:00', label:'✈️ ET672 Lands at ICN Terminal 2' },
       { travel:{ mode:'arex', label:'AREX All-Stop Train → Gongdeok', time:'~50 min', cost:'₩4,550' } },
       { id:'h-ahyeon', type:'hotel', time:'~18:30', label:'Check in to Ahyeon Apartment' },
       { travel:{ mode:'walk', label:'5 min walk', time:'5 min', cost:'Free' } },
-      { id:'r-gejang', type:'food', time:'19:00', label:'Dinner: Ahyeon-dong Ganjang Gejang (soy-marinated raw crab)' },
+      { id:'r-tosokchon', type:'food', time:'19:00', label:'Dinner: Tosokchon Samgyetang — whole ginseng chicken, ₩16,000' },
       { travel:{ mode:'walk', label:'Walk to Namsan Cable Car', time:'20 min', cost:'Free' } },
       { id:'a-nseoultower', type:'activity', time:'20:30', label:'N Seoul Tower — panoramic night views (cable car up)' }
     ]
@@ -1322,7 +1322,7 @@ const DAYS = [
 // ─── ITINERARY PLACE IDs (for ambient layer starring) ─────────────────────────
 const ITINERARY_IDS = new Set([
   'h-ahyeon','h-bonathree','h-seoul2',
-  'r-gejang','r-mapo','r-tosokchon','r-tongin','r-kyoja','r-gwangjang','r-bora',
+  'r-mapo','r-tosokchon','r-tongin','r-kyoja','r-gwangjang','r-bora',
   'r-gukbap','r-milmyeon','r-jagalchi','r-amook','r-milestone',
   'a-gyeongbokgung','a-secretgarden','a-bukchon','a-nseoultower','a-hongdaebusking',
   'a-mangwonmarket','a-haedong','a-skycapsule','a-gamcheon','a-luge',
@@ -1757,7 +1757,7 @@ let exploreLayerActive = false;
 let exploreMarkers = [];
 let activeFilters = { type: 'all', region: 'all', show: 'explore' };
 
-const ITINERARY_IDS_SET = new Set(['a-bongeunsa','a-bukchon','a-cinema','a-drones','a-gamcheon','a-gyeongbokgung','a-haedong','a-hanbok','a-hanriver','a-hongdaebusking','a-kbo','a-leeum','a-lolpark','a-luge','a-mangwonmarket','a-natmuseum','a-nseoultower','a-oryukdo','a-secretgarden','a-skycapsule','a-starfield','a-uncem','a-uncemetery','h-ahyeon','h-bonathree','h-seoul2','r-amook','r-bora','r-gejang','r-gukbap','r-gwangjang','r-jagalchi','r-knotted','r-kyoja','r-mapo','r-milestone','r-milmyeon','r-mongtan','r-tongin','r-tosokchon']);
+const ITINERARY_IDS_SET = new Set(['a-bongeunsa','a-bukchon','a-cinema','a-drones','a-gamcheon','a-gyeongbokgung','a-haedong','a-hanbok','a-hanriver','a-hongdaebusking','a-kbo','a-leeum','a-lolpark','a-luge','a-mangwonmarket','a-natmuseum','a-nseoultower','a-oryukdo','a-secretgarden','a-skycapsule','a-starfield','a-uncem','a-uncemetery','h-ahyeon','h-bonathree','h-seoul2','r-amook','r-bora','r-gukbap','r-gwangjang','r-jagalchi','r-knotted','r-kyoja','r-mapo','r-milestone','r-milmyeon','r-mongtan','r-tongin','r-tosokchon']);
 
 const REGION_COLORS = {
   seoul1: '#4A6B53',
@@ -2014,7 +2014,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 let filterPanelOpen = false;
 let activeFilters = { type: 'all', region: 'all', show: 'explore' };
 
-const ITINERARY_IDS_SET = new Set(['r-milestone', 'r-jagalchi', 'r-mapo', 'a-uncemetery', 'a-gamcheon', 'r-gukbap', 'a-uncem', 'a-hanbok', 'a-gyeongbokgung', 'a-kbo', 'a-secretgarden', 'r-kyoja', 'r-gejang', 'a-bukchon', 'a-leeum', 'a-hanriver', 'a-drones', 'h-bonathree', 'a-luge', 'r-milmyeon', 'a-bongeunsa', 'a-cinema', 'a-lolpark', 'h-ahyeon', 'r-bora', 'a-mangwonmarket', 'r-amook', 'a-starfield', 'r-tosokchon', 'a-skycapsule', 'a-natmuseum', 'r-tongin', 'r-mongtan', 'a-haedong', 'r-knotted', 'a-oryukdo', 'h-seoul2', 'a-nseoultower', 'r-gwangjang', 'a-hongdaebusking']);
+const ITINERARY_IDS_SET = new Set(['r-milestone', 'r-jagalchi', 'r-mapo', 'a-uncemetery', 'a-gamcheon', 'r-gukbap', 'a-uncem', 'a-hanbok', 'a-gyeongbokgung', 'a-kbo', 'a-secretgarden', 'r-kyoja',  'a-bukchon', 'a-leeum', 'a-hanriver', 'a-drones', 'h-bonathree', 'a-luge', 'r-milmyeon', 'a-bongeunsa', 'a-cinema', 'a-lolpark', 'h-ahyeon', 'r-bora', 'a-mangwonmarket', 'r-amook', 'a-starfield', 'r-tosokchon', 'a-skycapsule', 'a-natmuseum', 'r-tongin', 'r-mongtan', 'a-haedong', 'r-knotted', 'a-oryukdo', 'h-seoul2', 'a-nseoultower', 'r-gwangjang', 'a-hongdaebusking']);
 
 // Free places (cost is "Free" or empty)
 function isFree(place) {
