@@ -78,9 +78,9 @@
         header {
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: var(--radius-lg); padding: 36px 32px; margin-bottom: 24px;
-            box-shadow: var(--shadow); position: relative; overflow: hidden;
+            box-shadow: var(--shadow); position: relative;
         }
-        header::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+        /* gradient bar removed */
         .header-meta { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; margin-bottom: 6px; }
         header h1 { font-size: 2.4rem; margin-bottom: 8px; line-height: 1.15; }
         .header-desc { color: var(--text-muted); font-size: 1rem; max-width: 620px; }
@@ -103,7 +103,7 @@
         @media (max-width: 600px) { .switcher-logo, .switcher-divider { display: none; } .switcher-btn { font-size: 0.75rem; padding: 5px 10px; } #sectionSwitcher { padding: 0 10px; } }
 
         /* ── Control Bar ── */
-        .control-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(22,30,27,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); padding: 8px 16px; border-radius: 40px; display: flex; gap: 12px; z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .control-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(16,22,20,0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 16px; display: flex; gap: 8px; z-index: 1000; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
         .control-bar button { background: none; border: none; color: #fff; cursor: pointer; padding: 10px 16px; border-radius: 30px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: var(--transition); }
         .control-bar button:hover { background: rgba(255,255,255,0.1); color: var(--accent); }
 
@@ -148,7 +148,7 @@
 
         /* ── Menu Card ── */
         .menu-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; transition: all 0.22s ease; box-shadow: var(--shadow); position: relative; }
-        .menu-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.11); border-color: var(--primary-light); }
+        .menu-card:hover { transform: none; box-shadow: 0 4px 20px rgba(74,107,83,0.1); border-color: var(--primary-light); }
         .menu-card:active { transform: translateY(-1px); }
         .card-hero { height: 86px; display: flex; align-items: center; justify-content: center; font-size: 2.6rem; position: relative; flex-shrink: 0; background: var(--bg-body); border-bottom: 1px solid var(--border); transition: background 0.28s ease; }
         .menu-card:hover .card-hero { background: var(--brand-gradient); }
@@ -188,6 +188,12 @@
         .eyaan-wordmark { font-family: 'Times New Roman', Georgia, serif; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
         .card-hero .logo-fallback { font-size: 2.6rem; display: flex; align-items: center; justify-content: center; }
         .modal-hero .logo-fallback { font-size: 4.5rem; display: flex; align-items: center; justify-content: center; }
+        /* Category icon — replaces plain emojis */
+        .cat-icon { transition: opacity 0.22s ease, color 0.22s ease; }
+        .card-hero .cat-icon { font-size: 1.5rem; opacity: 0.18; color: var(--text-heading); }
+        .menu-card:hover .card-hero .cat-icon { opacity: 0.75; color: rgba(255,255,255,0.85); }
+        .dark-theme .card-hero .cat-icon { opacity: 0.28; }
+        .modal-hero .cat-icon { font-size: 3rem; opacity: 0.65; color: rgba(255,255,255,0.85); }
         .card-itinerary-badge { position: absolute; top: 8px; left: 8px; background: rgba(74,107,83,0.88); color: #fff; font-size: 0.6rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.4px; backdrop-filter: blur(4px); }
         .card-body { padding: 12px 14px 14px; }
         .card-title { font-size: 0.9rem; font-weight: 700; color: var(--text-heading); margin-bottom: 7px; line-height: 1.3; }
@@ -322,12 +328,12 @@
 
 <!-- ── Section Switcher ── -->
 <nav id="sectionSwitcher" class="no-print" aria-label="Main sections">
-    <div class="switcher-logo"><span>🇰🇷</span> Korea 2026</div>
+    <div class="switcher-logo"><i class="fa-solid fa-location-dot" style="color:#C8963E;font-size:0.7rem;margin-right:5px"></i>Korea 2026</div>
     <div class="switcher-divider"></div>
     <div class="switcher-sections">
         <a class="switcher-btn" href="index.html"><i class="fa-solid fa-book-open"></i> Brochure</a>
         <button class="switcher-btn active" aria-current="page"><i class="fa-solid fa-list"></i> Menu</button>
-        <a class="switcher-btn" href="journey.html"><i class="fa-solid fa-map-location-dot"></i> Journey</a>
+        <a class="switcher-btn" href="journey-v2.html"><i class="fa-solid fa-map-location-dot"></i> Journey</a>
     </div>
 </nav>
 
@@ -530,6 +536,27 @@ function setFilter(type, val) {
 }
 
 // ════════════════════════════════════════════════════════════
+//  CATEGORY ICON HELPER
+// ════════════════════════════════════════════════════════════
+function getCategoryIcon(item, dataset) {
+  const catMap = {
+    'must-try':   'fa-utensils',    'convenience': 'fa-store',
+    'etiquette':  'fa-handshake',   'seoul':        'fa-utensils',
+    'busan':      'fa-fish',        'cafe':         'fa-mug-hot',
+    'culture':    'fa-landmark',    'family-fun':   'fa-ticket',
+    'shows':      'fa-circle-play', 'hands-on':     'fa-hands',
+    'beauty':     'fa-pump-soap',   'fashion':      'fa-shirt',
+    'unique':     'fa-gem',
+  };
+  const dsMap = {
+    'foodGuide': 'fa-utensils', 'restaurants': 'fa-utensils',
+    'activities': 'fa-person-hiking', 'shopping': 'fa-bag-shopping',
+  };
+  const icon = catMap[item.cat] || dsMap[dataset] || 'fa-location-dot';
+  return '<i class="fa-solid ' + icon + ' cat-icon"></i>';
+}
+
+// ════════════════════════════════════════════════════════════
 //  CARD RENDERING
 // ════════════════════════════════════════════════════════════
 function cardHtml(item, dataset) {
@@ -542,7 +569,7 @@ function cardHtml(item, dataset) {
 
     let heroContent = '';
     if (item.logo) {
-        let fallbackContent = item.emoji;
+        let fallbackContent = getCategoryIcon(item, dataset);
         const wordmarks = {
             's-tamburins': '<span class="brand-text-logo tamburins-wordmark">tamburins</span>',
             's-wooyoungmi': '<span class="brand-text-logo wooyoungmi-wordmark">WOOYOUNGMI</span>',
@@ -585,7 +612,7 @@ function cardHtml(item, dataset) {
             `;
         }
     } else {
-        heroContent = item.emoji;
+        heroContent = getCategoryIcon(item, dataset);
     }
 
     const familyMembers = ['Ayden', 'Claudine', 'Brudene', 'Odile'];
@@ -665,7 +692,7 @@ function openModal(dataset, itemId) {
     hero.style.background = item.gradient;
     let heroContent = '';
     if (item.logo) {
-        let fallbackContent = item.emoji;
+        let fallbackContent = getCategoryIcon(item, dataset);
         const wordmarks = {
             's-tamburins': '<span class="brand-text-logo tamburins-wordmark">tamburins</span>',
             's-wooyoungmi': '<span class="brand-text-logo wooyoungmi-wordmark">WOOYOUNGMI</span>',
@@ -708,7 +735,7 @@ function openModal(dataset, itemId) {
             `;
         }
     } else {
-        heroContent = item.emoji;
+        heroContent = getCategoryIcon(item, dataset);
     }
     const filtered = getActiveItemsList();
     const showArrows = filtered.length > 1;
