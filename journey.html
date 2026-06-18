@@ -1161,22 +1161,25 @@ const DAYS = [
     ]
   },
   {
-    num:2, date:'Sun 28 Jun', label:'Day 2', title:'Mapo Home Turf',
-    sub:'Café Layered · Mangwon Market · Hongdae vintage · Haneul Park · Mapo Galbi BBQ · Hongdae busking', region:'seoul1',
+    num:2, date:'Sun 28 Jun', label:'Day 2', title:'Hongdae · Yeonnam · Mapo-gu',
+    sub:'Full day in your home neighbourhood. Walking-heavy — most things are within 1–3km of each other.', region:'seoul1',
     stops:[
-      { id:'a-mangwonmarket', type:'activity', time:'10:00', label:'Café Layered Yeonnam — British scones in a red-brick hanok' },
-      { travel:{ mode:'walk', label:'10 min walk to Mangwon Market', time:'10 min', cost:'Free' } },
-      { type:'activity', time:'11:00', label:'Mangwon Market — tteokbokki, rice donuts, fresh banchan' },
-      { travel:{ mode:'walk', label:'Walk along Gyeongui Line Forest Park → Hongdae', time:'20 min', cost:'Free' } },
-      { id:'a-hongdaebusking', type:'activity', time:'13:00', label:'Hongdae Vintage Alley → Vintage Santa → Homi Art Shop' },
-      { travel:{ mode:'subway', label:'Subway → Oreno Ramen area', time:'5 min', cost:'₩1,400' } },
-      { id:'r-mapo', type:'food', time:'15:00', label:'Oreno Ramen — Michelin Bib Gourmand, creamy Tori Paitan broth' },
-      { travel:{ mode:'bus', label:'Bus → World Cup Stadium (Haneul Park)', time:'20 min', cost:'₩1,400' } },
-      { id:'a-nseoultower', type:'activity', time:'18:30', label:'Haneul Park — pampas grass & 360° Han River sunset views (291 steps)' },
-      { travel:{ mode:'subway', label:'Subway → Gongdeok (Mapo Galbi area)', time:'20 min', cost:'₩1,400' } },
-      { type:'food', time:'20:00', label:'Dinner: Mapo 최대포 — charcoal pork galbi BBQ night' },
-      { travel:{ mode:'walk', label:'Walk to Hongdae busking area', time:'15 min', cost:'Free' } },
-      { type:'activity', time:'22:00', label:'🎶 Hongdae busking + photobooth + Sulbing bingsu nightcap' }
+      { id:'r-layered', type:'cafe', time:'10:00', label:'Cafe Layered Yeonnam — British scones with clotted cream' },
+      { travel:{ mode:'walk', label:'Walk', time:'10 min', cost:'Free' } },
+      { id:'a-mangwonmarket', type:'activity', time:'11:00', label:'Mangwon Market (망원시장) — Walk and graze tteokbokki & rice donuts' },
+      { travel:{ mode:'walk', label:'Walk to Hongdae Vintage Alley', time:'15 min', cost:'Free' } },
+      { id:'s-vintagesanta', type:'shopping', time:'13:00', label:'Hongdae Vintage Alley → Vintage Santa → Homi Art Shop' },
+      { travel:{ mode:'walk', label:'Walk to ramen', time:'10 min', cost:'Free' } },
+      { id:'r-oreno', type:'food', time:'14:30', label:'Oreno Ramen (Michelin Bib Gourmand) — Creamy chicken Tori Paitan broth' },
+      { id:'a-vr', type:'activity', time:'15:30', label:'VR Arcade — Multi-floor VR experience zones in Hongdae' },
+      { travel:{ mode:'walk', label:'Walk', time:'10 min', cost:'Free' } },
+      { id:'r-sinleedoga', type:'cafe', time:'17:00', label:'Sin Lee Doga (신이도가) — Hanok cafe with outdoor campfire seating' },
+      { travel:{ mode:'bus', label:'Bus / Subway to World Cup Stadium', time:'20 min', cost:'₩1,400' } },
+      { id:'a-haneulpark', type:'activity', time:'18:30', label:'Haneul Park (Sky Park) — Pampas grass with 360° sunset views over Han River' },
+      { travel:{ mode:'subway', label:'Subway to Gongdeok', time:'20 min', cost:'₩1,400' } },
+      { id:'r-mapo', type:'food', time:'20:00', label:'Dinner: Mapo 최대포 — Charcoal-grilled marinated pork ribs BBQ' },
+      { travel:{ mode:'subway', label:'Subway to Hongdae', time:'15 min', cost:'₩1,400' } },
+      { id:'a-hongdaebusking', type:'activity', time:'21:30', label:'Hongdae Busking + Photobooth + Sulbing (bingsu)' }
     ]
   },
   {
@@ -1815,7 +1818,7 @@ let exploreLayerActive = false;
 let exploreMarkers = [];
 let activeFilters = { type: 'all', region: 'all', show: 'explore' };
 
-const ITINERARY_IDS_SET = new Set(['a-bongeunsa','a-bukchon','a-cinema','a-drones','a-gamcheon','a-gyeongbokgung','a-haedong','a-hanbok','a-hanriver','a-hongdaebusking','a-kbo','a-leeum','a-lolpark','a-luge','a-mangwonmarket','a-natmuseum','a-nseoultower','a-oryukdo','a-secretgarden','a-skycapsule','a-starfield','a-uncem','a-uncemetery','h-ahyeon','h-bonathree','h-seoul2','r-amook','r-bora','r-gukbap','r-gwangjang','r-jagalchi','r-knotted','r-kyoja','r-mapo','r-milestone','r-milmyeon','r-mongtan','r-tongin','r-tosokchon']);
+const ITINERARY_IDS_SET = new Set(['r-layered','a-mangwonmarket','s-vintagesanta','r-oreno','a-vr','r-sinleedoga','a-haneulpark','r-mapo','a-hongdaebusking','a-bongeunsa','a-bukchon','a-cinema','a-drones','a-gamcheon','a-gyeongbokgung','a-haedong','a-hanbok','a-hanriver','a-hongdaebusking','a-kbo','a-leeum','a-lolpark','a-luge','a-mangwonmarket','a-natmuseum','a-nseoultower','a-oryukdo','a-secretgarden','a-skycapsule','a-starfield','a-uncem','a-uncemetery','h-ahyeon','h-bonathree','h-seoul2','r-amook','r-bora','r-gukbap','r-gwangjang','r-jagalchi','r-knotted','r-kyoja','r-mapo','r-milestone','r-milmyeon','r-mongtan','r-tongin','r-tosokchon']);
 
 const REGION_COLORS = {
   seoul1: '#4A6B53',
