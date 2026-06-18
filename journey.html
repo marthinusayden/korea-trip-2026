@@ -647,6 +647,20 @@ const PLACES = {
     tips:'<strong>Day 10 arrival:</strong> KTX gets into Seoul Station at 16:34 — take the Seoul Metro Line 1 one stop north to City Hall, transfer to Line 2 west toward Sinchon, get off at Ewha Womans Univ or Sinchon and walk/taxi the last bit to Bugahyeon-ro. ~35 min total.',
     mapLink:'https://naver.me/',
     link:'https://naver.me/'
+  },
+  's-myeongdong': {
+    name: 'Myeongdong Shopping Street', emoji: '🛍️', type: 'shopping',
+    lat: 37.5620, lng: 126.9845,
+    neighbourhood: 'Myeongdong, Jung-gu, Seoul',
+    cost: 'Free to browse', costZAR: '',
+    hours: '10:00 AM – 10:00 PM', duration: '1–2 hours',
+    gradient: 'linear-gradient(135deg, #c8963e, #f8c471)',
+    teaser: 'Seoul\'s legendary shopping district, packed with skincare brands, fashion boutiques, and street food.',
+    desc: "Myeongdong Shopping Street is one of Seoul's primary shopping districts. It features a high density of cosmetic brand shops (Olive Young, Innisfree, Nature Republic) and fashion boutiques. In the evening, the street comes alive with street food carts selling grilled cheese, egg bread, tteokbokki, and hotteok.",
+    highlights: ['Skincare flagships', 'Myeongdong Kyoja nearby', 'Street food carts from 5 PM', 'Underground shopping center'],
+    tips: "<strong>Tip:</strong> Olive Young and Innisfree have their massive flagship stores here. Bring your passport to the shops for immediate tax refunds. Avoid eating a heavy dinner beforehand, as the street food selection is enormous.",
+    mapLink: 'https://naver.me/',
+    link: 'https://naver.me/'
   }
 };
 
@@ -696,6 +710,21 @@ if (window.TRIP_DATA) {
     });
   });
 }
+
+const DAY_STATS = {
+  1:  { active:'4h',       travel:'1h 15m', cost:'₩4,550',  total:'~5h 15m'  },
+  2:  { active:'10h 30m',  travel:'1h 30m', cost:'₩4,200',  total:'~12h'     },
+  3:  { active:'10h 45m',  travel:'52m',    cost:'₩2,800',  total:'~11h 37m' },
+  4:  { active:'8h 45m',   travel:'49m',    cost:'₩1,400',  total:'~9h 34m'  },
+  5:  { active:'4h 45m',   travel:'1h 25m', cost:'₩1,400',  total:'~6h 10m'  },
+  6:  { active:'8h 45m',   travel:'1h 45m', cost:'₩4,200',  total:'~10h 30m' },
+  7:  { active:'4h',       travel:'1h 24m', cost:'₩63,050', total:'~5h 24m'  },
+  8:  { active:'7h',       travel:'2h',     cost:'₩26,000', total:'~9h'      },
+  9:  { active:'11h 30m',  travel:'2h 05m', cost:'₩22,500', total:'~13h 35m' },
+  10: { active:'5h 30m',   travel:'1h 43m', cost:'₩64,450', total:'~7h 13m'  },
+  11: { active:'8h',       travel:'1h 22m', cost:'₩5,600',  total:'~9h 22m'  },
+  12: { active:'8h 30m',   travel:'1h 10m', cost:'₩23,400', total:'~9h 40m'  },
+};
 
 const DAYS = [
   {
@@ -984,26 +1013,7 @@ const DAYS = [
 ];
 
 // ─── ITINERARY PLACE IDs (for ambient layer starring) ─────────────────────────
-const ITINERARY_IDS = new Set([
-  'h-ahyeon','h-bonathree','h-seoul2',
-  'r-mapo','r-tosokchon','r-tongin','r-kyoja','r-gwangjang','r-bora',
-  'r-gukbap','r-milmyeon','r-jagalchi','r-amook','r-milestone',
-  'a-gyeongbokgung','a-secretgarden','a-bukchon','a-nseoultower','a-hongdaebusking',
-  'a-mangwonmarket','a-haedong','a-skycapsule','a-gamcheon','a-luge',
-  'a-kbo','a-leeum','a-bongeunsa','a-starfield','a-natmuseum',
-  'a-uncem','r-mongtan',
-  'r-onion','r-londonbagel','a-hanbok','s-ssamziegil','a-ikseon','r-cheongsudang',
-  'a-mountaingym','r-pymt','r-kokkili','r-oude','r-neungdong-minari','s-eql',
-  's-standoil','s-balbal','s-seongsu','s-anderson-bell','r-rainreport','a-dontlookup',
-  'r-jaeyondo','r-sounds-of-apple','r-yukjeon','r-gml','a-yeonnam','r-koriko',
-  's-oy-myeong','s-myeongdong','r-eggdrop','r-sinjeon','s-dongdaemun','r-chizn-bingsu',
-  'a-deoksugung','r-parc-seoul','r-knotted','a-hausnowhere','s-dosan','a-hanriver',
-  'a-banpo','r-bonjeon-gukbap','a-choryang-ibagu-gil','r-taeseongdang','r-ops-bakery',
-  'r-haeundae-market','a-xthesky','a-oryukdo','r-handasot','a-drones','a-huinnyeoul',
-  'r-momos','a-gukje','r-halmae-gaya-milmyeon','r-biff-square-street','a-jeonpo-cafe-street',
-  'r-sulbing','a-uncemetery','r-hanwoo','a-ddp','r-imun','a-eunpyeong','a-cinema',
-  'r-sunday-burger'
-]);
+const ITINERARY_IDS = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hanriver","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-mountaingym","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-biff-square-street","r-bonjeon-gukbap","r-bora","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-knotted","r-kokkili","r-koriko","r-kyoja","r-layered","r-londonbagel","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
 
 // ─── MAP SETUP ────────────────────────────────────────────────────────────────
 let journeyMap = null;
@@ -1238,7 +1248,7 @@ function renderTimeline(dayNum){
     .slice(0,4);
 
   let html = `
-    <div class="day-header fade-up">
+    <div class="day-header">
       <div>
         <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
           <span class="day-badge ${regionBadge}">${dayData.label}</span>
@@ -1275,7 +1285,7 @@ function renderTimeline(dayNum){
         </div>` : ''}
       </div>
     </div>
-    <div class="timeline fade-up" id="sortableTimeline">`;
+    <div class="timeline" id="sortableTimeline">`;
 
   let stopNum = 0;
   orderedStops.forEach((stop, idx)=>{
@@ -1439,7 +1449,7 @@ let exploreLayerActive = false;
 let exploreMarkers = [];
 let activeFilters = { type: 'all', region: 'all', show: 'explore' };
 
-const ITINERARY_IDS_SET = new Set(['r-jangsu-samgyetang','r-layered','a-mangwonmarket','s-vintagesanta','r-oreno','a-vr','r-sinleedoga','a-haneulpark','r-mapo','a-hongdaebusking','a-bongeunsa','a-bukchon','a-cinema','a-drones','a-gamcheon','a-gyeongbokgung','a-haedong','a-hanbok','a-hanriver','a-hongdaebusking','a-kbo','a-leeum','a-lolpark','a-luge','a-mangwonmarket','a-natmuseum','a-nseoultower','a-oryukdo','a-secretgarden','a-skycapsule','a-starfield','a-uncem','a-uncemetery','h-ahyeon','h-bonathree','h-seoul2','r-amook','r-bora','r-gukbap','r-gwangjang','r-jagalchi','r-knotted','r-kyoja','r-mapo','r-milestone','r-milmyeon','r-mongtan','r-tongin','r-tosokchon']);
+const ITINERARY_IDS_SET = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hanriver","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-mountaingym","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-biff-square-street","r-bonjeon-gukbap","r-bora","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-knotted","r-kokkili","r-koriko","r-kyoja","r-layered","r-londonbagel","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
 
 const REGION_COLORS = {
   seoul1: '#4A6B53',
@@ -1447,250 +1457,6 @@ const REGION_COLORS = {
   seoul2: '#7A5A8A',
   any:    '#8B6420',
 };
-
-function isFree(place) {
-  if(!place.cost) return true;
-  return /free/i.test(place.cost) || place.cost.trim() === '';
-}
-
-function toggleFilterPanel() {
-  filterPanelOpen = !filterPanelOpen;
-  document.getElementById('mapFilterPanel').classList.toggle('visible', filterPanelOpen);
-  document.getElementById('filterPanelBtn').classList.toggle('active', filterPanelOpen);
-  if(filterPanelOpen && !exploreLayerActive) {
-    exploreLayerActive = true;
-    applyFilters();
-  }
-}
-
-function setFilter(filterKey, val, el) {
-  if(filterKey === 'show') {
-    // toggle: clicking active show filter resets to explore
-    activeFilters.show = (activeFilters.show === val) ? 'explore' : val;
-    document.querySelectorAll('[data-filter="show"]').forEach(c => {
-      c.classList.toggle('active', c.dataset.val === activeFilters.show);
-    });
-  } else {
-    activeFilters[filterKey] = val;
-    document.querySelectorAll(`[data-filter="${filterKey}"]`).forEach(c => {
-      c.classList.remove('active','active-busan','active-seoul2');
-    });
-    if(val === 'busan') el.classList.add('active-busan');
-    else if(val === 'seoul2') el.classList.add('active-seoul2');
-    else el.classList.add('active');
-  }
-  exploreLayerActive = true;
-  applyFilters();
-}
-
-function placePassesFilters(id, place) {
-  const f = activeFilters;
-  if(f.show === 'itinerary') return ITINERARY_IDS_SET.has(id);
-  if(f.show === 'free' && !isFree(place)) return false;
-  if(f.show === 'today') {
-    const dayData = DAYS.find(d=>d.num===currentDay);
-    if(!dayData) return false;
-    return new Set(dayData.stops.filter(s=>s.id).map(s=>s.id)).has(id);
-  }
-  if(f.type !== 'all' && place.type !== f.type) return false;
-  if(f.region !== 'all' && place.region !== f.region && place.region !== 'any') return false;
-  return true;
-}
-
-function clearExploreLayer() {
-  exploreMarkers.forEach(m=>{ if(journeyMap) journeyMap.removeLayer(m); });
-  exploreMarkers = [];
-}
-
-function applyFilters() {
-  if(!journeyMap) return;
-  clearExploreLayer();
-  if(!exploreLayerActive) return;
-
-  const dayData = DAYS.find(d=>d.num===currentDay);
-  const currentRegion = dayData ? dayData.region : null;
-
-  Object.entries(EXPLORE_PLACES).forEach(([id, place]) => {
-    if(!place.lat || !place.lng) return;
-    if(!placePassesFilters(id, place)) return;
-
-    const color = REGION_COLORS[place.region] || REGION_COLORS.any;
-    const emoji = place.emoji || '📍';
-    const sameRegion = !currentRegion || place.region === currentRegion || place.region === 'any';
-    const dimmed = activeFilters.region === 'all' && !sameRegion;
-    const opacity = dimmed ? 0.3 : 0.9;
-    const isOnItin = ITINERARY_IDS_SET.has(id);
-    const size = isOnItin ? 30 : 26;
-    const border = isOnItin ? '2.5px solid rgba(255,255,255,0.9)' : '1.5px solid rgba(255,255,255,0.5)';
-
-    const icon = L.divIcon({
-      className: '',
-      html: (()=>{
-        const typeIcon = place.type==='food' ? 'fa-utensils'
-          : place.type==='shopping' ? 'fa-bag-shopping'
-          : 'fa-person-hiking';
-        return `<div class="map-marker-explore" style="background:${color};opacity:${opacity};width:${size}px;height:${size}px;border:${border};"><i class="fa-solid ${typeIcon}"></i></div>`;
-      })(),
-      iconSize: [size, size], iconAnchor: [size/2, size/2]
-    });
-
-    const marker = L.marker([place.lat, place.lng], { icon, zIndexOffset: isOnItin ? -50 : -100 }).addTo(journeyMap);
-
-    const regionLabel = {seoul1:'Seoul 1 · Jun 27–Jul 3',busan:'Busan · Jul 3–6',seoul2:'Seoul 2 · Jul 6–9',any:'Any leg'}[place.region] || '';
-    const typeIcon = {activity:'<i class="fa-solid fa-person-hiking"></i>',food:'<i class="fa-solid fa-utensils"></i>',shopping:'<i class="fa-solid fa-bag-shopping"></i>'}[place.type] || '';
-    const typeLabel = {activity:' Activity',food:' Food',shopping:' Shopping'}[place.type] || '';
-    const itinBadge = isOnItin ? '<span style="font-size:0.65rem;background:rgba(74,107,83,0.18);color:#4A6B53;padding:2px 8px;border-radius:8px;font-weight:700;margin-right:2px;display:inline-flex;align-items:center;gap:3px;"><i class=&quot;fa-solid fa-route&quot; style=&quot;font-size:0.6rem&quot;></i> On itinerary</span>' : '';
-
-    marker.bindPopup(`
-      <div class="map-pop">
-        <div class="map-pop-hero-bg" style="background:${place.gradient}">${typeIcon}</div>
-        <h3>${place.name}</h3>
-        <p style="font-size:0.79rem;margin-top:4px;line-height:1.4;">${place.teaser}</p>
-        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;align-items:center;">
-          ${itinBadge}
-          <span style="font-size:0.69rem;background:rgba(47,62,70,0.08);color:var(--text-muted);padding:2px 8px;border-radius:10px;display:inline-flex;align-items:center;gap:3px;">${typeIcon}${typeLabel}</span>
-          ${place.cost ? `<span style="font-size:0.69rem;background:rgba(200,150,62,0.12);color:#8B6420;padding:2px 8px;border-radius:10px;">${place.cost}</span>` : ''}
-          ${place.duration ? `<span style="font-size:0.69rem;background:rgba(74,107,83,0.1);color:#4A6B53;padding:2px 8px;border-radius:10px;">⏱ ${place.duration}</span>` : ''}
-        </div>
-        <div style="font-size:0.67rem;color:var(--text-muted);margin-top:5px;">${regionLabel}</div>
-      </div>`, { maxWidth: 280 });
-
-    exploreMarkers.push(marker);
-  });
-}
-
-
-// ─── MODAL ────────────────────────────────────────────────────────────────────
-function openModal(placeId){
-  const p = PLACES[placeId];
-  if(!p) return;
-
-  document.getElementById('modal-hero-wrap').innerHTML =
-    `<div class="modal-hero-bg" style="background:${p.gradient}">${p.emoji}</div>`;
-  document.getElementById('modal-title').textContent = p.name;
-  document.getElementById('modal-teaser').textContent = p.teaser;
-
-  const gridItems = [
-    {label:'Cost', val: p.cost+(p.costZAR?` <span style="font-size:0.75rem;color:var(--text-muted)">${p.costZAR}</span>`:'')},
-    {label:'Duration', val: p.duration||'Varies'},
-    {label:'Hours', val: p.hours||'Check locally'},
-    {label:'Location', val: p.neighbourhood||'Korea'}
-  ];
-  document.getElementById('modal-grid').innerHTML = gridItems.map(i=>
-    `<div class="modal-grid-item"><h6>${i.label}</h6><p>${i.val}</p></div>`
-  ).join('');
-
-  document.getElementById('modal-desc').innerHTML = p.desc||'';
-  document.getElementById('modal-highlights').innerHTML = (p.highlights||[]).map(h=>`<li>${h}</li>`).join('');
-  document.getElementById('modal-tips').innerHTML = p.tips||'';
-
-  const links = [];
-  if(p.mapLink) links.push(`<a class="modal-link-btn primary" href="${p.mapLink}" target="_blank"><i class="fa-solid fa-map-location-dot"></i> Open in Naver Maps</a>`);
-  if(p.link) links.push(`<a class="modal-link-btn secondary" href="${p.link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Photos / Official</a>`);
-  document.getElementById('modal-links').innerHTML = links.join('');
-
-  document.getElementById('detailModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-
-function closeModal(){
-  document.getElementById('detailModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-
-// ─── FOCUS MAP PIN (called when a timeline card is clicked) ──────────────────
-function focusMapPin(placeId){
-  const idx = mapMarkerIndex[placeId];
-  if(idx === undefined || !mapMarkers[idx]) return;
-  const marker = mapMarkers[idx];
-  const place = PLACES[placeId];
-
-  // Highlight the card
-  document.querySelectorAll('.tl-place-card').forEach(c=>c.classList.remove('active-card'));
-  const card = document.getElementById('tl-card-'+placeId);
-  if(card) card.classList.add('active-card');
-
-  // Fly to pin and open popup
-  journeyMap.flyTo(marker.getLatLng(), 16, { animate:true, duration:0.6 });
-  setTimeout(()=>marker.openPopup(), 650);
-}
-
-// ─── AMBIENT LAYER TOGGLE ─────────────────────────────────────────────────────
-let ambientVisible = true;
-function toggleAmbientLayer(){
-  if(!ambientLayerGroup) return;
-  ambientVisible = !ambientVisible;
-  const btn = document.getElementById('ambientToggleBtn');
-  if(ambientVisible){
-    journeyMap.addLayer(ambientLayerGroup);
-    btn.classList.add('map-tool-btn--active');
-  } else {
-    journeyMap.removeLayer(ambientLayerGroup);
-    btn.classList.remove('map-tool-btn--active');
-  }
-}
-
-// ─── HIGHLIGHT MAP MARKER (legacy helper for number badges) ───────────────────
-function highlightMapMarker(idx){
-  if(mapMarkers[idx]){
-    mapMarkers[idx].openPopup();
-    journeyMap.panTo(mapMarkers[idx].getLatLng(), {animate:true, duration:0.5});
-  }
-}
-
-// ─── DAY NAVIGATION ───────────────────────────────────────────────────────────
-function selectDay(num){
-  currentDay = num;
-  const dayData = DAYS.find(d=>d.num===num);
-  if(!dayData) return;
-
-  // Update pills
-  document.querySelectorAll('.day-pill').forEach(p=>{
-    p.classList.toggle('active', parseInt(p.dataset.day)===num);
-  });
-
-  // Update control bar (v2)
-  const _rBg={seoul1:'#4A6B53',busan:'#3A6B8A',seoul2:'#7A5A8A'};
-  const _badge=document.getElementById('dayCtrlBadge');
-  const _title=document.getElementById('dayCtrlTitle');
-  const _date=document.getElementById('dayCtrlDate');
-  if(_badge){_badge.textContent=dayData.label;_badge.style.background=_rBg[dayData.region]||'#4A6B53';}
-  if(_title) _title.textContent=dayData.title;
-  if(_date) _date.textContent=dayData.date;
-
-  // Render timeline and map
-  renderTimeline(num);
-  if(journeyMap) renderDayOnMap(dayData);
-  if(exploreLayerActive) applyFilters();
-
-}
-
-function goToPrevDay(){
-  if(currentDay>1) selectDay(currentDay-1);
-}
-function goToNextDay(){
-  if(currentDay<DAYS.length) selectDay(currentDay+1);
-}
-
-// ─── BUILD DAY SELECTOR ──────────────────────────────────────────────────────
-function buildDaySelector(){
-  const wrap = document.getElementById('daySelectorWrap');
-  const _lg=[{r:'seoul1',l:'Seoul I'},{r:'busan',l:'Busan'},{r:'seoul2',l:'Seoul II'}];
-  wrap.innerHTML=_lg.map((leg,li)=>{
-    const ld=DAYS.filter(d=>d.region===leg.r);
-    return (li>0?'<div class="day-sel-divider"></div>':'')+
-      '<div class="day-sel-group"><div class="day-sel-leg-label '+leg.r+'">'+leg.l+'</div><div class="day-sel-pills">'+
-      ld.map(d=>'<button class="day-pill '+leg.r+(d.num===1?' active':'')+'" data-day="'+d.num+'" onclick="selectDay('+d.num+')" title="'+d.title+'"><span class="pill-num">'+d.label+'</span><span class="pill-date">'+d.date.split(' ').slice(0,2).join(' ')+'</span></button>').join('')+
-      '</div></div>';
-  }).join('');
-}
-
-// ─── INIT ─────────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', ()=>{
-  buildDaySelector();
-  initMap();
-  selectDay(1);
-});
 
 // ─── MAP FILTER ENGINE ────────────────────────────────────────────────────────
 // filterPanelOpen, activeFilters, ITINERARY_IDS_SET already declared above
@@ -1890,7 +1656,7 @@ function focusMapPin(placeId){
 }
 
 // ─── AMBIENT LAYER TOGGLE ─────────────────────────────────────────────────────
-ambientVisible = true;
+let ambientVisible = true;
 function toggleAmbientLayer(){
   if(!ambientLayerGroup) return;
   ambientVisible = !ambientVisible;
@@ -1964,6 +1730,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   buildDaySelector();
   initMap();
   selectDay(1);
+  initCountdown();
+  initKeyboardNav();
 });
 
 // ─── COUNTDOWN ───────────────────────────────────────────────────────────────
