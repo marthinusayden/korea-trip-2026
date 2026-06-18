@@ -714,10 +714,10 @@ if (window.TRIP_DATA) {
 const DAY_STATS = {
   1:  { active:'4h',       travel:'1h 15m', cost:'₩4,550',  total:'~5h 15m'  },
   2:  { active:'10h 30m',  travel:'1h 30m', cost:'₩4,200',  total:'~12h'     },
-  3:  { active:'10h 45m',  travel:'52m',    cost:'₩2,800',  total:'~11h 37m' },
+  3:  { active:'10h 30m',  travel:'1h 30m', cost:'₩4,200',  total:'~12h' },
   4:  { active:'8h 45m',   travel:'49m',    cost:'₩1,400',  total:'~9h 34m'  },
-  5:  { active:'4h 45m',   travel:'1h 25m', cost:'₩1,400',  total:'~6h 10m'  },
-  6:  { active:'8h 45m',   travel:'1h 45m', cost:'₩4,200',  total:'~10h 30m' },
+  5:  { active:'9h 45m',   travel:'1h 30m', cost:'₩4,200',  total:'~11h 15m' },
+  6:  { active:'8h',       travel:'2h',     cost:'₩20,800', total:'~10h' },
   7:  { active:'4h',       travel:'1h 24m', cost:'₩63,050', total:'~5h 24m'  },
   8:  { active:'7h',       travel:'2h',     cost:'₩26,000', total:'~9h'      },
   9:  { active:'11h 30m',  travel:'2h 05m', cost:'₩22,500', total:'~13h 35m' },
@@ -737,58 +737,60 @@ const DAYS = [
       { travel:{ mode:'walk', label:'5 min walk', time:'5 min', cost:'Free' } },
       { id:'r-jangsu-samgyetang', type:'food', time:'19:00', label:'Dinner: Jangsu Hanbang Samgyetang — herbal ginseng chicken soup near Mapo Station' },
       { travel:{ mode:'walk', label:'Walk to Namsan Cable Car', time:'20 min', cost:'Free' } },
-      { id:'a-nseoultower', type:'activity', time:'20:30', label:'N Seoul Tower — panoramic night views (cable car up)' }
+      { id:'a-nseoultower', type:'activity', time:'20:30', label:'N Seoul Tower — panoramic night views (cable car up)' },
+      { travel:{ mode:'taxi', label:'Cable car down → Taxi to Ahyeon apartment', time:'~35 min', cost:'~₩12,000' } },
+      { id:'h-ahyeon', type:'hotel', time:'22:00', label:'🏠 Back at Ahyeon Apartment — end of Day 1' }
     ]
   },
   {
     num:2, date:'Sun 28 Jun', label:'Day 2', title:'Hongdae · Yeonnam · Mapo-gu',
-    sub:'Full day in your home neighbourhood. Walking-heavy — most things are within 1–3km of each other.', region:'seoul1',
+    sub:'Yeonnam café stroll · vintage shopping · Michelin chicken ramen · VR games · Hanok campfire café · Haneul Park sunset · Mapo BBQ', region:'seoul1',
     stops:[
       { id:'h-ahyeon', type:'hotel', time:'09:30', label:'Start from Ahyeon Apartment' },
-      { travel:{ mode:'subway', label:'Subway to Hongik Univ. Station', time:'15 min', cost:'₩1,400' } },
+      { travel:{ mode:'subway', label:'Subway to Hongik Univ. Station', time:'10 min', cost:'₩1,400' } },
       { id:'r-layered', type:'food', time:'10:00', label:'Cafe Layered Yeonnam — British scones with clotted cream' },
-      { travel:{ mode:'walk', label:'Walk to Mangwon Market', time:'10 min', cost:'Free' } },
-      { id:'a-mangwonmarket', type:'activity', time:'11:00', label:'Mangwon Market (망원시장) — Walk and graze tteokbokki & rice donuts' },
-      { travel:{ mode:'walk', label:'Walk to Hongdae Vintage Alley', time:'15 min', cost:'Free' } },
-      { id:'s-vintagesanta', type:'shopping', time:'13:00', label:'Hongdae Vintage Alley → Vintage Santa → Homi Art Shop' },
-      { travel:{ mode:'walk', label:'Walk to ramen', time:'10 min', cost:'Free' } },
-      { id:'r-oreno', type:'food', time:'14:30', label:'Oreno Ramen (Michelin Bib Gourmand) — Creamy chicken Tori Paitan broth' },
-      { id:'a-vr', type:'activity', time:'15:30', label:'VR Arcade — Multi-floor VR experience zones in Hongdae' },
-      { travel:{ mode:'walk', label:'Walk', time:'10 min', cost:'Free' } },
-      { id:'r-sinleedoga', type:'food', time:'17:00', label:'Sin Lee Doga (신이도가) — Hanok cafe with outdoor campfire seating' },
-      { travel:{ mode:'bus', label:'Bus / Subway to World Cup Stadium', time:'20 min', cost:'₩1,400' } },
-      { id:'a-haneulpark', type:'activity', time:'18:30', label:'Haneul Park (Sky Park) — Pampas grass with 360° sunset views over Han River' },
-      { travel:{ mode:'subway', label:'Subway to Gongdeok', time:'20 min', cost:'₩1,400' } },
-      { id:'r-mapo', type:'food', time:'20:00', label:'Dinner: Mapo 최대포 — Charcoal-grilled marinated pork ribs BBQ' },
-      { travel:{ mode:'subway', label:'Subway to Hongdae', time:'15 min', cost:'₩1,400' } },
-      { id:'a-hongdaebusking', type:'activity', time:'21:30', label:'Hongdae Busking + Photobooth + Sulbing (bingsu)' }
+      { travel:{ mode:'walk', label:'Walk and stroll Gyeongui Line Forest Park', time:'15 min', cost:'Free' } },
+      { id:'s-vintagesanta', type:'shopping', time:'12:00', label:'Hongdae Vintage Alley → Vintage Santa → Homi Art Shop' },
+      { travel:{ mode:'walk', label:'Walk to lunch', time:'15 min', cost:'Free' } },
+      { id:'r-oreno', type:'food', time:'13:30', label:'Lunch: Oreno Ramen (Michelin Bib Gourmand) — creamy chicken broth' },
+      { id:'a-vr', type:'activity', time:'14:30', label:'VR Arcade — multi-floor VR experience in Hongdae' },
+      { travel:{ mode:'walk', label:'Walk to cafe', time:'10 min', cost:'Free' } },
+      { id:'r-sinleedoga', type:'food', time:'16:00', label:'Sin Lee Doga (신이도가) — Hanok campfire coffee' },
+      { travel:{ mode:'walk', label:'Walk to photobooth & street area', time:'5 min', cost:'Free' } },
+      { id:'a-hongdaebusking', type:'activity', time:'17:15', label:'Hongdae Pedestrian Street & Photo Booth' },
+      { travel:{ mode:'subway', label:'Subway Line 6 (Sangsu → World Cup Stadium)', time:'10 min', cost:'₩1,400' } },
+      { id:'a-haneulpark', type:'activity', time:'18:30', label:'Haneul Park (Sky Park) — scenic Han River sunset views via shuttle' },
+      { travel:{ mode:'subway', label:'Subway Line 6 direct to Gongdeok', time:'12 min', cost:'₩1,400' } },
+      { id:'r-mapo', type:'food', time:'20:30', label:'Dinner: Mapo 최대포 — legendary charcoal-grilled pork rib BBQ' },
+      { travel:{ mode:'walk', label:'Walk to dessert', time:'5 min', cost:'Free' } },
+      { id:'r-sulbing-mapo', type:'food', time:'22:00', label:'Sulbing Mapo Gongdeok — shaved milk bingsu nightcap' },
+      { travel:{ mode:'walk', label:'Walk home to Ahyeon apartment', time:'10 min', cost:'Free' } },
+      { id:'h-ahyeon', type:'hotel', time:'22:45', label:'🏠 Back at Ahyeon Apartment — end of Day 2' }
     ]
   },
   {
     num:3, date:'Mon 29 Jun', label:'Day 3', title:'Bukchon · Insadong · Ikseon-dong · Gwangjang',
-    sub:'Cafe Onion · London Bagel · Hanbok Palace · Tosokchon Samgyetang · Insadong · Ikseon-dong · Gwangjang Market · Namsan Gym', region:'seoul1',
+    sub:'Cafe Onion · Hanbok Palace · Tosokchon Samgyetang · Insadong · Ikseon-dong · Gwangjang Market · Ewha Shopping Streets', region:'seoul1',
     stops:[
       { id:'h-ahyeon', type:'hotel', time:'08:30', label:'Start from Ahyeon Apartment' },
       { travel:{ mode:'subway', label:'Subway from Ahyeon to Anguk Station (Line 2 → Line 3)', time:'20 min', cost:'₩1,400' } },
       { id:'r-onion', type:'food', time:'09:00', label:'Cafe Onion Anguk — pandoro pastry in a restored Joseon hanok courtyard' },
-      { travel:{ mode:'walk', label:'Walk to London Bagel Museum', time:'5 min', cost:'Free' } },
-      { id:'r-londonbagel', type:'food', time:'09:30', label:'London Bagel Museum — pretzel bagels with spring onion cream cheese' },
       { travel:{ mode:'walk', label:'Walk to Gyeongbokgung rental shops', time:'10 min', cost:'Free' } },
-      { id:'a-hanbok', type:'activity', time:'10:00', label:'Hanbok rental + Gyeongbokgung Palace (10am Royal Guard Ceremony)' },
+      { id:'a-hanbok', type:'activity', time:'09:50', label:'Hanbok rental + Gyeongbokgung Palace (10am Royal Guard Ceremony)' },
       { travel:{ mode:'walk', label:'Walk to Tosokchon', time:'5 min', cost:'Free' } },
-      { id:'r-tosokchon', type:'food', time:'13:00', label:'Lunch: Tosokchon Samgyetang — ginseng chicken soup in a 100-yr hanok' },
+      { id:'r-tosokchon', type:'food', time:'12:50', label:'Lunch: Tosokchon Samgyetang — ginseng chicken soup in a 100-yr hanok' },
       { travel:{ mode:'walk', label:'Walk south through Insadong', time:'10 min', cost:'Free' } },
-      { id:'s-ssamziegil', type:'shopping', time:'14:30', label:'Insadong & Ssamziegil Courtyard — traditional crafts & tea shops' },
+      { id:'s-ssamziegil', type:'shopping', time:'14:20', label:'Insadong & Ssamziegil Courtyard — traditional crafts & tea shops' },
       { travel:{ mode:'walk', label:'Walk north to Ikseon-dong', time:'5 min', cost:'Free' } },
-      { id:'a-ikseon', type:'activity', time:'15:30', label:'Ikseon-dong Hanok Village — winding 1930s hanok commercial alleys' },
+      { id:'a-ikseon', type:'activity', time:'15:25', label:'Ikseon-dong Hanok Village — winding 1930s hanok commercial alleys' },
       { travel:{ mode:'walk', label:'Walk to Cheongsudang', time:'2 min', cost:'Free' } },
-      { id:'r-cheongsudang', type:'food', time:'16:15', label:'Cheongsudang Café — bamboo garden hanok café, honey yakgwa' },
-      { travel:{ mode:'walk', label:'Walk to Café Bora', time:'5 min', cost:'Free' } },
-      { id:'r-bora', type:'food', time:'17:00', label:'Café Bora — purple matcha soft-serve & honeycomb waffle in Insadong' },
-      { travel:{ mode:'subway', label:'Line 3 Anguk → Jongno 5-ga (Gwangjang Market)', time:'15 min', cost:'₩1,400' } },
+      { id:'r-cheongsudang', type:'food', time:'16:30', label:'Cheongsudang Café — bamboo garden hanok café, honey yakgwa' },
+      { travel:{ mode:'subway', label:'Subway Line 1 (Jongno 3-ga → Jongno 5-ga)', time:'10 min', cost:'₩1,400' } },
       { id:'r-gwangjang', type:'food', time:'17:45', label:'Gwangjang Market — bindaetteok, mayak gimbap, kalguksu (3 targets only)' },
-      { travel:{ mode:'bus', label:'Bus to Namsan Mountain area', time:'25 min', cost:'₩1,400' } },
-      { id:'a-mountaingym', type:'activity', time:'19:30', label:'Namsan Mountain Outdoor Gym — free, forest weightlifting' }
+      { travel:{ mode:'subway', label:'Subway Line 2 (Euljiro 4-ga → Ewha Womans Univ.)', time:'15 min', cost:'₩1,400' } },
+      { id:'s-ewha', type:'shopping', time:'19:30', label:'Ewha Womans University Shopping Streets — student boutique shops & cosmetics' },
+      { travel:{ mode:'walk', label:'Walk back to Ahyeon Apartment (or 1 stop on Subway Line 2)', time:'15 min', cost:'Free' } },
+      { id:'h-ahyeon', type:'hotel', time:'21:00', label:'🏠 Back at Ahyeon Apartment — end of Day 3' }
     ]
   },
   {
@@ -823,7 +825,9 @@ const DAYS = [
       { travel:{ mode:'walk', label:'Walk to vinyl cafe', time:'5 min', cost:'Free' } },
       { id:'r-sounds-of-apple', type:'food', time:'19:45', label:'Sounds of Apple — high-end vinyl-listening café, select and relax' },
       { travel:{ mode:'walk', label:'Walk to Yukjeon Sikdang', time:'5 min', cost:'Free' } },
-      { id:'r-yukjeon', type:'food', time:'21:00', label:'Dinner: Yukjeon Sikdang — egg-battered beef slices on sizzling cast iron' }
+      { id:'r-yukjeon', type:'food', time:'21:00', label:'Dinner: Yukjeon Sikdang — egg-battered beef slices on sizzling cast iron' },
+      { travel:{ mode:'subway', label:'Subway Line 2 back to Ahyeon', time:'30 min', cost:'₩1,400' } },
+      { id:'h-ahyeon', type:'hotel', time:'23:00', label:'🏠 Back at Ahyeon Apartment — end of Day 4' }
     ]
   },
   {
@@ -837,183 +841,190 @@ const DAYS = [
       { id:'a-yeonnam', type:'activity', time:'10:00', label:'Yeonnam-dong Forest Park & Café Crawl — green linear park stroll' },
       { travel:{ mode:'walk', label:'Walk to Koriko Café', time:'5 min', cost:'Free' } },
       { id:'r-koriko', type:'food', time:'11:00', label:'Koriko Cafe — Studio Ghibli themed (Kiki\'s Delivery Service)' },
-      { travel:{ mode:'subway', label:'Subway Line 2 Hongik Univ. → Myeongdong', time:'15 min', cost:'₩1,400' } },
+      { travel:{ mode:'subway', label:'Subway Line 2 Hongik Univ. → Euljiro 1-ga (Myeongdong)', time:'15 min', cost:'₩1,400' } },
       { id:'s-oy-myeong', type:'shopping', time:'12:30', label:'Olive Young Myeongdong Flagship — K-beauty megastore run' },
       { travel:{ mode:'walk', label:'Walk Myeongdong streets', time:'5 min', cost:'Free' } },
       { id:'s-myeongdong', type:'shopping', time:'14:00', label:'Myeongdong Shopping Street — cosmetic brands, street apparel' },
       { travel:{ mode:'walk', label:'Walk to Egg Drop', time:'5 min', cost:'Free' } },
-      { id:'r-eggdrop', type:'food', time:'15:00', label:'Egg Drop — buttery scrambled egg brioche toast snack' },
+      { id:'r-eggdrop', type:'food', time:'14:30', label:'Egg Drop — buttery scrambled egg brioche toast snack' },
       { travel:{ mode:'walk', label:'Walk to Sinjeon', time:'5 min', cost:'Free' } },
-      { id:'r-sinjeon', type:'food', time:'15:45', label:'Sinjeon Tteokbokki — spicy peppery rice cakes' },
-      { travel:{ mode:'subway', label:'Subway to Dongdaemun', time:'10 min', cost:'₩1,400' } },
-      { id:'s-dongdaemun', type:'shopping', time:'16:30', label:'Dongdaemun Fashion Market — wholesale retail towers, open all night' },
-      { travel:{ mode:'subway', label:'Subway back to Myeongdong', time:'10 min', cost:'₩1,400' } },
-      { id:'r-kyoja', type:'food', time:'18:30', label:'Dinner: Myeongdong Kyoja — kalguksu & mandu (Michelin Bib Gourmand)' },
+      { id:'r-sinjeon', type:'food', time:'16:00', label:'Sinjeon Tteokbokki — spicy peppery rice cakes' },
+      { travel:{ mode:'walk', label:'Walk to dinner', time:'10 min', cost:'Free' } },
+      { id:'r-kyoja', type:'food', time:'18:00', label:'Dinner: Myeongdong Kyoja — kalguksu & mandu (Michelin Bib Gourmand)' },
       { travel:{ mode:'walk', label:'Walk to CHIZN', time:'5 min', cost:'Free' } },
-      { id:'r-chizn-bingsu', type:'food', time:'19:30', label:'CHIZN Bingsu Bar — late-night aesthetic shaved milk bingsu' },
-      { travel:{ mode:'walk', label:'Walk to Deoksugung Palace', time:'10 min', cost:'Free' } },
-      { id:'a-deoksugung', type:'activity', time:'20:30', label:'Deoksugung Palace Night Stroll — lit stone walls & traditional halls' }
+      { id:'r-chizn-bingsu', type:'food', time:'19:15', label:'CHIZN Bingsu Bar — late-night aesthetic shaved milk bingsu' },
+      { travel:{ mode:'walk', label:'Walk to Deoksugung Palace (or 1 stop on Line 2)', time:'12 min', cost:'Free' } },
+      { id:'a-deoksugung', type:'activity', time:'20:00', label:'Deoksugung Palace Night Stroll — lit stone walls & traditional halls' },
+      { travel:{ mode:'subway', label:'Subway Line 2 back to Ahyeon', time:'15 min', cost:'₩1,400' } },
+      { id:'h-ahyeon', type:'hotel', time:'21:15', label:'🏠 Back at Ahyeon Apartment — end of Day 5' }
     ]
   },
   {
     num:6, date:'Thu 2 Jul', label:'Day 6', title:'Secret Garden & Han River',
-    sub:'Parc Seoul brunch · Café Knotted · Secret Garden 10:30am tour · Apgujeong Haus Nowhere · Dosan Park loop · Han River picnic · Banpo fountain 8pm', region:'seoul1',
+    sub:'Secret Garden 10:30am tour · Parc Seoul lunch · Café Knotted · Apgujeong Haus Nowhere · Dosan Park loop · Banpo Han River picnic & fountain 8pm', region:'seoul1',
     stops:[
-      { id:'h-ahyeon', type:'hotel', time:'08:30', label:'Start from Ahyeon Apartment' },
-      { travel:{ mode:'subway', label:'Subway from Ahyeon to Gangnam (Line 2 → Line 3)', time:'25 min', cost:'₩1,400' } },
-      { id:'r-parc-seoul', type:'food', time:'09:00', label:'Parc Seoul — light-drenched botanical brunch café in Gangnam' },
-      { travel:{ mode:'walk', label:'Walk to Café Knotted', time:'5 min', cost:'Free' } },
-      { id:'r-knotted', type:'food', time:'10:15', label:'Cafe Knotted — cream donuts in pastel boxes' },
-      { travel:{ mode:'subway', label:'Subway to Anguk Station (Line 3)', time:'20 min', cost:'₩1,400' } },
+      { id:'h-ahyeon', type:'hotel', time:'08:45', label:'Start from Ahyeon Apartment' },
+      { travel:{ mode:'subway', label:'Subway to Anguk Station (Line 2 → Line 3)', time:'25 min', cost:'₩1,400' } },
       { id:'a-secretgarden', type:'activity', time:'10:30', label:'Changdeokgung Secret Garden Tour — 10:30am English tour (Book ahead!)' },
-      { travel:{ mode:'subway', label:'Subway Anguk → Apgujeong Rodeo', time:'20 min', cost:'₩1,400' } },
-      { id:'a-hausnowhere', type:'activity', time:'13:30', label:'Gentle Monster Haus Nowhere — kinetic art retail, Tamburins, Nudake' },
+      { travel:{ mode:'subway', label:'Subway Line 3 (Anguk → Apgujeong)', time:'15 min', cost:'₩1,400' } },
+      { id:'r-parc-seoul', type:'food', time:'13:00', label:'Parc Seoul — light-drenched botanical brunch café in Gangnam' },
+      { travel:{ mode:'walk', label:'Walk to Café Knotted', time:'5 min', cost:'Free' } },
+      { id:'r-knotted', type:'food', time:'14:15', label:'Cafe Knotted — cream donuts in pastel boxes' },
+      { travel:{ mode:'walk', label:'Walk to Haus Nowhere', time:'15 min', cost:'Free' } },
+      { id:'a-hausnowhere', type:'activity', time:'15:00', label:'Gentle Monster Haus Nowhere — kinetic art retail, Tamburins, Nudake' },
       { travel:{ mode:'walk', label:'Walk Dosan Park loop', time:'5 min', cost:'Free' } },
-      { id:'s-dosan', type:'shopping', time:'15:00', label:'Dosan Park Loop — Ader Error · Instantfunk · Worksout · NOMANUAL' },
-      { travel:{ mode:'subway', label:'Subway/Bus to Yeouido Hangang Park', time:'30 min', cost:'₩1,400' } },
-      { id:'a-hanriver', type:'activity', time:'18:00', label:'Han River Yeouido Picnic — fried chicken (Chimaek) delivered to park' },
-      { travel:{ mode:'walk', label:'Walk along riverbank to Banpo Bridge', time:'15 min', cost:'Free' } },
-      { id:'a-banpo', type:'activity', time:'20:00', label:'⭐ Banpo Bridge Rainbow Fountain Show — 8pm (coloured lights and water jets)' }
+      { id:'s-dosan', type:'shopping', time:'16:15', label:'Dosan Park Loop — Ader Error · Instantfunk · Worksout · NOMANUAL' },
+      { travel:{ mode:'taxi', label:'Taxi to Banpo Hangang Park', time:'15 min', cost:'~₩6,000' } },
+      { id:'a-banpo', type:'activity', time:'18:30', label:'⭐ Banpo Hangang Park Picnic & Rainbow Fountain — Chimaek picnic & 8pm show' },
+      { travel:{ mode:'taxi', label:'Taxi back to Ahyeon apartment (or walk to subway)', time:'30 min', cost:'~₩12,000' } },
+      { id:'h-ahyeon', type:'hotel', time:'21:30', label:'🏠 Back at Ahyeon Apartment — end of Day 6' }
     ]
   },
   {
     num:7, date:'Fri 3 Jul', label:'Day 7', title:'KTX South to Busan',
-    sub:'Mongtan KBBQ · KTX South · Check in Busan · Gukbap dinner · Choryang hill trail · Taeseongdang 1950', region:'busan',
+    sub:'Mongtan KBBQ · KTX South (Booked 13:08) · Choryang Ibagu-gil (Monorail) · Taeseongdang 1950 · Bonjeon Gukbap Dinner · Check in Busan', region:'busan',
     stops:[
-      { id:'h-ahyeon', type:'hotel', time:'10:30', label:'Start from Ahyeon Apartment' },
-      { travel:{ mode:'subway', label:'Subway to Sinyangjae Station/Mongtan', time:'15 min', cost:'₩1,400' } },
-      { id:'r-mongtan', type:'food', time:'11:00', label:'Mongtan KBBQ — straw-fire aged KBBQ ribs, queue at 11am for 11:30am open' },
-      { travel:{ mode:'subway', label:'Subway to Seoul Station', time:'15 min', cost:'₩1,400' } },
-      { type:'transit', time:'14:00', label:'🚉 Seoul Station — KTX platform (2:30pm departure)' },
-      { travel:{ mode:'ktx', label:'KTX Seoul → Busan (2h 40m)', time:'14:30–17:10', cost:'₩59,800' } },
-      { type:'transit', time:'17:10', label:'🚉 Busan Station — arrive' },
-      { travel:{ mode:'subway', label:'Metro Line 1 → Seomyeon, transfer Line 2 → Daeyeon', time:'35 min', cost:'₩1,850' } },
-      { id:'h-bonathree', type:'hotel', time:'17:45', label:'Check in: Bonathree Hotel, Nam-gu (Busan)' },
-      { travel:{ mode:'walk', label:'Walk to restaurant', time:'5 min', cost:'Free' } },
-      { id:'r-bonjeon-gukbap', type:'food', time:'18:30', label:'Dinner: Bonjeon Dwaeji Gukbap — pork bone rice soup, Busan\'s signature' },
-      { travel:{ mode:'subway', label:'Metro to Choryang Station', time:'15 min', cost:'₩1,400' } },
-      { id:'a-choryang-ibagu-gil', type:'activity', time:'20:00', label:'Choryang Ibagu-gil — hillside refugee-history trail & free monorail' },
+      { id:'h-ahyeon', type:'hotel', time:'10:15', label:'Start from Ahyeon Apartment (checkout)' },
+      { travel:{ mode:'subway', label:'Subway to Sinyangjae Station/Mongtan', time:'15 min', cost:'₩1,400 (R15)' } },
+      { id:'r-mongtan', type:'food', time:'11:00', label:'Mongtan KBBQ — straw-fire aged ribs (sit down at 11:30 open, fast eat)' },
+      { travel:{ mode:'subway', label:'Subway/Taxi to Seoul Station', time:'10 min', cost:'₩1,400 (R15)' } },
+      { type:'transit', time:'12:40', label:'🚉 Seoul Station — KTX platform (13:08 booked departure)' },
+      { travel:{ mode:'ktx', label:'KTX 103 Seoul → Busan (2h 40m)', time:'13:08–16:28', cost:'₩59,800 (R646)' } },
+      { type:'transit', time:'16:28', label:'🚉 Busan Station — arrive' },
+      { travel:{ mode:'walk', label:'Deposit bags in Busan Station lockers', time:'10 min', cost:'₩4,000 (R43)' } },
+      { id:'a-choryang-ibagu-gil', type:'activity', time:'16:50', label:'Choryang Ibagu-gil — hillside history trail & monorail (closes 18:00)' },
       { travel:{ mode:'walk', label:'Walk to Taeseongdang', time:'2 min', cost:'Free' } },
-      { id:'r-taeseongdang', type:'food', time:'21:15', label:'Taeseongdang 1950 — Busan\'s oldest bakery, sweet red bean pie manju' }
+      { id:'r-taeseongdang', type:'food', time:'18:00', label:'Taeseongdang 1950 — Busan\'s oldest bakery (sweet red bean manju)' },
+      { travel:{ mode:'walk', label:'Walk to Bonjeon Gukbap', time:'5 min', cost:'Free' } },
+      { id:'r-bonjeon-gukbap', type:'food', time:'18:20', label:'Dinner: Bonjeon Dwaeji Gukbap — signature pork bone rice soup near station' },
+      { travel:{ mode:'taxi', label:'Retrieve bags, Taxi to Bonathree Hotel (Daeyeon)', time:'15 min', cost:'~₩8,000 (R86)' } },
+      { id:'h-bonathree', type:'hotel', time:'19:45', label:'Check in: Bonathree Hotel, Nam-gu (Busan)' },
+      { id:'h-bonathree', type:'hotel', time:'20:00', label:'🏠 Back at Bonathree Hotel — end of Day 7' }
     ]
   },
   {
     num:8, date:'Sat 4 Jul', label:'Day 8', title:'Ocean Cliffs & Drone Show',
-    sub:'Haedong Temple · OPS Bakery · Sky Capsule · Haeundae Market · X the Sky · Oryukdo Skywalk · Handasot dinner · Drone Show', region:'busan',
+    sub:'Haedong Temple · Skyline Luge · Sky Capsule · Green Railway Walk · Haeundae Market · OPS Bakery · X the Sky · Oryukdo Skywalk · Handasot dinner · Drone Show', region:'busan',
     stops:[
-      { id:'h-bonathree', type:'hotel', time:'07:30', label:'Start from Bonathree Hotel' },
-      { travel:{ mode:'taxi', label:'Taxi to Haedong Yonggungsa Temple (no direct subway)', time:'30 min', cost:'~₩20,000' } },
-      { id:'a-haedong', type:'activity', time:'08:00', label:'Haedong Yonggungsa Temple — oceanfront Buddhist temple on coastal cliffs' },
-      { travel:{ mode:'bus', label:'Bus/taxi to Haeundae area', time:'30 min', cost:'₩1,500' } },
-      { id:'r-ops-bakery', type:'food', time:'09:30', label:'OPS Bakery Haeundae — giant custard cream puffs & Hagwonjeon cake' },
-      { travel:{ mode:'bus', label:'Bus to Mipo Blueline Park station', time:'15 min', cost:'₩1,500' } },
+      { id:'h-bonathree', type:'hotel', time:'07:00', label:'Start from Bonathree Hotel' },
+      { travel:{ mode:'taxi', label:'Taxi to Haedong Yonggungsa Temple', time:'30 min', cost:'~₩20,000 (R216)' } },
+      { id:'a-haedong', type:'activity', time:'07:30', label:'Haedong Yonggungsa Temple — oceanfront Buddhist temple on coastal cliffs' },
+      { travel:{ mode:'walk', label:'Walk next door to Skyline Luge', time:'15 min', cost:'Free' } },
+      { id:'a-luge', type:'activity', time:'09:00', label:'Skyline Luge Busan — gravity-powered kart racing (opens 9:00, 2 quick rides)' },
+      { travel:{ mode:'taxi', label:'Taxi to Mipo Blueline Park station', time:'25 min', cost:'~₩10,000 (R108)' } },
       { id:'a-skycapsule', type:'activity', time:'10:30', label:'Haeundae Sky Capsule — elevated glass capsules over coastal track (Booked!)' },
-      { travel:{ mode:'walk', label:'Walk along Haeundae beach', time:'10 min', cost:'Free' } },
-      { id:'r-haeundae-market', type:'food', time:'12:30', label:'Lunch: Haeundae Traditional Market — noodle stalls & ssiat hotteok' },
-      { travel:{ mode:'walk', label:'Walk to LCT Tower', time:'5 min', cost:'Free' } },
-      { id:'a-xthesky', type:'activity', time:'14:30', label:'X the Sky — 100th Floor Observatory above Haeundae Beach' },
-      { travel:{ mode:'subway', label:'Metro Line 2 → Kyungsung Univ. transfer Bus to Oryukdo', time:'30 min', cost:'₩1,500' } },
-      { id:'a-oryukdo', type:'activity', time:'16:30', label:'Oryukdo Skywalk & Igidae Trail — glass bridge over ocean cliffs' },
-      { travel:{ mode:'subway', label:'Bus/Subway to Gwangalli beach area', time:'25 min', cost:'₩1,500' } },
-      { id:'r-handasot', type:'food', time:'18:30', label:'Dinner: Handasot — stone pot rice with abalone/snow crab (splurge!)' },
+      { travel:{ mode:'walk', label:'Walk Green Railway coastal trail from Cheongsapo', time:'40 min', cost:'Free' } },
+      { travel:{ mode:'walk', label:'Walk to Haeundae Traditional Market', time:'10 min', cost:'Free' } },
+      { id:'r-haeundae-market', type:'food', time:'12:00', label:'Lunch: Haeundae Traditional Market — noodle stalls & ssiat hotteok' },
+      { travel:{ mode:'walk', label:'Walk to OPS Bakery', time:'2 min', cost:'Free' } },
+      { id:'r-ops-bakery', type:'food', time:'13:00', label:'OPS Bakery Haeundae — giant custard cream puffs & pastries' },
+      { travel:{ mode:'walk', label:'Walk along beachfront to LCT Tower', time:'15 min', cost:'Free' } },
+      { id:'a-xthesky', type:'activity', time:'13:45', label:'X the Sky — 100th Floor Observatory above Haeundae Beach' },
+      { travel:{ mode:'taxi', label:'Taxi to Oryukdo Skywalk (cross Gwangan Bridge)', time:'30 min', cost:'~₩14,000 (R150)' } },
+      { id:'a-oryukdo', type:'activity', time:'15:30', label:'Oryukdo Skywalk & Igidae Trail — glass bridge over ocean cliffs (closes 18:00)' },
+      { travel:{ mode:'taxi', label:'Taxi to Gwangalli Beach area', time:'15 min', cost:'~₩8,000 (R86)' } },
+      { id:'r-handasot', type:'food', time:'18:00', label:'Dinner: Handasot — stone pot rice with abalone/snow crab (splurge!)' },
       { travel:{ mode:'walk', label:'Walk to beachfront sand', time:'5 min', cost:'Free' } },
-      { id:'a-drones', type:'activity', time:'20:00', label:'⭐ Gwangalli Beach Drone Show — SATURDAY ONLY, hundreds of drones' }
+      { id:'a-drones', type:'activity', time:'19:30', label:'⭐ Gwangalli Beach Drone Show — SATURDAY ONLY, hundreds of drones (8pm show)' },
+      { travel:{ mode:'subway', label:'Metro back to Daeyeon Station (Line 2)', time:'15 min', cost:'₩1,400 (R15)' } },
+      { id:'h-bonathree', type:'hotel', time:'21:00', label:'🏠 Back at Bonathree Hotel — end of Day 8' }
     ]
   },
   {
     num:9, date:'Sun 5 Jul', label:'Day 9', title:'Old Busan Day',
-    sub:'Gamcheon Culture Village · Skyline Luge · Huinnyeoul Village · Momos Coffee · Jagalchi Market · Gukje Market · BIFF Square · Milmyeon dinner', region:'busan',
+    sub:'Gamcheon Culture Village · Huinnyeoul Village · Momos Coffee · Jagalchi Market · Gukje Market · BIFF Square · Milmyeon dinner · Jeonpo Cafe Street · Sulbing', region:'busan',
     stops:[
       { id:'h-bonathree', type:'hotel', time:'08:30', label:'Start from Bonathree Hotel' },
-      { travel:{ mode:'taxi', label:'Taxi to Gamcheon Culture Village (arrive early)', time:'20 min', cost:'~₩10,000' } },
+      { travel:{ mode:'taxi', label:'Taxi to Gamcheon Culture Village (arrive early)', time:'20 min', cost:'~₩10,000 (R108)' } },
       { id:'a-gamcheon', type:'activity', time:'09:00', label:'Gamcheon Culture Village — terraced hillside houses & Little Prince' },
-      { travel:{ mode:'bus', label:'Bus/taxi to Skyline Luge', time:'20 min', cost:'₩1,500' } },
-      { id:'a-luge', type:'activity', time:'11:30', label:'Skyline Luge Busan — gravity-powered kart racing on 5 coastal tracks' },
-      { travel:{ mode:'bus', label:'Bus to Yeongdo Island (Huinnyeoul)', time:'30 min', cost:'₩1,500' } },
-      { id:'a-huinnyeoul', type:'activity', time:'13:30', label:'Huinnyeoul Culture Village — white cliffside alleys & coastal caves' },
-      { travel:{ mode:'walk', label:'Walk to Momos Coffee', time:'5 min', cost:'Free' } },
-      { id:'r-momos', type:'food', time:'14:30', label:'Momos Coffee Roastery — world-barista-champion pour-over pilgrimage' },
-      { travel:{ mode:'taxi', label:'Taxi to Jagalchi Market', time:'15 min', cost:'~₩8,000' } },
-      { id:'r-jagalchi', type:'food', time:'16:00', label:'Jagalchi Fish Market — choose live seafood, dine on the 2nd floor' },
+      { travel:{ mode:'taxi', label:'Taxi to Yeongdo Island (Huinnyeoul)', time:'15 min', cost:'~₩8,000 (R86)' } },
+      { id:'a-huinnyeoul', type:'activity', time:'11:30', label:'Huinnyeoul Culture Village — white cliffside alleys & coastal path stroll' },
+      { travel:{ mode:'walk', label:'Walk to seaside café / Momos Coffee', time:'20 min', cost:'Free' } },
+      { id:'r-momos', type:'food', time:'14:00', label:'Momos Coffee Roastery — world-barista-champion pour-over coffee on Yeongdo' },
+      { travel:{ mode:'taxi', label:'Taxi across bridge to Jagalchi Market', time:'10 min', cost:'~₩6,000 (R65)' } },
+      { id:'r-jagalchi', type:'food', time:'15:15', label:'Jagalchi Fish Market — stroll the iconic seafood stalls & harbor docks' },
       { travel:{ mode:'walk', label:'Walk to Gukje Market', time:'5 min', cost:'Free' } },
-      { id:'a-gukje', type:'activity', time:'17:30', label:'Gukje Market Browse — historic post-war market stalls' },
+      { id:'a-gukje', type:'activity', time:'16:00', label:'Gukje Market & BIFF Square — post-war historic market stalls & street shopping' },
       { travel:{ mode:'walk', label:'Walk to Gaya Milmyeon', time:'5 min', cost:'Free' } },
-      { id:'r-halmae-gaya-milmyeon', type:'food', time:'18:30', label:'Dinner: Halmae Gaya Milmyeon — signature cold wheat noodles' },
+      { id:'r-halmae-gaya-milmyeon', type:'food', time:'17:30', label:'Dinner: Halmae Gaya Milmyeon — cold wheat noodles & giant steamed dumplings' },
       { travel:{ mode:'walk', label:'Walk to BIFF Square', time:'5 min', cost:'Free' } },
-      { id:'r-biff-square-street', type:'food', time:'19:30', label:'BIFF Square Street Food — seed hotteok & eomuk skewers' },
-      { travel:{ mode:'subway', label:'Metro to Jeonpo station', time:'15 min', cost:'₩1,400' } },
-      { id:'a-jeonpo-cafe-street', type:'activity', time:'20:30', label:'Jeonpo Café Street pojangmacha — orange tents & drinks' },
+      { id:'r-biff-square-street', type:'food', time:'18:30', label:'BIFF Square Street Food — grab dessert Ssiat Hotteok (sweet seed pancake)' },
+      { travel:{ mode:'subway', label:'Metro to Jeonpo Station (Line 1 → Line 2)', time:'20 min', cost:'₩1,400 (R15)' } },
+      { id:'a-jeonpo-cafe-street', type:'activity', time:'19:30', label:'Jeonpo Café Street — stroll trendy cafes, boutiques, and street alleys' },
       { travel:{ mode:'walk', label:'Walk to Sulbing', time:'5 min', cost:'Free' } },
-      { id:'r-sulbing', type:'food', time:'22:00', label:'Sulbing — shaved milk bingsu nightcap' }
+      { id:'r-sulbing', type:'food', time:'20:30', label:'Sulbing — traditional shaved milk bingsu dessert nightcap' },
+      { travel:{ mode:'subway', label:'Metro back to Daeyeon Station (Line 2)', time:'10 min', cost:'₩1,400 (R15)' } },
+      { id:'h-bonathree', type:'hotel', time:'21:30', label:'🏠 Back at Bonathree Hotel — end of Day 9' }
     ]
   },
   {
     num:10, date:'Mon 6 Jul', label:'Day 10', title:'KTX North to Seoul 2',
-    sub:'UN Cemetery · Taeseongdang 1950 · KTX back to Seoul · check in Seoul 2 · Hanwoo Gukbap dinner · DDP · Cheonggyecheon', region:'seoul2',
+    sub:'UN Cemetery · KTX back to Seoul (Booked 13:17) · Check in Seoul 2 · Hanwoo Gukbap dinner · DDP · Cheonggyecheon · Dongdaemun Fashion Market', region:'seoul2',
     stops:[
       { id:'h-bonathree', type:'hotel', time:'08:30', label:'Start from Bonathree Hotel' },
-      { travel:{ mode:'walk', label:'Walk to UN Cemetery', time:'5 min', cost:'Free' } },
+      { travel:{ mode:'walk', label:'Walk to UN Cemetery', time:'10 min', cost:'Free' } },
       { id:'a-uncemetery', type:'activity', time:'09:00', label:'UN Memorial Cemetery — world\'s only UN cemetery, moving gardens' },
-      { travel:{ mode:'walk', label:'Walk to Taeseongdang', time:'5 min', cost:'Free' } },
-      { id:'r-taeseongdang', type:'food', time:'11:00', label:'Taeseongdang 1950 — buy box of pie manju for the train' },
-      { travel:{ mode:'subway', label:'Metro to Busan Station', time:'35 min', cost:'₩1,850' } },
-      { type:'transit', time:'12:45', label:'🚉 Busan Station — KTX platform' },
-      { travel:{ mode:'ktx', label:'KTX Busan → Seoul (2h 40m)', time:'13:00–15:40', cost:'₩59,800' } },
-      { type:'transit', time:'15:40', label:'🚉 Seoul Station — arrive' },
-      { travel:{ mode:'subway', label:'Metro Line 1 → transfer Line 2 to Bugahyeon-ro', time:'30 min', cost:'₩1,400' } },
-      { id:'h-seoul2', type:'hotel', time:'16:30', label:'Check in: Bugahyeon-ro apartment (Seoul Phase 2)' },
-      { travel:{ mode:'subway', label:'Subway Line 2 to Euljiro 4-ga', time:'20 min', cost:'₩1,400' } },
-      { id:'r-hanwoo', type:'food', time:'18:30', label:'Dinner: Hanwoo Somori Gukbap — restorative beef head bone soup' },
-      { travel:{ mode:'walk', label:'Walk to DDP', time:'10 min', cost:'Free' } },
+      { travel:{ mode:'taxi', label:'Retrieve bags from hotel, Taxi to Busan Station', time:'15 min', cost:'~₩8,000 (R86)' } },
+      { travel:{ mode:'walk', label:'Lunch at Busan Station / buy rail lunchbox (dosirak)', time:'45 min', cost:'~₩15,000 (R162)' } },
+      { type:'transit', time:'12:50', label:'🚉 Busan Station — KTX platform (13:17 booked departure)' },
+      { travel:{ mode:'ktx', label:'KTX 124 Busan → Seoul (2h 40m)', time:'13:17–16:34', cost:'₩59,800 (R646)' } },
+      { type:'transit', time:'16:34', label:'🚉 Seoul Station — arrive' },
+      { travel:{ mode:'subway', label:'Metro Line 1 → transfer Line 2 to Bugahyeon-ro', time:'30 min', cost:'₩1,400 (R15)' } },
+      { id:'h-seoul2', type:'hotel', time:'17:15', label:'Check in & Freshen Up: Bugahyeon-ro apartment (Seoul Phase 2)' },
+      { travel:{ mode:'subway', label:'Subway Line 2 to Euljiro 4-ga', time:'15 min', cost:'₩1,400 (R15)' } },
+      { id:'r-hanwoo', type:'food', time:'18:30', label:'Dinner: Hanwoo Somori Gukbap — restorative beef head bone soup in Euljiro' },
+      { travel:{ mode:'walk', label:'Walk to DDP & Cheonggyecheon', time:'10 min', cost:'Free' } },
       { id:'a-ddp', type:'activity', time:'19:30', label:'DDP (Zaha Hadid) & Cheonggyecheon Stream — lit paths & glowing LED garden' },
       { travel:{ mode:'walk', label:'Walk to late night market', time:'10 min', cost:'Free' } },
-      { id:'s-dongdaemun', type:'shopping', time:'21:30', label:'Dongdaemun Fashion Market — wholesale and retail towers shopping' }
+      { id:'s-dongdaemun', type:'shopping', time:'21:30', label:'Dongdaemun Fashion Market — wholesale and retail towers shopping' },
+      { travel:{ mode:'subway', label:'Subway back to Bugahyeon-ro apartment', time:'25 min', cost:'₩1,400 (R15)' } },
+      { id:'h-seoul2', type:'hotel', time:'23:00', label:'🏠 Back at Bugahyeon-ro Apartment — end of Day 10' }
     ]
   },
   {
     num:11, date:'Tue 7 Jul', label:'Day 11', title:'Jongno, Cinema & Baseball',
-    sub:'Milestone Coffee · Namdaemun Market · Imun Seolnongtang · Eunpyeong Hanok Village · CGV Premium Cinema · KBO Baseball Jamsil', region:'seoul2',
+    sub:'Eunpyeong Hanok Village · Imun Seolnongtang Lunch · Namdaemun Market · CGV Premium Cinema · KBO Baseball Jamsil', region:'seoul2',
     stops:[
       { id:'h-seoul2', type:'hotel', time:'08:30', label:'Start from Bugahyeon-ro apartment' },
-      { travel:{ mode:'subway', label:'Subway Line 2 to Euljiro, walk to Milestone', time:'20 min', cost:'₩1,400' } },
-      { id:'r-milestone', type:'food', time:'09:00', label:'Milestone Coffee — benchmark specialty coffee, quiet morning' },
-      { travel:{ mode:'subway', label:'Metro to Hoehyeon (Namdaemun Market)', time:'10 min', cost:'₩1,400' } },
-      { id:'s-namdaemun', type:'shopping', time:'10:00', label:'Namdaemun Market Souvenir Run — metal chopsticks & ginseng' },
-      { travel:{ mode:'walk', label:'Walk to Imun Seolnongtang', time:'15 min', cost:'Free' } },
-      { id:'r-imun', type:'food', time:'12:00', label:'Lunch: Imun Seolnongtang (since 1904) — Seoul\'s oldest ox-bone soup' },
-      { travel:{ mode:'subway', label:'Line 3 to Gupabal station, then local bus', time:'35 min', cost:'₩1,400' } },
-      { id:'a-eunpyeong', type:'activity', time:'13:30', label:'Eunpyeong Hanok Village — quiet hanok village under Bukhansan' },
-      { travel:{ mode:'subway', label:'Metro back to Yongsan station', time:'45 min', cost:'₩1,400' } },
-      { id:'a-cinema', type:'activity', time:'16:00', label:'CGV Premium Cinema — 4DX or ScreenX immersive theater experience' },
-      { travel:{ mode:'subway', label:'Metro Line 2 / 8 to Jamsil Stadium', time:'25 min', cost:'₩1,400' } },
-      { id:'a-kbo', type:'activity', time:'18:30', label:'⚾ KBO Baseball at Jamsil — synchronized cheers, KBO cheerleaders, stadium chicken' },
-      { travel:{ mode:'subway', label:'Subway back to Yeoksam / home', time:'20 min', cost:'₩1,400' } },
-      { id:'r-sunday-burger', type:'food', time:'22:00', label:'Sunday Burger Club — double smash burgers' }
+      { travel:{ mode:'subway', label:'Subway Line 3 to Gupabal, then bus to Eunpyeong', time:'30 min', cost:'₩1,400 (R15)' } },
+      { id:'a-eunpyeong', type:'activity', time:'09:00', label:'Eunpyeong Hanok Village — quiet hanok village under Bukhansan' },
+      { travel:{ mode:'subway', label:'Bus + Subway Line 3 to Anguk/Jongno', time:'35 min', cost:'₩1,400 (R15)' } },
+      { id:'r-imun', type:'food', time:'11:45', label:'Lunch: Imun Seolnongtang (since 1904) — Seoul\'s oldest ox-bone soup' },
+      { travel:{ mode:'walk', label:'Walk to Namdaemun Market', time:'15 min', cost:'Free' } },
+      { id:'s-namdaemun', type:'shopping', time:'12:45', label:'Namdaemun Market Souvenir Run — metal chopsticks & ginseng' },
+      { travel:{ mode:'subway', label:'Metro to Yongsan Station', time:'10 min', cost:'₩1,400 (R15)' } },
+      { id:'a-cinema', type:'activity', time:'14:45', label:'CGV Premium Cinema (Yongsan) — 4DX or ScreenX immersive theater' },
+      { travel:{ mode:'subway', label:'Subway to Jamsil Sports Complex (Line 2)', time:'35 min', cost:'₩1,400 (R15)' } },
+      { id:'a-kbo', type:'activity', time:'17:45', label:'⚾ KBO Baseball at Jamsil — stadium cheers, chimaek, gates open (18:30 game)' },
+      { travel:{ mode:'subway', label:'Subway Line 2 direct back to Bugahyeon-ro apartment', time:'40 min', cost:'₩1,400 (R15)' } },
+      { id:'h-seoul2', type:'hotel', time:'22:30', label:'🏠 Back at Bugahyeon-ro Apartment — end of Day 11' }
     ]
   },
   {
     num:12, date:'Wed 8 Jul', label:'Day 12', title:'Museums, Gangnam & Departure',
-    sub:'National Museum · Leeum Museum · Bongeunsa Temple · Starfield Library · Bag collection · AREX to Incheon · Midnight flight', region:'seoul2',
+    sub:'National Museum · Leeum Museum · Bongeunsa Temple · Starfield Library · Farewell Hanwoo BBQ (Samwon Garden) · AREX to Incheon · Midnight flight', region:'seoul2',
     stops:[
       { id:'h-seoul2', type:'hotel', time:'09:00', label:'Start from Bugahyeon-ro apartment' },
-      { travel:{ mode:'subway', label:'Metro Line 4 to Ichon station', time:'20 min', cost:'₩1,400' } },
+      { travel:{ mode:'subway', label:'Metro Line 4 to Ichon station', time:'20 min', cost:'₩1,400 (R15)' } },
       { id:'a-natmuseum', type:'activity', time:'09:30', label:'National Museum of Korea — Room of Quiet Contemplation seated Bodhisattva' },
-      { travel:{ mode:'subway', label:'Subway to Hannam-dong', time:'20 min', cost:'₩1,400' } },
+      { travel:{ mode:'subway', label:'Subway to Hannam-dong', time:'20 min', cost:'₩1,400 (R15)' } },
       { id:'a-leeum', type:'activity', time:'12:00', label:'Leeum Museum of Art — Goryeo celadon & modern art (Rothko, Hirst)' },
-      { travel:{ mode:'subway', label:'Subway or taxi to COEX Mall, Gangnam', time:'20 min', cost:'₩2,000' } },
+      { travel:{ mode:'taxi', label:'Taxi to COEX Mall, Gangnam', time:'20 min', cost:'~₩10,000 (R108)' } },
       { id:'a-bongeunsa', type:'activity', time:'14:30', label:'Bongeunsa Temple — 1,200-year-old temple between Gangnam skyscrapers' },
       { travel:{ mode:'walk', label:'Walk inside COEX Mall', time:'5 min', cost:'Free' } },
       { id:'a-starfield', type:'activity', time:'15:30', label:'Starfield Library at COEX — 13-metre-tall book atrium photos' },
-      { travel:{ mode:'taxi', label:'Taxi back to apartment to retrieve bags', time:'25 min', cost:'~₩20,000' } },
+      { travel:{ mode:'taxi', label:'Taxi to Samwon Garden (Apgujeong)', time:'15 min', cost:'~₩6,000 (R65)' } },
+      { id:'r-samwon', type:'food', time:'17:15', label:'Farewell Dinner: Samwon Garden — premium K-BBQ in waterfall gardens' },
+      { travel:{ mode:'taxi', label:'Taxi back to apartment to retrieve bags', time:'25 min', cost:'~₩12,000 (R130)' } },
       { id:'h-seoul2', type:'hotel', time:'19:30', label:'Retrieve bags & check out' },
-      { travel:{ mode:'subway', label:'Subway / AREX All-Stop Train to Incheon Airport', time:'60 min', cost:'₩5,000' } },
-      { type:'transit', time:'21:30', label:'✈️ Incheon Airport T2 — ET673 departs 00:20 (Thu 9 Jul)' }
+      { travel:{ mode:'subway', label:'Subway / AREX Train to Incheon Airport T2', time:'75 min', cost:'₩5,000 (R54)' } },
+      { type:'transit', time:'20:45', label:'✈️ Incheon Airport T2 — ET673 departs 00:20 (Thu 9 Jul)' }
     ]
   }
 ];
 
 // ─── ITINERARY PLACE IDs (for ambient layer starring) ─────────────────────────
-const ITINERARY_IDS = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hanriver","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-mountaingym","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-biff-square-street","r-bonjeon-gukbap","r-bora","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-knotted","r-kokkili","r-koriko","r-kyoja","r-layered","r-londonbagel","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
+const ITINERARY_IDS = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-biff-square-street","r-bonjeon-gukbap","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-knotted","r-kokkili","r-koriko","r-kyoja","r-layered","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sulbing-mapo","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-ewha","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
 
 // ─── MAP SETUP ────────────────────────────────────────────────────────────────
 let journeyMap = null;
@@ -1155,7 +1166,7 @@ function renderDayOnMap(dayData){
         <h3>${place.name}</h3>
         <div class="map-pop-chips">
           <span class="map-pop-chip" style="background:${color}">${place.neighbourhood||'Korea'}</span>
-          <span class="map-pop-chip" style="background:#5C6F67">${place.cost||'Free'}</span>
+          <span class="map-pop-chip" style="background:#5C6F67">${place.cost ? `${place.cost}${place.costZAR ? ` (${place.costZAR.replace('≈', '').trim()})` : ''}` : 'Free'}</span>
         </div>
         <p>${place.teaser}</p>
         <button class="map-pop-btn" onclick="openModal('${stop.id}')">View Full Details</button>
@@ -1334,7 +1345,7 @@ function renderTimeline(dayNum){
                 <div class="tl-teaser">${place.teaser}</div>
                 <div class="tl-meta">
                   ${stop.time ? `<span class="tl-chip time"><i class="fa-regular fa-clock"></i> ${stop.time}</span>`:''}
-                  ${place.cost ? `<span class="tl-chip cost">${place.cost}</span>`:''}
+                  ${place.cost ? `<span class="tl-chip cost">${place.cost}${place.costZAR ? ` (${place.costZAR.replace('≈', '').trim()})` : ''}</span>`:''}
                   ${place.duration ? `<span class="tl-chip dur">${place.duration}</span>`:''}
                 </div>
               </div>
@@ -1410,9 +1421,14 @@ function liveRedrawRoute(){
       iconSize:[36,36], iconAnchor:[18,18]
     });
     const marker = L.marker(pos,{icon}).addTo(journeyMap);
+    const costText = place.cost ? `${place.cost}${place.costZAR ? ` (${place.costZAR.replace('≈', '').trim()})` : ''}` : 'Free';
     marker.bindPopup(`<div class="map-pop">
       <div class="map-pop-hero-bg" style="background:${place.gradient}"><i class="fa-solid ${_pIcon}" style="font-size:2.2rem;color:rgba(255,255,255,0.72)"></i></div>
       <h3>${place.name}</h3>
+      <div class="map-pop-chips">
+        <span class="map-pop-chip" style="background:${color}">${place.neighbourhood||'Korea'}</span>
+        <span class="map-pop-chip" style="background:#5C6F67">${costText}</span>
+      </div>
       <p>${place.teaser}</p>
       <button class="map-pop-btn" onclick="openModal('${stop.id}')">View Full Details</button>
     </div>`, {maxWidth:280});
@@ -1449,7 +1465,7 @@ let exploreLayerActive = false;
 let exploreMarkers = [];
 let activeFilters = { type: 'all', region: 'all', show: 'explore' };
 
-const ITINERARY_IDS_SET = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hanriver","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-mountaingym","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-biff-square-street","r-bonjeon-gukbap","r-bora","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-knotted","r-kokkili","r-koriko","r-kyoja","r-layered","r-londonbagel","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
+const ITINERARY_IDS_SET = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-biff-square-street","r-bonjeon-gukbap","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-knotted","r-kokkili","r-koriko","r-kyoja","r-layered","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sulbing-mapo","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-ewha","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
 
 const REGION_COLORS = {
   seoul1: '#4A6B53',
@@ -1589,7 +1605,7 @@ function applyFilters() {
         <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;align-items:center;">
           ${itinBadge}
           <span style="font-size:0.7rem;background:rgba(47,62,70,0.08);color:var(--text-muted);padding:2px 8px;border-radius:10px;display:inline-flex;align-items:center;gap:3px;">${typeIcon2}${typeLabel}</span>
-          ${place.cost ? `<span style="font-size:0.7rem;background:rgba(200,150,62,0.12);color:#8B6420;padding:2px 8px;border-radius:10px;">${place.cost}</span>` : ''}
+          ${place.cost ? `<span style="font-size:0.7rem;background:rgba(200,150,62,0.12);color:#8B6420;padding:2px 8px;border-radius:10px;">${place.cost}${place.costZAR ? ` (${place.costZAR.replace('≈', '').trim()})` : ''}</span>` : ''}
           ${place.duration ? `<span style="font-size:0.7rem;background:rgba(74,107,83,0.1);color:#4A6B53;padding:2px 8px;border-radius:10px;">⏱ ${place.duration}</span>` : ''}
         </div>
         <div style="font-size:0.68rem;color:var(--text-muted);margin-top:6px;">${regionLabel}</div>
@@ -1716,11 +1732,20 @@ function goToNextDay(){
 function buildDaySelector(){
   const wrap = document.getElementById('daySelectorWrap');
   const _lg=[{r:'seoul1',l:'Seoul I'},{r:'busan',l:'Busan'},{r:'seoul2',l:'Seoul II'}];
+  const dayMap = {
+    'Sat': 'Saturday', 'Sun': 'Sunday', 'Mon': 'Monday', 'Tue': 'Tuesday',
+    'Wed': 'Wednesday', 'Thu': 'Thursday', 'Fri': 'Friday'
+  };
   wrap.innerHTML=_lg.map((leg,li)=>{
     const ld=DAYS.filter(d=>d.region===leg.r);
     return (li>0?'<div class="day-sel-divider"></div>':'')+
       '<div class="day-sel-group"><div class="day-sel-leg-label '+leg.r+'">'+leg.l+'</div><div class="day-sel-pills">'+
-      ld.map(d=>'<button class="day-pill '+leg.r+(d.num===1?' active':'')+'" data-day="'+d.num+'" onclick="selectDay('+d.num+')" title="'+d.title+'"><span class="pill-num">'+d.label+'</span><span class="pill-date">'+d.date.split(' ').slice(0,2).join(' ')+'</span></button>').join('')+
+      ld.map(d=>{
+        const parts = d.date.split(' ');
+        const fullDay = dayMap[parts[0]] || parts[0];
+        const dateStr = fullDay + ' ' + parts[1];
+        return '<button class="day-pill '+leg.r+(d.num===1?' active':'')+'" data-day="'+d.num+'" onclick="selectDay('+d.num+')" title="'+d.title+'"><span class="pill-num">'+d.label+'</span> <span class="pill-date">'+dateStr+'</span></button>';
+      }).join('')+
       '</div></div>';
   }).join('');
 }

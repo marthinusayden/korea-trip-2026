@@ -29,7 +29,94 @@
     ├── starfield_library.png
     └── tongin_market_lunch.png
 ```
-
+> [!IMPORTANT]
+> **Decision Registry**: A complete table of all removed or rescheduled places, including their IDs, original times, trade-off friction profiles, and specific reasons for removal can be reviewed in:
+> 👉 [removed_places_registry.md](file:///Users/aydenmarthinus/.gemini/antigravity-cli/brain/45f0c4f5-67a1-4a75-8da4-059641789c53/removed_places_registry.md)
+> ## ⚡ DAY 12 PACING & DEPARTURE OPTIMIZATION (19 Jun 2026) — READ FIRST
+>
+> An audit of Day 12 (Museums, Gangnam & Departure) was performed to resolve scheduling gaps and optimize airport transit:
+>
+> - **Reinstated Farewell Dinner**: Re-added the premium celebratory K-BBQ dinner at Samwon Garden (Apgujeong, Gangnam) between 17:15 and 18:45, filling a 3-hour evening gap and matching the brochure's original farewell dinner promise.
+> - **Optimized Airport Travel**: Moved the departure from Seodaemun slightly earlier to 19:30, arriving at Incheon T2 by 20:45 for a relaxed 3.5-hour pre-flight buffer (ET673 departs 00:20).
+>
+> ## ⚡ DAY 11 PACING & GEOGRAPHIC FLOW OPTIMIZATION (19 Jun 2026) — READ FIRST
+>
+> An audit of Day 11 (Jongno, Cinema & Baseball) was performed to resolve travel fatigue, stadium timing collisions, and closing hours:
+>
+> - **Resolved 4-Cross Han River Travel Yoyo**: Reordered the day so that all afternoon activities (Eunpyeong Hanok Village $\rightarrow$ Imun Seolnongtang lunch $\rightarrow$ Namdaemun Market $\rightarrow$ CGV Cinema in Yongsan) remain north of the river. You now cross the Han River *only once* in the evening to attend the baseball game in Jamsil, minimizing transit fatigue.
+> - **Fixed Baseball Stadium Game Start Collision**: Moved the CGV Premium Cinema slot earlier (**14:45–17:00**) so that you can cross the river and arrive at Jamsil Baseball Stadium by **17:45** (45 minutes before the 18:30 KBO game starts). This allows you to purchase tickets, grab food, and catch the opening ceremonies.
+> - **Resolved Sunday Burger Club Closing Hour Lockout**: Removed the 22:00 Sunday Burger Club stop, which closes at 21:00. Eating famous KBO stadium chicken (*chimaek*) and street food during the game makes a second heavy late-night burger meal redundant anyway. 
+>
+> ## ⚡ DAY 10 PACING & GEOGRAPHIC FLOW OPTIMIZATION (19 Jun 2026) — READ FIRST
+>
+> An audit of Day 10 (Busan to Seoul Travel Day) was performed to resync pre-booked transit and resolve local bugs:
+>
+> - **Resynced KTX Train to Booked Tickets**: Corrected the KTX travel block in `journey.html` and `index.html` from the incorrect 13:00 slot to the actual booked **KTX124 at 13:17** (arriving 16:34).
+> - **Removed Redundant Bakery & Solved Walking Bug**: Removed the redundant Taeseongdang bakery visit in the morning (which was already done on Day 7). This also resolved a 6km teleportation walking bug (walking from the UN Cemetery in Nam-gu to Choryang-dong in 5 minutes).
+> - **Added Busan Station Lunch**: Dedicated a 45-minute lunch window at Busan Station before departure to eat at a local station spot or pick up gourmet rail lunchboxes (*dosirak*) to eat comfortably on the KTX.
+>
+> ## ⚡ DAY 9 PACING & GEOGRAPHIC FLOW OPTIMIZATION (19 Jun 2026) — READ FIRST
+>
+> An audit of Day 9 (Old Busan Day) was performed to resolve a massive geographic conflict:
+>
+> - **Resolved 60km Double-Yoyo Conflict**: Discovered that the original itinerary had the user travel from Gamcheon (southwest) to Skyline Luge (northeast Gijang, 32km away), and then immediately back to Yeongdo Island (south-central, 28km away). 
+> - **Moved Skyline Luge to Day 8 Morning**: Paired Skyline Luge (`a-luge`) directly with **Haedong Yonggungsa Temple** next door in Gijang-gun on Day 8 morning (opens at 9:00 AM on weekends). This groups the northeast attractions and saves **over 60km of driving and 3 hours of transit**.
+> - **Created Circular South Busan Loop**: Day 9 is now a clean, compact loop of Gamcheon Culture Village $\rightarrow$ Huinnyeoul Culture Village (Yeongdo) $\rightarrow$ Momos Coffee Roastery $\rightarrow$ Jagalchi & Gukje Markets (Nampo-dong) $\rightarrow$ dinner at Gaya Milmyeon & hotteok at BIFF Square $\rightarrow$ Jeonpo Cafe Street stroll & Sulbing.
+>
+> ## ⚡ DAY 8 PACING & GEOGRAPHIC FLOW OPTIMIZATION (19 Jun 2026) — READ FIRST
+>
+> An audit of Day 8 (Ocean Cliffs & Drone Show) was performed to resolve walking and transit bugs in Busan:
+>
+> - **Resolved Green Railway Walk Illusion**: Corrected the travel time from Cheongsapo back to Mipo after the Haeundae Sky Capsule. It was marked as a "10-minute walk" but is actually a 4.5 km coastal walk. Formally added the **40-minute scenic Green Railway coastal walk** to the itinerary, preserving the linear pacing.
+> - **Fixed Oryukdo Skywalk Transit and Close Risk**: Replaced the slow, convoluted public transit route (which would take over 1 hour 15 mins and cause you to miss the 18:00 skywalk closure) with a direct **30-minute taxi crossing the Gwangan Bridge** (~₩14,000 / R150), ensuring you arrive at 17:00 with plenty of time to visit.
+> - **Direct Taxi to Gwangalli**: Replaced the public transit leg from Oryukdo to Gwangalli with a quick 15-minute taxi to ensure you make your 18:00 dinner at Handasot comfortably.
+>
+> ## ⚡ DAY 7 PACING & GEOGRAPHIC FLOW OPTIMIZATION (19 Jun 2026) — READ FIRST
+>
+> An audit of Day 7 (KTX to Busan & Choryang Tour) was performed to resolve logistical bugs and resync pre-booked tickets:
+>
+> - **Resynced KTX Train to Booked Tickets**: Changed KTX departure in `journey.html` and `index.html` from the incorrect 14:30 slot to the actual booked **KTX103 at 13:08** (arriving 16:28).
+> - **Resolved 168 Stairs Monorail Lockout**: Moved the Choryang Ibagu-gil hillside trail to **16:50** (immediately upon arrival) so that you can ride the free community monorail before it closes at **18:00**, rather than climbing the steep steps in the dark.
+> - **Fixed 6km Teleportation Bug**: Changed the flow to a locker-based loop at Busan Station (deposit bags $\rightarrow$ do Choryang trail $\rightarrow$ buy pastries at Taeseongdang 1950 $\rightarrow$ eat pork gukbap dinner at Bonjeon). Then retrieve bags and take a taxi to Daeyeon-dong to check in to Bonathree Hotel, eliminating a geographically impossible 5-minute walk from Daeyeon-dong to Choryang-dong.
+>
+> ## ⚡ DAY 6 PACING & GEOGRAPHIC FLOW OPTIMIZATION (18 Jun 2026) — READ FIRST
+>
+> An audit of Day 6 (Secret Garden & Han River) was performed to resolve palace tour timing conflicts and walking errors:
+>
+> - **Resolved Secret Garden Lockout**: Moved the English Secret Garden tour to **10:30 AM** (its exact slot) and deferred brunch at Parc Seoul to **13:00**, ensuring you don't miss the tour.
+> - **Consolidated Han River Picnic at Banpo**: Removed the Yeouido Picnic (`a-hanriver`) and consolidated it directly at Banpo Hangang Park (`a-banpo`) to eliminate a grueling 6km walk (1 hr 15 mins) that was incorrectly styled as a 5-minute stroll.
+>
+> ## ⚡ DAY 5 PACING & GEOGRAPHIC FLOW OPTIMIZATION (18 Jun 2026) — READ FIRST
+>
+> An audit of Day 5 (Yeonnam & Myeongdong) was performed to resolve geographic doubling-back and scheduling redundancy:
+>
+> - **Removed Redundant Dongdaemun Detour**: Removed the 16:30 Dongdaemun Fashion Market stop. Visiting Dongdaemun in the late afternoon was out-of-the-way (creating a Yeonnam -> Myeongdong -> Dongdaemun -> Myeongdong loop) and logistically useless, as the wholesale markets open at 8:00 PM. Dongdaemun is already scheduled for Day 10 at 21:30, which is the perfect late-night window.
+> - **Restored Clean Linear Flow**: By removing Dongdaemun, the day is now a clean linear transit path from West to East: Yeonnam (West) -> Myeongdong (Central) -> Deoksugung/City Hall (West-Central) -> Ahyeon (West). Bypassing the detour saves ~40 minutes of transit and eliminates a double transfer.
+> - **Paced Afternoon Snacks**: Spaced out Egg Drop (14:30) and Sinjeon Tteokbokki (16:00) by 1.5 hours to avoid food overlap and preserve appetite for a 18:00 dinner at Myeongdong Kyoja.
+> - **Direct and Early Return**: Streamlined the night-palace transit, utilizing a direct Subway Line 2 connection from City Hall back to Ahyeon Station (6-minute ride), returning to the apartment by 9:15 PM.
+>
+> ## ⚡ DAY 3 PACING & EVENING ROUTE OPTIMIZATION (18 Jun 2026) — READ FIRST
+>
+> An audit of Day 3 (Imperial Heritage) was performed to improve pacing and remove logistical outliers:
+>
+> - **Removed London Bagel Museum & Café Bora**: Skipped London Bagel Museum to avoid its legendary 2+ hour queue that would collide with Gyeongbokgung Palace guard ceremony and Hanbok rental bookings. Skipped Café Bora to prevent severe food/dessert fatigue before dinner.
+> - **Replaced Namsan Mountain Gym**: Removed the 19:30 outdoor gym trek, which was a major transit and safety outlier (hiking a dark forest trail at night after a full day of walking).
+> - **Added Ewha Womans University Shopping Streets**: Replaced the gym with a post-dinner stroll along Ewha Womans University Shopping Streets (`s-ewha`), a student boutique and cosmetics district right next to the Ahyeon Apartment, closing the day's loop early (returning by 9:00 PM).
+> - **Added Map Coordinates**: Provided accurate lat/lng coordinates (`37.5585, 126.9455`) for the Ewha Shopping Streets in `data.js` to ensure the map renders the pin and routes correctly.
+>
+> ## ⚡ MAP CORRECTIONS, TAB SPACING, ZAR PRICING & DAY 2 ROUTE OPTIMIZATION (18 Jun 2026) — READ FIRST
+>
+> Major audit and optimization updates were performed to resolve map pin errors, visual tab formatting, and pacing issues:
+>
+> - **Tab Bar Styling**: Formatted day tabs to show the full day name with spaces (e.g. `Day 1 Saturday 27` instead of the un-spaced `Day 1Sat 27`), ensuring a cleaner, space-efficient look.
+> - **Closed-Loop Journeys (All Days)**: Added return-to-hotel/apartment legs and check-ins for all days (Days 1 to 11) to close the loops and show correct return times, ensuring tourists return to their accommodation by ~11 PM.
+> - **Map Pin Repairs**: Identified and added accurate latitude/longitude coordinates for **36 places** in `data.js` that previously lacked them, restoring all map pins, card-click zooms, and polyline route drawings.
+> - **Cost Display in ZAR (Rand)**: Integrated the South African Rand (ZAR) conversion next to all Won (KRW) prices on timeline cards, map popups, and explore overlays, allowing for direct value comparisons on-the-fly.
+> - **Day 2 Route Optimization**: 
+>   - **Removed Mangwon Market** to eliminate 3.3 km of exhausting back-and-forth walking in the morning and reduce food fatigue (having 6 food/dessert stops was non-feasible).
+>   - **Reordered Afternoon Activities**: Moved the Hongdae street stroll, photo booth, and street performers to 5:15 PM *before* heading to Haneul Park, eliminating doubling back.
+>   - **Streamlined Transit**: Utilized a direct Subway Line 6 connection from Haneul Park to Gongdeok/Mapo Station (12-minute ride) for a timely 8:30 PM BBQ dinner at Mapo 최대포 and a Sulbing nightcap, getting you home to Ahyeon by 10:45 PM.
+>
 > ## ⚡ MORNING COFFEE, DIETARY ADJUSTMENTS & MUSEUM UPDATES (16 Jun 2026) — READ FIRST
 >
 > Swapped and added new curated items to better suit morning coffee preferences, traditional museum requirements, and dietary preferences:
