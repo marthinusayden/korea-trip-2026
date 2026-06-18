@@ -322,6 +322,30 @@
 
         /* ── Print ── */
         @media print { .no-print { display: none !important; } body { padding-top: 0; } }
+        /* ── Floating Controls Mobile ── */
+        @media (max-width: 640px) {
+            .control-bar {
+                bottom: 16px;
+                padding: 4px 6px;
+                gap: 6px;
+                border-radius: 30px;
+                min-width: unset;
+                width: max-content;
+            }
+            .control-bar button {
+                width: 36px;
+                height: 36px;
+                padding: 0;
+                font-size: 0.9rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+            }
+            .control-bar button span {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
