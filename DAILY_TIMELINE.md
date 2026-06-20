@@ -56,10 +56,10 @@
 
 | Time | What | Transport | Why it works |
 |---|---|---|---|
-| **08:30** | Leave apartment | — | Early start needed for the 10:00 ceremony |
-| **08:50** | 🚇 Subway to Anguk | 🚇 Line 2 → Line 3 · 20 min · ₩1,400 | Standard transfer at Euljiro 3-ga |
-| **09:00** | 🥐 Cafe Onion Anguk — pandoro pastry | 🚶 2 min from station | Opens 07:00. Eat before the palace crowds arrive |
-| **09:20** | 👘 Hanbok rental — arrive to dress | 🚶 10 min from café | **Must arrive by 09:20** — takes 30 min to get dressed. Ceremony at 10:00 |
+| **08:25** | Leave apartment | — | Early start — extra buffer to reach hanbok rental by 09:20 comfortably |
+| **08:45** | 🚇 Subway to Anguk | 🚇 Line 2 → Line 3 · 20 min · ₩1,400 | Standard transfer at Euljiro 3-ga |
+| **09:00** | 🥐 Cafe Onion Anguk — pandoro pastry | 🚶 2 min from station | Opens 07:00. 20 min relaxed breakfast — move by 09:20 |
+| **09:20** | 👘 Hanbok rental — arrive to dress | 🚶 5 min from café | **Must arrive by 09:20** — takes 30–40 min to get dressed. Ceremony at 10:00 |
 | **10:00** | 🏯 Gyeongbokgung Palace + Royal Guard Ceremony | 🚶 across the street | The guard change is a fixed show — it does not wait |
 | **12:50** | 🍲 Lunch: Tosokchon Samgyetang | 🚶 5 min from palace | Seoul's best ginseng chicken soup in a 100-year-old hanok |
 | **14:20** | 🛍️ Insadong & Ssamziegil Courtyard | 🚶 10 min south | Walking distance from Tosokchon — natural flow south |
@@ -90,7 +90,9 @@
 | **15:45** | 🛍️ Balbal Vintage | 🚶 5 min | — |
 | **16:30** | 🛍️ Seongsu Salt Bread & Silver shops | 🚶 5 min | — |
 | **17:00** | 🛍️ Anderson Bell + ATN — K-fashion | 🚶 5 min | — |
-| **18:00** | 🥐 Rain Report Croissant + sesame latte | 🚶 10 min | Legs rest, snack before evening wind-down |
+| **17:10** | 🌿 Seoul Forest Park — deer garden & art installations | 🚶 10 min | Free entry. 35-min walk through the main section — deer you can feed, outdoor art. Breaks up the shopping afternoon |
+| **17:50** | Walk back toward Rain Report | 🚶 10 min | — |
+| **18:00** | 🥐 Rain Report Croissant + sesame latte | 🚶 5 min | Legs rest, snack before evening wind-down |
 | **18:45** | 📸 DON'T LXXK UP Photo Booth | 🚶 5 min | — |
 | **19:15** | 🧂 Jaeyondo Salt Bread — hot from the oven | 🚶 5 min | Evening snack |
 | **19:45** | 🎵 Sounds of Apple — vinyl listening café | 🚶 5 min | Sit, listen, decompress |
@@ -138,8 +140,8 @@
 | **11:30** | Tour ends · walk to subway | 🚶 10 min | ~90 min guided tour through the royal garden |
 | **11:45** | 🚇 Subway to Apgujeong | 🚇 Line 3 south · 25 min · ₩1,400 | Line 3 runs directly from Anguk to Apgujeong — no transfers |
 | **13:00** | 🍔 Lunch: Sunday Burger Club — double smash burger | 🚶 5 min from station | Hit the spot — proper lunch after morning walking |
-| **14:15** | 🍩 Café Knotted — cream donuts | 🚶 5 min | 1 hr gap after lunch — just a small sweet |
-| **15:00** | 🕶️ Haus Nowhere (Gentle Monster) | 🚶 15 min | Kinetic art retail + Tamburins + Nudake dessert lab |
+| **14:15** | 🕶️ Haus Nowhere (Gentle Monster) | 🚶 15 min | Kinetic art retail + Tamburins — walk through all floors, kinetic sculptures |
+| **15:00** | 🍰 Nudake — sculptural pastries (Gentle Monster concept café) | 🚶 2 min next door | Pastries that look like art. Unique to Korea — better experience than a standard donut café |
 | **16:15** | 🛍️ Dosan Park Loop (Ader Error, Instantfunk) | 🚶 5 min | Fashion boutique loop around the park |
 | **17:30** | 🚕 Taxi to Banpo Hangang Park | 🚕 15 min · ₩6,000 | Quickest way across — taxi crosses Han River |
 | **18:30** | 🌊 Banpo Hangang Park — chimaek picnic | — | Arrive 90 mins before fountain show — get settled, order delivery/fried chicken |
@@ -215,7 +217,8 @@
 |---|---|---|---|
 | **08:30** | Leave hotel | — | — |
 | **08:50** | 🚕 Taxi to Gamcheon Culture Village | 🚕 20 min · ₩10,000 | Go early — Gamcheon gets very hot and crowded by midday |
-| **09:00** | 🎨 Gamcheon Culture Village | — | Terraced rainbow houses, street art, Little Prince stamps |
+| **09:00** | ☕ Avant Garde Café — panoramic village view | — | Sit at the top of the village, drink in hand, looking over all the colourful terraced houses. Go here first before exploring on foot downhill |
+| **09:30** | 🎨 Gamcheon Culture Village — explore on foot | — | Terraced rainbow houses, street art, Little Prince stamps, Stairs to See the Stars (148 steps — worth it) |
 | **11:00** | 🚕 Taxi to Huinnyeoul (Yeongdo Island) | 🚕 15 min · ₩8,000 | Cross the bridge to Yeongdo Island |
 | **11:30** | 🌊 Huinnyeoul Culture Village coastal walk | — | White cliffside alleys along the ocean edge |
 | **13:00** | 🚕 Taxi to Momos Coffee | 🚕 10 min · ₩5,000 | Road routing is faster than the coastal walk |
@@ -229,6 +232,8 @@
 | **19:30** | 🛤️ Jeonpo Café Street stroll | — | Trendy café + boutique street |
 | **20:30** | 🍧 Sulbing bingsu nightcap | 🚶 5 min | Shaved milk dessert |
 | **21:30** | 🏠 Home — Bonathree Hotel | 🚇 Line 2 · 10 min · ₩1,400 | — |
+
+> 💡 **Optional if you have energy:** Running Man Experience is in Seomyeon — one subway stop from Jeonpo. Walk-in, no booking needed. Takes 1–1.5 hours. Only do this if you feel genuinely fresh — it's a high-energy game attraction and Day 9 is a full day. If tired, skip it and go straight to Sulbing.
 
 **Day 9 total transport cost:** ~₩41,800 (R451)
 

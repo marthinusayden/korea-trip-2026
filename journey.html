@@ -773,10 +773,10 @@ const DAYS = [
     num:3, date:'Mon 29 Jun', label:'Day 3', title:'Bukchon · Insadong · Ikseon-dong · Gwangjang',
     sub:'Cafe Onion · Hanbok Palace · Tosokchon Samgyetang · Insadong · Ikseon-dong · Gwangjang Market · Ewha Shopping Streets', region:'seoul1',
     stops:[
-      { id:'h-ahyeon', type:'hotel', time:'08:30', label:'Start from Ahyeon Apartment' },
+      { id:'h-ahyeon', type:'hotel', time:'08:25', label:'Start from Ahyeon Apartment' },
       { travel:{ mode:'subway', label:'Subway from Ahyeon to Anguk Station (Line 2 → Line 3)', time:'20 min', cost:'₩1,400' } },
       { id:'r-onion', type:'food', time:'09:00', label:'Cafe Onion Anguk — pandoro pastry in a restored Joseon hanok courtyard' },
-      { travel:{ mode:'walk', label:'Walk to Gyeongbokgung rental shops', time:'10 min', cost:'Free' } },
+      { travel:{ mode:'walk', label:'Walk to Gyeongbokgung rental shops', time:'5 min', cost:'Free' } },
       { id:'a-hanbok', type:'activity', time:'09:20', label:'Hanbok rental + Gyeongbokgung Palace (10:00 Royal Guard Ceremony — arrive by 09:20 to dress in time)' },
       { travel:{ mode:'walk', label:'Walk to Tosokchon', time:'5 min', cost:'Free' } },
       { id:'r-tosokchon', type:'food', time:'12:50', label:'Lunch: Tosokchon Samgyetang — ginseng chicken soup in a 100-yr hanok' },
@@ -817,6 +817,8 @@ const DAYS = [
       { id:'s-seongsu', type:'shopping', time:'16:30', label:'Seongsu Salt Bread & Silver Shopping — local boutiques & silver jewelry' },
       { travel:{ mode:'walk', label:'Walk to Anderson Bell', time:'5 min', cost:'Free' } },
       { id:'s-anderson-bell', type:'shopping', time:'17:00', label:'Anderson Bell + ATN — globally famous Korean avant-garde labels' },
+      { travel:{ mode:'walk', label:'Walk to Seoul Forest Park', time:'10 min', cost:'Free' } },
+      { id:'a-seoulforest', type:'activity', time:'17:10', label:'Seoul Forest Park — deer garden & art installations' },
       { travel:{ mode:'walk', label:'Walk to Rain Report', time:'10 min', cost:'Free' } },
       { id:'r-rainreport', type:'food', time:'18:00', label:'Rain Report Croissant — rain show courtyard, sesame cloud latte' },
       { travel:{ mode:'walk', label:'Walk to photo booth', time:'5 min', cost:'Free' } },
@@ -862,17 +864,17 @@ const DAYS = [
   },
   {
     num:6, date:'Thu 2 Jul', label:'Day 6', title:'Secret Garden & Han River',
-    sub:'Secret Garden 10:30am tour · Sunday Burger Club lunch · Café Knotted · Apgujeong Haus Nowhere · Dosan Park loop · Banpo Han River picnic & fountain 8pm', region:'seoul1',
+    sub:'Secret Garden 10:30am tour · Sunday Burger Club lunch · Apgujeong Haus Nowhere · Nudake Dessert Lab · Dosan Park loop · Banpo Han River picnic & fountain 8pm', region:'seoul1',
     stops:[
       { id:'h-ahyeon', type:'hotel', time:'08:15', label:'Start from Ahyeon Apartment — early depart for 10:00 Secret Garden tour' },
       { travel:{ mode:'subway', label:'Subway to Anguk Station (Line 2 → Line 3)', time:'25 min', cost:'₩1,400' } },
       { id:'a-secretgarden', type:'activity', time:'10:00', label:'Changdeokgung Secret Garden Tour — 10:00am English tour (Book ahead! Also 11:30am slot exists as backup)' },
       { travel:{ mode:'subway', label:'Subway Line 3 (Anguk → Apgujeong)', time:'25 min', cost:'₩1,400' } },
       { id:'r-sunday-burger', type:'food', time:'13:00', label:'Lunch: Sunday Burger Club — double smash burgers with crispy edges' },
-      { travel:{ mode:'walk', label:'Walk to Café Knotted', time:'5 min', cost:'Free' } },
-      { id:'r-knotted', type:'food', time:'14:15', label:'Cafe Knotted — cream donuts in pastel boxes' },
       { travel:{ mode:'walk', label:'Walk to Haus Nowhere', time:'15 min', cost:'Free' } },
-      { id:'a-hausnowhere', type:'activity', time:'15:00', label:'Gentle Monster Haus Nowhere — kinetic art retail, Tamburins, Nudake' },
+      { id:'a-hausnowhere', type:'activity', time:'14:15', label:'Gentle Monster Haus Nowhere — kinetic art retail, Tamburins' },
+      { travel:{ mode:'walk', label:'Walk next door', time:'2 min', cost:'Free' } },
+      { id:'r-nudake', type:'food', time:'15:00', label:'Nudake — sculptural pastries (Gentle Monster concept café)' },
       { travel:{ mode:'walk', label:'Walk Dosan Park loop', time:'5 min', cost:'Free' } },
       { id:'s-dosan', type:'shopping', time:'16:15', label:'Dosan Park Loop — Ader Error · Instantfunk · Worksout · NOMANUAL' },
       { travel:{ mode:'taxi', label:'Taxi to Banpo Hangang Park', time:'15 min', cost:'~₩6,000' } },
@@ -932,11 +934,13 @@ const DAYS = [
   },
   {
     num:9, date:'Sun 5 Jul', label:'Day 9', title:'Old Busan Day',
-    sub:'Gamcheon Culture Village · Huinnyeoul Village · Momos Coffee · Jagalchi Market · Gukje Market · BIFF Square · Milmyeon dinner · Jeonpo Cafe Street · Sulbing', region:'busan',
+    sub:'Avant Garde Café · Gamcheon Culture Village · Huinnyeoul Village · Momos Coffee · Jagalchi Market · Gukje Market · BIFF Square · Milmyeon dinner · Jeonpo Cafe Street · Sulbing', region:'busan',
     stops:[
       { id:'h-bonathree', type:'hotel', time:'08:30', label:'Start from Bonathree Hotel' },
       { travel:{ mode:'taxi', label:'Taxi to Gamcheon Culture Village (arrive early)', time:'20 min', cost:'~₩10,000 (R108)' } },
-      { id:'a-gamcheon', type:'activity', time:'09:00', label:'Gamcheon Culture Village — terraced hillside houses & Little Prince' },
+      { id:'r-avantgarde', type:'food', time:'09:00', label:'Avant Garde Café — panoramic village view' },
+      { travel:{ mode:'walk', label:'Walk down to village path', time:'5 min', cost:'Free' } },
+      { id:'a-gamcheon', type:'activity', time:'09:30', label:'Gamcheon Culture Village — explore terraced hillside houses & Little Prince on foot' },
       { travel:{ mode:'taxi', label:'Taxi to Yeongdo Island (Huinnyeoul)', time:'15 min', cost:'~₩8,000 (R86)' } },
       { id:'a-huinnyeoul', type:'activity', time:'11:30', label:'Huinnyeoul Culture Village — white cliffside alleys & coastal path stroll' },
       { travel:{ mode:'taxi', label:'Taxi to Momos Coffee (roads faster than coastal walk)', time:'10 min', cost:'~₩5,000 (R54)' } },
@@ -952,7 +956,7 @@ const DAYS = [
       { travel:{ mode:'subway', label:'Metro to Jeonpo Station (Line 1 → Line 2)', time:'20 min', cost:'₩1,400 (R15)' } },
       { id:'a-jeonpo-cafe-street', type:'activity', time:'19:30', label:'Jeonpo Café Street — stroll trendy cafes, boutiques, and street alleys' },
       { travel:{ mode:'walk', label:'Walk to Sulbing', time:'5 min', cost:'Free' } },
-      { id:'r-sulbing', type:'food', time:'20:30', label:'Sulbing — traditional shaved milk bingsu dessert nightcap' },
+      { id:'r-sulbing', type:'food', time:'20:30', label:'Sulbing — traditional shaved milk bingsu dessert nightcap (Optional if energy: Running Man Experience in Seomyeon beforehand)' },
       { travel:{ mode:'subway', label:'Metro back to Daeyeon Station (Line 2)', time:'10 min', cost:'₩1,400 (R15)' } },
       { id:'h-bonathree', type:'hotel', time:'21:30', label:'🏠 Back at Bonathree Hotel — end of Day 9' }
     ]
@@ -1024,7 +1028,7 @@ const DAYS = [
 ];
 
 // ─── ITINERARY PLACE IDs (for ambient layer starring) ─────────────────────────
-const ITINERARY_IDS = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-biff-square-street","r-bonjeon-gukbap","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-knotted","r-kokkili","r-koriko","r-kyoja","r-layered","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sulbing-mapo","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-ewha","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
+const ITINERARY_IDS = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-seoulforest","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-avantgarde","r-biff-square-street","r-bonjeon-gukbap","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-kokkili","r-koriko","r-kyoja","r-layered","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-nudake","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sulbing-mapo","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-ewha","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
 
 // ─── MAP SETUP ────────────────────────────────────────────────────────────────
 let journeyMap = null;
@@ -1465,7 +1469,7 @@ let exploreLayerActive = false;
 let exploreMarkers = [];
 let activeFilters = { type: 'all', region: 'all', show: 'explore' };
 
-const ITINERARY_IDS_SET = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-biff-square-street","r-bonjeon-gukbap","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-knotted","r-kokkili","r-koriko","r-kyoja","r-layered","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sulbing-mapo","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-ewha","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
+const ITINERARY_IDS_SET = new Set(["a-banpo","a-bongeunsa","a-choryang-ibagu-gil","a-cinema","a-ddp","a-deoksugung","a-dontlookup","a-drones","a-eunpyeong","a-gamcheon","a-gukje","a-haedong","a-hanbok","a-haneulpark","a-hausnowhere","a-hongdaebusking","a-huinnyeoul","a-ikseon","a-jeonpo-cafe-street","a-kbo","a-leeum","a-luge","a-mangwonmarket","a-natmuseum","a-nseoultower","a-oryukdo","a-secretgarden","a-seoulforest","a-skycapsule","a-starfield","a-uncemetery","a-vr","a-xthesky","a-yeonnam","h-ahyeon","h-bonathree","h-seoul2","r-avantgarde","r-biff-square-street","r-bonjeon-gukbap","r-cheongsudang","r-chizn-bingsu","r-eggdrop","r-gml","r-gwangjang","r-haeundae-market","r-halmae-gaya-milmyeon","r-handasot","r-hanwoo","r-imun","r-jaeyondo","r-jagalchi","r-jangsu-samgyetang","r-kokkili","r-koriko","r-kyoja","r-layered","r-mapo","r-milestone","r-momos","r-mongtan","r-neungdong-minari","r-nudake","r-onion","r-ops-bakery","r-oreno","r-oude","r-parc-seoul","r-pymt","r-rainreport","r-sinjeon","r-sinleedoga","r-sounds-of-apple","r-sulbing","r-sulbing-mapo","r-sunday-burger","r-taeseongdang","r-tosokchon","r-yukjeon","s-anderson-bell","s-balbal","s-dongdaemun","s-dosan","s-eql","s-ewha","s-myeongdong","s-namdaemun","s-oy-myeong","s-seongsu","s-ssamziegil","s-standoil","s-vintagesanta"]);
 
 const REGION_COLORS = {
   seoul1: '#4A6B53',

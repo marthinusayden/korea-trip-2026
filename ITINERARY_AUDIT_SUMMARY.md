@@ -126,9 +126,9 @@ This section records all timing and sequencing corrections applied to `journey.h
 
 ---
 
-### Day 3 — Hanbok Arrival Time Moved Earlier
-**What changed:** Hanbok rental arrival time changed from `09:50` to `09:20`. Label updated to note that 09:20 arrival is required to dress in time for the 10:00 Royal Guard Ceremony.
-**Why:** The 10:00 Royal Guard Change Ceremony at Gyeongbokgung is a fixed, ticketed event. Hanbok rental shops are directly across the street but require 20–30 minutes to be fitted and dressed. Arriving at 09:50 leaves only 10 minutes to dress, which is not enough. Arriving at 09:20 gives 40 minutes — the minimum comfortable window.
+### Day 3 — Departure Time & Hanbok Arrival Time Updated
+**What changed:** Apartment departure time moved from `08:30` to `08:25`. Anguk station arrival adjusted to `08:45`. Cafe Onion window trimmed to 20 minutes (done by 09:20). Hanbok rental arrival confirmed at `09:20` — gives 40 minutes to dress before the 10:00 ceremony.
+**Why:** The original 08:30 departure was tight — it left only 10 minutes at the hanbok shop before needing to be dressed. Moving departure to 08:25 adds a comfortable buffer so the café stop is relaxed and the hanbok rental is not rushed. The 10:00 Royal Guard Ceremony does not wait.
 
 ---
 
